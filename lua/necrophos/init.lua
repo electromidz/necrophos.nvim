@@ -2,7 +2,7 @@
 local M = {}
 
 function M.setup()
-	vim.g.colors_name = "my-neovim-theme"
+	vim.g.colors_name = "necrophos"
 
 	local palette = {
 		fg = "#a9d5c4",
