@@ -7,7 +7,8 @@ function M.setup()
 	local palette = {
 		fg = "#a9d5c4",
 		inverse_fg = "#29332f",
-		bg = "#0f191f",
+		-- bg = "#0f191f",
+		bg = "#565f89",
 		accent_bg = "#0b151b",
 		link = "#5fb950",
 		accent = "#61ff00",
