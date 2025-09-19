@@ -8,24 +8,31 @@ local M = {}
 function M.load(theme_name)
 	theme_name = theme_name or config.default_theme
 	local theme = themes[theme_name]
+
 	if not theme then
 		vim.notify("Theme '" .. theme_name .. "' not found. Using default.")
 		theme = themes[config.default_theme]
 	end
 
-	vim.g.colors_name = theme.name
-end
+	-- Clear existing highlights
+	vim.cmd("hi clear")
+	if vim.fn.exists("syntax_on") then
+		vim.cmd("syntax reset")
+	end
 
-function M.setup(opts)
-	local palette = require("necrophos.pallete")
-	config.setup(opts)
-	-- Apply the colors
-	vim.api.nvim_set_hl(0, "Normal", { fg = palette.fg, bg = palette.bg })
+	vim.o.background = theme.background or "dark"
+	vim.g.colors_name = theme.name
+
+	-- Apply the theme colors
+	local palette = theme.palette
+
+	-- Apply all highlight groups
+	vim.api.nvim_set_hl(0, "Normal", { fg = palette.fg, bg = config.transparent_background and "NONE" or palette.bg })
 	vim.api.nvim_set_hl(0, "NormalFloat", { fg = palette.fg, bg = palette.accent_bg })
 	vim.api.nvim_set_hl(0, "FloatBorder", { fg = palette.border, bg = palette.accent_bg })
 
 	-- Syntax highlighting
-	vim.api.nvim_set_hl(0, "Comment", { fg = palette.grey, italic = true })
+	vim.api.nvim_set_hl(0, "Comment", { fg = palette.grey, italic = config.italic_comments })
 	vim.api.nvim_set_hl(0, "String", { fg = palette.green })
 	vim.api.nvim_set_hl(0, "Number", { fg = palette.orange })
 	vim.api.nvim_set_hl(0, "Boolean", { fg = palette.orange })
@@ -59,7 +66,7 @@ function M.setup(opts)
 	vim.api.nvim_set_hl(0, "DiffChange", { fg = palette.yellow })
 	vim.api.nvim_set_hl(0, "DiffDelete", { fg = palette.red })
 
-	-- Treesitter (if you use it)
+	-- Treesitter
 	vim.api.nvim_set_hl(0, "@property", { fg = palette.cyan })
 	vim.api.nvim_set_hl(0, "@variable", { fg = palette.fg })
 	vim.api.nvim_set_hl(0, "@parameter", { fg = palette.orange })
@@ -82,6 +89,12 @@ function M.setup(opts)
 	vim.api.nvim_set_hl(0, "WhichKeyDesc", { fg = palette.blue })
 	vim.api.nvim_set_hl(0, "WhichKeyGroup", { fg = palette.cyan })
 	vim.api.nvim_set_hl(0, "WhichKeyValue", { fg = palette.green })
+end
+
+function M.setup(opts)
+	config.setup(opts)
+	-- Load the theme after setup
+	M.load()
 end
 
 return M
