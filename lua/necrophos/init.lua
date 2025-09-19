@@ -1,30 +1,24 @@
--- colors/my-neovim-theme.lua
+local config = require("necrophos.config")
+local themes = {
+	necrophos = require("necrophos.themes.necrophos"),
+	kunkka = require("necrophos.themes.kunkka"),
+}
 local M = {}
 
-function M.setup()
-	vim.g.colors_name = "necrophos"
+function M.load(theme_name)
+	theme_name = theme_name or config.default_theme
+	local theme = themes[theme_name]
+	if not theme then
+		vim.notify("Theme '" .. theme_name .. "' not found. Using default.")
+		theme = themes[config.default_theme]
+	end
 
-	local palette = {
-		fg = "#a9d5c4",
-		inverse_fg = "#29332f",
-		-- bg = "#0f191f",
-		bg = "#565f89",
-		accent_bg = "#0b151b",
-		link = "#5fb950",
-		accent = "#61ff00",
-		border = "#1174b1",
-		-- Additional colors for syntax highlighting
-		red = "#ff6b6b",
-		orange = "#ffa347",
-		yellow = "#ffdd59",
-		green = "#5fb950",
-		-- cyan = "#48d1cc",
-		cyan = "#00B7B7",
-		blue = "#1174b1",
-		purple = "#a162e8",
-		grey = "#5c6370",
-	}
+	vim.g.colors_name = theme.name
+end
 
+function M.setup(opts)
+	local palette = require("necrophos.pallete")
+	config.setup(opts)
 	-- Apply the colors
 	vim.api.nvim_set_hl(0, "Normal", { fg = palette.fg, bg = palette.bg })
 	vim.api.nvim_set_hl(0, "NormalFloat", { fg = palette.fg, bg = palette.accent_bg })
