@@ -1,15 +1,30 @@
 local config = require("necrophos.config")
-local pallete = require("necrophos.themes.necrophos")
-
+local themes = {
+	necrophos = require("necrophos.themes.necrophos"),
+	kunkka = require("necrophos.themes.kunkka"),
+}
 local M = {}
-local palette = pallete.colors
-local cfg = config.config
-M.setup = function()
+
+function M.load(theme_name)
+	theme_name = theme_name or config.default_theme
+	local theme = themes[theme_name]
+
+	if not theme then
+		vim.notify("Theme '" .. theme_name .. "' not found. Using default.")
+		theme = themes[config.default_theme]
+	end
+
 	-- Clear existing highlights
 	vim.cmd("hi clear")
 	if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
 	end
+
+	vim.o.background = theme.background or "dark"
+	vim.g.colors_name = theme.name
+
+	-- Apply the theme colors
+	local palette = theme.palette
 
 	-- Apply all highlight groups
 	vim.api.nvim_set_hl(0, "Normal", { fg = palette.fg, bg = config.transparent_background and "NONE" or palette.bg })
@@ -74,6 +89,12 @@ M.setup = function()
 	vim.api.nvim_set_hl(0, "WhichKeyDesc", { fg = palette.blue })
 	vim.api.nvim_set_hl(0, "WhichKeyGroup", { fg = palette.cyan })
 	vim.api.nvim_set_hl(0, "WhichKeyValue", { fg = palette.green })
+end
+
+function M.setup(opts)
+	config.setup(opts)
+	-- Load the theme after setup
+	M.load()
 end
 
 return M
