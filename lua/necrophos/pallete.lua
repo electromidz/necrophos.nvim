@@ -3,7 +3,6 @@ local pallete = require("necrophos.themes.necrophos")
 
 local M = {}
 local palette = pallete.colors
-local cfg = config.config
 M.setup = function()
 	-- Clear existing highlights
 	vim.cmd("hi clear")
