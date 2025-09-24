@@ -1,6 +1,5 @@
 local M = {}
 
--- Theme configuration
 M.config = {
 	theme = "necrophos", -- default theme
 	transparent = false,
@@ -8,28 +7,25 @@ M.config = {
 		comments = { italic = true },
 		keywords = { italic = true },
 		functions = { bold = true },
-		variables = {},
 	},
 }
 
--- Available themes
+-- Available themes - MAKE SURE BOTH ARE DEFINED HERE
 M.themes = {
-	theme1 = require("necrophos.colors.necrophos"),
-	theme2 = require("necrophos.colors.kunkka"),
+	necrophos = require("necrophos.themes.necrophos"),
+	kunkka = require("necrophos.themes.kunkka"), -- ADD THIS LINE
 }
 
--- Setup function
 function M.setup(opts)
 	M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 	M.load_theme()
 end
 
--- Load the selected theme
 function M.load_theme()
 	local theme = M.themes[M.config.theme]
 	if not theme then
-		vim.notify("Theme '" .. M.config.theme .. "' not found. Using default theme1.")
-		theme = M.themes.theme1
+		vim.notify("Theme '" .. M.config.theme .. "' not found. Using default necrophos.")
+		theme = M.themes.necrophos
 	end
 
 	-- Apply the theme colors
@@ -44,18 +40,26 @@ function M.load_theme()
 	end
 end
 
--- Toggle between themes
-function M.toggle_theme()
-	if M.config.theme == "theme1" then
-		M.config.theme = "theme2"
+-- Theme switching functions
+function M.set_theme(theme_name)
+	if M.themes[theme_name] then
+		M.config.theme = theme_name
+		M.load_theme()
+		vim.notify("Switched to theme: " .. theme_name)
 	else
-		M.config.theme = "theme1"
+		vim.notify("Theme '" .. theme_name .. "' not found. Available: " .. vim.inspect(vim.tbl_keys(M.themes)))
 	end
-	M.load_theme()
-	vim.notify("Switched to theme: " .. M.config.theme)
 end
 
--- Auto commands for theme persistence
+function M.toggle_theme()
+	if M.config.theme == "necrophos" then
+		M.set_theme("kunkka")
+	else
+		M.set_theme("necrophos")
+	end
+end
+
+-- Auto commands
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
