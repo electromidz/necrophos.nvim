@@ -1,40 +1,65 @@
-local config = require("necrophos.config")
-local necrophos = require("necrophos.pallete")
-
 local M = {}
 
-M.setup = function(opts)
-	config.setup(opts)
+-- Theme configuration
+M.config = {
+	theme = "necrophos", -- default theme
+	transparent = false,
+	styles = {
+		comments = { italic = true },
+		keywords = { italic = true },
+		functions = { bold = true },
+		variables = {},
+	},
+}
+
+-- Available themes
+M.themes = {
+	theme1 = require("necrophos.colors.necrophos"),
+	theme2 = require("necrophos.colors.kunkka"),
+}
+
+-- Setup function
+function M.setup(opts)
+	M.config = vim.tbl_deep_extend("force", M.config, opts or {})
+	M.load_theme()
 end
 
-M.load = function(theme_name)
-	theme_name = theme_name or config.config.theme
-
-	if theme_name == "necrophos" then
-		necrophos.setup()
-		error("Unknown theme: " .. theme_name)
+-- Load the selected theme
+function M.load_theme()
+	local theme = M.themes[M.config.theme]
+	if not theme then
+		vim.notify("Theme '" .. M.config.theme .. "' not found. Using default theme1.")
+		theme = M.themes.theme1
 	end
 
-	config.config.theme = theme_name
-	vim.g.mytheme_current = theme_name
+	-- Apply the theme colors
+	for group, colors in pairs(theme.groups) do
+		vim.api.nvim_set_hl(0, group, colors)
+	end
+
+	-- Set background
+	if M.config.transparent then
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	end
 end
 
--- Switch theme function
-M.switch = function()
-	local current = config.config.theme
-	local new_theme = current == "theme1" and "theme2" or "theme1"
-	M.load(new_theme)
-	print("Switched to theme: " .. new_theme)
+-- Toggle between themes
+function M.toggle_theme()
+	if M.config.theme == "theme1" then
+		M.config.theme = "theme2"
+	else
+		M.config.theme = "theme1"
+	end
+	M.load_theme()
+	vim.notify("Switched to theme: " .. M.config.theme)
 end
 
--- Auto-load on startup
+-- Auto commands for theme persistence
 vim.api.nvim_create_autocmd("ColorScheme", {
 	pattern = "*",
 	callback = function()
-		if vim.g.colors_name ~= "mytheme" then
-			return
-		end
-		M.load()
+		M.load_theme()
 	end,
 })
 
