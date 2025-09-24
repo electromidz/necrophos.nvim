@@ -13,7 +13,8 @@ M.config = {
 -- Available themes - MAKE SURE BOTH ARE DEFINED HERE
 M.themes = {
 	necrophos = require("necrophos.themes.necrophos"),
-	kunkka = require("necrophos.themes.kunkka"), -- ADD THIS LINE
+	kunkka = require("necrophos.themes.kunkka"),
+	invoker = require("necrophos.themes.invoker"),
 }
 
 function M.setup(opts)
