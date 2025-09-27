@@ -61,12 +61,12 @@ function M.toggle_theme()
 end
 
 -- Auto commands
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "*",
-	callback = function()
-		M.load_theme()
-	end,
-})
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		M.load_theme()
+-- 	end,
+-- })
 
 -- Register the color schemes
 vim.api.nvim_create_autocmd("ColorScheme", {
