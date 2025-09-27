@@ -68,29 +68,29 @@ end
 -- 	end,
 -- })
 
--- Register the color schemes
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "necrophos",
-	callback = function()
-		require("necrophos.themes.necrophos").setup()
-	end,
-})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "necrophos-kunkka",
-	callback = function()
-		require("necrophos.themes.kunkka").setup()
-	end,
-})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "necrophos-invoker",
-	callback = function()
-		require("necrophos.themes.invoker").setup()
-	end,
-})
-
--- Set default colorscheme
-vim.cmd("colorscheme necrophos")
+-- -- Register the color schemes
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "necrophos",
+-- 	callback = function()
+-- 		require("necrophos.themes.necrophos").setup()
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "necrophos-kunkka",
+-- 	callback = function()
+-- 		require("necrophos.themes.kunkka").setup()
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	pattern = "necrophos-invoker",
+-- 	callback = function()
+-- 		require("necrophos.themes.invoker").setup()
+-- 	end,
+-- })
+--
+-- -- Set default colorscheme
+-- vim.cmd("colorscheme necrophos")
 
 return M
