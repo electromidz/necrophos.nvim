@@ -465,28 +465,4 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.admiral_gold, bold = true },
 }
 
--- Helper function to setup the theme
-function theme.setup()
-	-- Set the global colors
-	for group, settings in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
-end
-
--- Optional: Add theme variants
-theme.variants = {
-	stormy = {
-		bg = "#01111f",
-		inverse_fg = "#0f1a25",
-		tide_blue = "#2a7a8c",
-		storm_gray = "#3a4655",
-	},
-	calm = {
-		bg = "#031f2f",
-		inverse_fg = "#1a2d3a",
-		tide_blue = "#3ca8b8",
-		ghost_green = "#7ac0b7",
-	},
-}
-
 return theme
