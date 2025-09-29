@@ -465,4 +465,11 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.admiral_gold, bold = true },
 }
 
+function theme.setup()
+	-- Set the global colors
+	for group, settings in pairs(theme.groups) do
+		vim.api.nvim_set_hl(0, group, settings)
+	end
+end
+
 return theme
