@@ -1,32 +1,60 @@
 local theme = {}
+-- theme.colors = {
+-- 	-- Base colors - Using your new palette
+-- 	fg = "#e8e6e3", -- Ivory parchment
+-- 	inverse_fg = "#13212d", -- Dark blue-black from your palette
+-- 	bg = "#0a0c1a", -- Cosmic night
+-- 	accent_bg = "#13212d", -- Same as bg for consistency
+-- 	link = "#3093A1", -- Teal blue from your palette
+-- 	accent = "#54A0A7", -- Light teal accent
+-- 	border = "#2B7688", -- Medium blue border
+--
+-- 	-- Syntax highlighting - Mapped from your palette
+-- 	red = "#878171", -- Warm brown as "red" (softer)
+-- 	orange = "#878171", -- Warm brown as "orange"
+-- 	yellow = "#c4c7ca", -- Light grey as "yellow"
+-- 	green = "#3093A1", -- Teal as "green"
+-- 	cyan = "#54A0A7", -- Light teal as "cyan"
+-- 	blue = "#487A86", -- Steel blue as "blue"
+-- 	purple = "#626e78", -- Grey-purple as "purple"
+-- 	grey = "#515A5A", -- Dark grey from your palette
+--
+-- 	quas = "#00e5ff", -- Icy blue
+-- 	-- Wex (Lightning/Purple)
+-- 	wex = "#b967ff", -- Electric purple
+-- 	-- Exort (Fire/Orange)
+-- 	exort = "#ff6b35", -- Fiery orange
+-- 	-- Specials
+-- 	invoke = "#ffd700", -- Golden invoke glow
+-- 	forge_spirit = "#ffaa00", -- Spirit orange
+-- }
 theme.colors = {
-	-- Base colors - Using your new palette
-	fg = "#e8e6e3", -- Ivory parchment
-	inverse_fg = "#13212d", -- Dark blue-black from your palette
-	bg = "#0a0c1a", -- Cosmic night
-	accent_bg = "#13212d", -- Same as bg for consistency
-	link = "#3093A1", -- Teal blue from your palette
-	accent = "#54A0A7", -- Light teal accent
-	border = "#2B7688", -- Medium blue border
+	-- Base colors - Enhanced for contrast and theme
+	fg = "#E8E6E3", -- Ivory parchment (kept, it's perfect)
+	inverse_fg = "#0A0C1A", -- Now your dark bg color
+	bg = "#0A0C1A", -- Cosmic night (kept)
+	accent_bg = "#131B2E", -- A richer, deeper blue for surfaces/cards
+	link = "#48C4D4", -- A brighter, more vibrant teal for better link visibility
+	accent = "#54A0A7", -- Light teal accent (kept)
+	border = "#2B7688", -- Medium blue border (kept)
 
-	-- Syntax highlighting - Mapped from your palette
-	red = "#878171", -- Warm brown as "red" (softer)
-	orange = "#878171", -- Warm brown as "orange"
-	yellow = "#c4c7ca", -- Light grey as "yellow"
-	green = "#3093A1", -- Teal as "green"
-	cyan = "#54A0A7", -- Light teal as "cyan"
-	blue = "#487A86", -- Steel blue as "blue"
-	purple = "#626e78", -- Grey-purple as "purple"
-	grey = "#515A5A", -- Dark grey from your palette
+	-- Syntax highlighting - Re-mapped for clarity and contrast
+	-- These now follow standard color meanings but are tinted with your theme.
+	red = "#FF6B7A", -- A clear, vibrant red for errors (fits Exort's fire)
+	orange = "#FF9D5C", -- A distinct orange for warnings/constants
+	yellow = "#FFE073", -- A proper yellow for alerts/functions (good contrast)
+	green = "#5AC18D", -- A fresh green for success/strings (complements the teals)
+	cyan = "#54A0A7", -- Light teal as cyan (kept, ideal)
+	blue = "#487A86", -- Steel blue as blue (kept, works well)
+	purple = "#A68EE3", -- A softer, more mystical purple for keywords
+	grey = "#626E78", -- Muted steel for comments/inactive text
 
-	quas = "#00e5ff", -- Icy blue
-	-- Wex (Lightning/Purple)
-	wex = "#b967ff", -- Electric purple
-	-- Exort (Fire/Orange)
-	exort = "#ff6b35", -- Fiery orange
-	-- Specials
-	invoke = "#ffd700", -- Golden invoke glow
-	forge_spirit = "#ffaa00", -- Spirit orange
+	-- Invoker Elements (These are perfect, no changes needed)
+	quas = "#00E5FF", -- Icy blue
+	wex = "#B967FF", -- Electric purple
+	exort = "#FF6B35", -- Fiery orange
+	invoke = "#FFD700", -- Golden invoke glow
+	forge_spirit = "#FFAA00", -- Spirit orange
 }
 
 theme.groups = {
