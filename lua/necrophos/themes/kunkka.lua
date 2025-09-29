@@ -1,5 +1,5 @@
 local theme = {}
-local colors = {
+theme.colors = {
 	-- Base colors - Enhanced for Kunkka theme
 	fg = "#c4c7ca",
 	inverse_fg = "#13212d",
