@@ -235,10 +235,10 @@ theme.groups = {
 	DiagnosticUnderlineHint = { sp = theme.colors.ghost_green, undercurl = true },
 
 	-- Git groups
-	DiffAdd = { fg = theme.colors.ghost_green, bg = theme.colors.ghost_green .. "20" },
-	DiffChange = { fg = theme.colors.admiral_gold, bg = theme.colors.admiral_gold .. "20" },
-	DiffDelete = { fg = theme.colors.cannon_red, bg = theme.colors.cannon_red .. "20" },
-	DiffText = { fg = theme.colors.tide_blue, bg = theme.colors.tide_blue .. "20" },
+	DiffAdd = { fg = theme.colors.ghost_green, bg = theme.colors.ghost_green },
+	DiffChange = { fg = theme.colors.admiral_gold, bg = theme.colors.admiral_gold },
+	DiffDelete = { fg = theme.colors.cannon_red, bg = theme.colors.cannon_red },
+	DiffText = { fg = theme.colors.tide_blue, bg = theme.colors.tide_blue },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
 	gitcommitBranch = { fg = theme.colors.tide_blue },
