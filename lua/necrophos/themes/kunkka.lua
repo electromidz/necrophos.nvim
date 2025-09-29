@@ -1,4 +1,5 @@
 local theme = {}
+
 theme.colors = {
 	-- Base colors - Enhanced for Kunkka theme
 	fg = "#c4c7ca",
@@ -138,35 +139,12 @@ theme.colors = {
 	anchor_iron = "#5a6c7a", -- Metal and hardware
 	sail_white = "#e8e6d4", -- Sail cloth color
 	rum_amber = "#b85c2c", -- Admiral's drink
+
+	-- Missing colors that were referenced but not defined
+	black = "#000000",
+	light_green = "#a8e6a8",
 }
 
--- theme.colors = {
--- 	-- Base colors - Using your new palette
--- 	fg = "#c4c7ca", -- Light grey from your palette
--- 	inverse_fg = "#13212d", -- Dark blue-black from your palette
--- 	bg = "#021727",
--- 	accent_bg = "#13212d", -- Same as bg for consistency
--- 	link = "#3093A1", -- Teal blue from your palette
--- 	accent = "#54A0A7", -- Light teal accent
--- 	border = "#2B7688", -- Medium blue border
---
--- 	-- Syntax highlighting - Mapped from your palette
--- 	red = "#878171", -- Warm brown as "red" (softer)
--- 	orange = "#878171", -- Warm brown as "orange"
--- 	yellow = "#c4c7ca", -- Light grey as "yellow"
--- 	green = "#3093A1", -- Teal as "green"
--- 	cyan = "#54A0A7", -- Light teal as "cyan"
--- 	blue = "#487A86", -- Steel blue as "blue"
--- 	purple = "#626e78", -- Grey-purple as "purple"
--- 	grey = "#515A5A", -- Dark grey from your palette
---
--- 	-- Kunkka-specific colors mapped to your palette
--- 	tide_blue = "#3093A1", -- Teal for tide effects
--- 	ship_brown = "#878171", -- Warm brown for ship wood
--- 	ghost_green = "#54A0A7", -- Light teal for ghost ship
--- 	cannon_red = "#878171", -- Warm brown for cannon (softer than red)
--- }
---
 theme.groups = {
 	-- Base groups
 	Normal = { fg = theme.colors.fg, bg = theme.colors.bg },
@@ -459,6 +437,56 @@ theme.groups = {
 	NavicIconsTypeParameter = { fg = theme.colors.cyan },
 	NavicText = { fg = theme.colors.fg },
 	NavicSeparator = { fg = theme.colors.border },
+
+	-- Additional plugin support
+	WhichKey = { fg = theme.colors.tide_blue },
+	WhichKeyGroup = { fg = theme.colors.purple },
+	WhichKeyDesc = { fg = theme.colors.fg },
+	WhichKeySeperator = { fg = theme.colors.grey },
+	WhichKeyFloat = { bg = theme.colors.inverse_fg },
+
+	TelescopePromptBorder = { fg = theme.colors.border },
+	TelescopeResultsBorder = { fg = theme.colors.border },
+	TelescopePreviewBorder = { fg = theme.colors.border },
+	TelescopeSelection = { bg = theme.colors.tide_pool },
+	TelescopeMatching = { fg = theme.colors.admiral_gold, bold = true },
+
+	NoiceCursor = { link = "Cursor" },
+	NoiceFormatProgressDone = { bg = theme.colors.tide_blue },
+	NoiceFormatProgressTodo = { bg = theme.colors.storm_gray },
+
+	-- DAP UI
+	DapUIScope = { fg = theme.colors.tide_blue },
+	DapUIType = { fg = theme.colors.cyan },
+	DapUIValue = { fg = theme.colors.orange },
+	DapUIVariable = { fg = theme.colors.fg },
+	DapUIBreakpointsPath = { fg = theme.colors.tide_blue },
+	DapUIBreakpointsInfo = { fg = theme.colors.ghost_green },
+	DapUIBreakpointsCurrentLine = { fg = theme.colors.admiral_gold, bold = true },
+}
+
+-- Helper function to setup the theme
+function theme.setup()
+	-- Set the global colors
+	for group, settings in pairs(theme.groups) do
+		vim.api.nvim_set_hl(0, group, settings)
+	end
+end
+
+-- Optional: Add theme variants
+theme.variants = {
+	stormy = {
+		bg = "#01111f",
+		inverse_fg = "#0f1a25",
+		tide_blue = "#2a7a8c",
+		storm_gray = "#3a4655",
+	},
+	calm = {
+		bg = "#031f2f",
+		inverse_fg = "#1a2d3a",
+		tide_blue = "#3ca8b8",
+		ghost_green = "#7ac0b7",
+	},
 }
 
 return theme
