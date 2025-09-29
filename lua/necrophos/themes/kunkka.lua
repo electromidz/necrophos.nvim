@@ -465,11 +465,18 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.admiral_gold, bold = true },
 }
 
-function theme.setup()
-	-- Set the global colors
-	for group, settings in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
+-- ADD THIS SECTION RIGHT HERE:
+-- Clear existing highlights and set colorscheme name
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+	vim.cmd("syntax reset")
+end
+
+vim.g.colors_name = "kunkka"
+
+-- Apply all highlight groups
+for group, settings in pairs(theme.groups) do
+	vim.api.nvim_set_hl(0, group, settings)
 end
 
 return theme
