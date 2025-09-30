@@ -10,11 +10,18 @@ M.config = {
 	},
 }
 
--- Available themes - MAKE SURE BOTH ARE DEFINED HERE
+-- Available themes
 M.themes = {
 	necrophos = require("necrophos.themes.necrophos"),
 	kunkka = require("necrophos.themes.kunkka"),
 	invoker = require("necrophos.themes.invoker"),
+}
+
+-- Map theme names to colorscheme names
+M.colorscheme_names = {
+	necrophos = "necrophos",
+	kunkka = "necrophos-kunkka",
+	invoker = "necrophos-invoker",
 }
 
 function M.setup(opts)
@@ -39,7 +46,9 @@ function M.load_theme()
 		vim.cmd("syntax reset")
 	end
 
-	vim.g.colors_name = "necrophos-" .. theme_name
+	-- Set the colorscheme name with prefix
+	local colorscheme_name = M.colorscheme_names[theme_name] or "necrophos"
+	vim.g.colors_name = colorscheme_name
 
 	-- Apply the theme colors
 	if theme.groups then
@@ -57,7 +66,7 @@ function M.load_theme()
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end
 
-	vim.notify("Loaded theme: " .. theme_name, vim.log.levels.INFO)
+	vim.notify("Loaded theme: " .. colorscheme_name, vim.log.levels.INFO)
 end
 
 -- Theme switching functions
@@ -65,7 +74,8 @@ function M.set_theme(theme_name)
 	if M.themes[theme_name] then
 		M.config.theme = theme_name
 		M.load_theme()
-		vim.notify("Switched to theme: " .. theme_name, vim.log.levels.INFO)
+		local colorscheme_name = M.colorscheme_names[theme_name] or theme_name
+		vim.notify("Switched to theme: " .. colorscheme_name, vim.log.levels.INFO)
 	else
 		local available = vim.tbl_keys(M.themes)
 		vim.notify(
@@ -88,10 +98,19 @@ end
 
 -- Auto-command to reload theme when colorscheme is set
 vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "necrophos-*",
+	pattern = "necrophos*",
 	callback = function()
-		-- This ensures the theme stays applied
-		vim.schedule(M.load_theme)
+		-- Extract theme name from colorscheme name
+		local cs_name = vim.g.colors_name or ""
+		local theme_name = cs_name:gsub("^necrophos%-", "")
+		if theme_name == "" then
+			theme_name = "necrophos"
+		end
+
+		if M.themes[theme_name] then
+			M.config.theme = theme_name
+			vim.schedule(M.load_theme)
+		end
 	end,
 })
 
