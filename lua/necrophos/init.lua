@@ -23,15 +23,32 @@ function M.setup(opts)
 end
 
 function M.load_theme()
-	local theme = M.themes[M.config.theme]
+	local theme_name = M.config.theme
+	local theme = M.themes[theme_name]
+
 	if not theme then
-		vim.notify("Theme '" .. M.config.theme .. "' not found. Using default necrophos.")
+		vim.notify("Theme '" .. theme_name .. "' not found. Using default necrophos.", vim.log.levels.WARN)
+		theme_name = "necrophos"
 		theme = M.themes.necrophos
+		M.config.theme = theme_name
 	end
 
+	-- Clear existing highlights first
+	vim.cmd("highlight clear")
+	if vim.fn.exists("syntax_on") then
+		vim.cmd("syntax reset")
+	end
+
+	vim.g.colors_name = "necrophos-" .. theme_name
+
 	-- Apply the theme colors
-	for group, colors in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, colors)
+	if theme.groups then
+		for group, colors in pairs(theme.groups) do
+			vim.api.nvim_set_hl(0, group, colors)
+		end
+	else
+		vim.notify("Theme '" .. theme_name .. "' has no groups table", vim.log.levels.ERROR)
+		return
 	end
 
 	-- Set background
@@ -39,6 +56,8 @@ function M.load_theme()
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end
+
+	vim.notify("Loaded theme: " .. theme_name, vim.log.levels.INFO)
 end
 
 -- Theme switching functions
@@ -46,51 +65,34 @@ function M.set_theme(theme_name)
 	if M.themes[theme_name] then
 		M.config.theme = theme_name
 		M.load_theme()
-		vim.notify("Switched to theme: " .. theme_name)
+		vim.notify("Switched to theme: " .. theme_name, vim.log.levels.INFO)
 	else
-		vim.notify("Theme '" .. theme_name .. "' not found. Available: " .. vim.inspect(vim.tbl_keys(M.themes)))
+		local available = vim.tbl_keys(M.themes)
+		vim.notify(
+			"Theme '" .. theme_name .. "' not found. Available: " .. table.concat(available, ", "),
+			vim.log.levels.ERROR
+		)
 	end
 end
 
 function M.toggle_theme()
-	if M.config.theme == "necrophos" then
+	local current = M.config.theme
+	if current == "necrophos" then
 		M.set_theme("kunkka")
+	elseif current == "kunkka" then
+		M.set_theme("invoker")
 	else
 		M.set_theme("necrophos")
 	end
 end
 
--- Auto commands
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "*",
--- 	callback = function()
--- 		M.load_theme()
--- 	end,
--- })
-
--- -- Register the color schemes
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "necrophos",
--- 	callback = function()
--- 		require("necrophos.themes.necrophos").setup()
--- 	end,
--- })
---
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "necrophos-kunkka",
--- 	callback = function()
--- 		require("necrophos.themes.kunkka").setup()
--- 	end,
--- })
---
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "necrophos-invoker",
--- 	callback = function()
--- 		require("necrophos.themes.invoker").setup()
--- 	end,
--- })
---
--- -- Set default colorscheme
--- vim.cmd("colorscheme necrophos")
+-- Auto-command to reload theme when colorscheme is set
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "necrophos-*",
+	callback = function()
+		-- This ensures the theme stays applied
+		vim.schedule(M.load_theme)
+	end,
+})
 
 return M
