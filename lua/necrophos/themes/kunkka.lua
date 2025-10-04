@@ -72,7 +72,6 @@ theme.colors = {
 	gray5 = "#969696",
 	gray6 = "#7e97ac",
 	light_blue = "#78ccf0",
-	blue = "#82aaff",
 	blue2 = "#0b253a",
 	blue3 = "#122d42",
 	blue4 = "#1a3a5a", -- FIXED: was "#1b90dd4d"
@@ -87,31 +86,25 @@ theme.colors = {
 	blue13 = "#072232",
 	blue14 = "#273845",
 	blue15 = "#169fff",
-	green = "#c5e478",
 	green2 = "#6CC85E",
 	light_cyan = "#caece6",
-	cyan = "#6ae9f0",
 	cyan2 = "#7fdbca",
 	cyan3 = "#5ab0a7", -- FIXED: was "#7fdbcaff"
 	cyan4 = "#80cbc4",
 	cyan5 = "#baebe2",
 	dark_cyan = "#637777",
 	light_red = "#ff869a",
-	red = "#ff5874",
 	red2 = "#ff6363",
 	red3 = "#c53550", -- FIXED: was "#ef535090"
 	dark_red = "#ab0300",
 	light_orange = "#ecc48d",
-	orange = "#f78c6c",
 	orange2 = "#ffcb8b",
 	light_yellow = "#faf39f",
-	yellow = "#ffd602",
 	yellow2 = "#b39554",
 	yellow3 = "#fad430",
 	yellow4 = "#ffeb95",
 	yellow5 = "#d4b45c", -- FIXED: was "#ffeb95cc"
 	light_purple = "#a599e9",
-	purple = "#7e57c2",
 	purple2 = "#5166F0",
 	purple3 = "#da70d6",
 	purple4 = "#7986e7",
@@ -465,6 +458,25 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.admiral_gold, bold = true },
 }
 
+theme.terminal_colors = {
+	[0] = theme.colors.deep_navy, -- black (deep ocean)
+	[1] = theme.colors.cannon_red, -- red (cannon fire)
+	[2] = theme.colors.seaweed_green, -- green (sea vegetation)
+	[3] = theme.colors.admiral_gold, -- yellow (gold accents)
+	[4] = theme.colors.tide_blue, -- blue (tide/water)
+	[5] = theme.colors.purple, -- magenta (deep sea magic)
+	[6] = theme.colors.cyan, -- cyan (clear water)
+	[7] = theme.colors.torrent_foam, -- white (sea foam)
+	[8] = theme.colors.storm_gray, -- bright black (storm clouds)
+	[9] = theme.colors.cannon_red, -- bright red (intense cannon fire)
+	[10] = theme.colors.green, -- bright green (vibrant sea moss)
+	[11] = theme.colors.admiral_gold, -- bright yellow (shiny gold)
+	[12] = theme.colors.tide_blue, -- bright blue (bright water)
+	[13] = theme.colors.purple, -- bright magenta (mystical glow)
+	[14] = theme.colors.cyan, -- bright cyan (crystal clear water)
+	[15] = theme.colors.sail_white, -- bright white (pure sail cloth)
+}
+
 -- ADD THIS SECTION RIGHT HERE:
 -- Clear existing highlights and set colorscheme name
 vim.cmd("hi clear")
@@ -477,6 +489,22 @@ vim.g.colors_name = "kunkka"
 -- Apply all highlight groups
 for group, settings in pairs(theme.groups) do
 	vim.api.nvim_set_hl(0, group, settings)
+end
+
+local function apply()
+	for group, settings in pairs(theme.groups) do
+		vim.api.nvim_set_hl(0, group, settings)
+	end
+
+	-- Set terminal colors
+	for name, color in pairs(theme.terminal_colors) do
+		vim.g["terminal_color_" .. name] = color
+	end
+end
+
+-- Apply based on variant
+if vim.g.necrophos_theme == "necrophos" then
+	apply()
 end
 
 return theme

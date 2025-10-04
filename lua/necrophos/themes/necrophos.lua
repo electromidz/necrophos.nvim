@@ -485,6 +485,11 @@ end
 
 vim.g.colors_name = "necrophos"
 
+-- Apply all highlight groups
+for group, settings in pairs(theme.groups) do
+	vim.api.nvim_set_hl(0, group, settings)
+end
+
 -- Apply the colorscheme
 local function apply()
 	for group, settings in pairs(theme.groups) do
