@@ -485,9 +485,21 @@ end
 
 vim.g.colors_name = "necrophos"
 
--- Apply all highlight groups
-for group, settings in pairs(theme.groups) do
-	vim.api.nvim_set_hl(0, group, settings)
+-- Apply the colorscheme
+local function apply()
+	for group, settings in pairs(theme.groups) do
+		vim.api.nvim_set_hl(0, group, settings)
+	end
+
+	-- Set terminal colors
+	for name, color in pairs(theme.terminal_colors) do
+		vim.g["terminal_color_" .. name] = color
+	end
+end
+
+-- Apply based on variant
+if vim.g.necrophos_theme == "necrophos" then
+	apply()
 end
 
 return theme
