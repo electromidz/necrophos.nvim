@@ -457,9 +457,28 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.gold_accent, bold = true },
 }
 
--- ADD THIS SECTION RIGHT HERE:
--- Clear existing highlights and set colorscheme name
-vim.cmd("hi clear")
+theme.terminal_colors =
+	{
+		[0] = theme.colors.deep_plague, -- black
+		[1] = theme.colors.poison_purple, -- red
+		[2] = theme.colors.plague_green, -- green
+		[3] = theme.colors.gold_accent, -- yellow
+		[4] = theme.colors.ghostly_teal, -- blue
+		[5] = theme.colors.purple, -- magenta
+		[6] = theme.colors.cyan, -- cyan
+		[7] = theme.colors.mist_white, -- white
+		[8] = theme.colors.decay_gray, -- bright black
+		[9] = theme.colors.poison_purple, -- bright red
+		[10] = theme.colors.plague_green, -- bright green
+		[11] = theme.colors.gold_accent, -- bright yellow
+		[12] = theme.colors.ghostly_teal, -- bright blue
+		[13] = theme.colors.purple, -- bright magenta
+		[14] = theme.colors.cyan, -- bright cyan
+		[15] = theme.colors.white, -- bright white
+	},
+	-- ADD THIS SECTION RIGHT HERE:
+	-- Clear existing highlights and set colorscheme name
+	vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.cmd("syntax reset")
 end

@@ -25,30 +25,27 @@ end
 
 -- Register all colorschemes so Neovim recognizes them
 function M.register_colorschemes()
+	-- Define the colorschemes
+	vim.api.nvim_create_user_command(
+		"NecrophosToggleTheme",
+		M.toggle_theme,
+		{ desc = "Toggle between Necrophos themes" }
+	)
+
 	-- Register necrophos
-	vim.api.nvim_create_autocmd("ColorSchemePre", {
-		pattern = "necrophos",
+	vim.api.nvim_create_autocmd("ColorScheme", {
+		pattern = "*",
 		callback = function()
-			M.config.theme = "necrophos"
-			M.apply_theme()
-		end,
-	})
-
-	-- Register necrophos-kunkka
-	vim.api.nvim_create_autocmd("ColorSchemePre", {
-		pattern = "necrophos-kunkka",
-		callback = function()
-			M.config.theme = "kunkka"
-			M.apply_theme()
-		end,
-	})
-
-	-- Register necrophos-invoker
-	vim.api.nvim_create_autocmd("ColorSchemePre", {
-		pattern = "necrophos-invoker",
-		callback = function()
-			M.config.theme = "invoker"
-			M.apply_theme()
+			-- This ensures our theme is applied even if other colorschemes are set
+			if
+				vim.g.colors_name == "necrophos"
+				or vim.g.colors_name == "necrophos-kunkka"
+				or vim.g.colors_name == "necrophos-invoker"
+			then
+				vim.schedule(function()
+					M.apply_theme()
+				end)
+			end
 		end,
 	})
 end
@@ -56,7 +53,12 @@ end
 function M.load_theme()
 	local theme_name = M.config.theme
 	local colorscheme_name = M.get_colorscheme_name(theme_name)
-	vim.cmd("colorscheme " .. colorscheme_name)
+
+	-- Set the global colors_name first
+	vim.g.colors_name = colorscheme_name
+
+	-- Then apply our theme
+	M.apply_theme()
 end
 
 function M.apply_theme()
@@ -76,15 +78,24 @@ function M.apply_theme()
 		vim.cmd("syntax reset")
 	end
 
+	-- Set colors_name before applying highlights
 	vim.g.colors_name = M.get_colorscheme_name(theme_name)
 
 	-- Apply the theme colors
-	if theme.groups then
+	if theme.colors and theme.groups then
+		-- Set terminal colors
+		if theme.terminal_colors then
+			for name, color in pairs(theme.terminal_colors) do
+				vim.g["terminal_color_" .. name] = color
+			end
+		end
+
+		-- Apply highlight groups
 		for group, colors in pairs(theme.groups) do
 			vim.api.nvim_set_hl(0, group, colors)
 		end
 	else
-		vim.notify("Theme '" .. theme_name .. "' has no groups table", vim.log.levels.ERROR)
+		vim.notify("Theme '" .. theme_name .. "' is missing colors or groups table", vim.log.levels.ERROR)
 		return
 	end
 
@@ -92,6 +103,8 @@ function M.apply_theme()
 	if M.config.transparent then
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
 	end
 
 	vim.notify("Loaded theme: " .. M.get_colorscheme_name(theme_name), vim.log.levels.INFO)
@@ -131,4 +144,18 @@ function M.toggle_theme()
 	end
 end
 
+-- Create the colorscheme commands
+vim.api.nvim_create_user_command("Necrophos", function()
+	M.set_theme("necrophos")
+end, { desc = "Set Necrophos theme" })
+
+vim.api.nvim_create_user_command("NecrophosKunkka", function()
+	M.set_theme("kunkka")
+end, { desc = "Set Necrophos Kunkka theme" })
+
+vim.api.nvim_create_user_command("NecrophosInvoker", function()
+	M.set_theme("invoker")
+end, { desc = "Set Necrophos Invoker theme" })
+
+-- Export for use in LazyVim config
 return M
