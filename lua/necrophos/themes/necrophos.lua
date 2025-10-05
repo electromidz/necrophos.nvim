@@ -3,8 +3,7 @@ local theme = {}
 theme.colors = {
 	-- Base colors - Necrophos plague doctor theme
 	fg = "#c2c5c7",
-	-- inverse_fg = "#1a2620",
-	inverse_fg = "#8ee3ac",
+	inverse_fg = "#1a2620",
 	--bg = "#0e1a20",
 	bg = "#22CA5E",
 	accent_bg = "#1a2620",
