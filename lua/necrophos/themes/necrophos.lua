@@ -4,8 +4,9 @@ theme.colors = {
 	-- Base colors - Necrophos plague doctor theme
 	fg = "#c2c5c7",
 	-- inverse_fg = "#1a2620",
-	inverse_fg = "#22CA5E",
-	bg = "#0e1a20",
+	inverse_fg = "#8ee3ac",
+	--bg = "#0e1a20",
+	bg = "#22CA5E",
 	accent_bg = "#1a2620",
 	link = "#22CA5E",
 	accent = "#169C5C",
