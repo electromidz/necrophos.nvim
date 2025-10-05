@@ -17,7 +17,7 @@ theme.colors = {
 	green = "#22CA5E", -- Toxic green
 	cyan = "#169C5C", -- Plague doctor's emerald
 	--blue = "#1E3749", -- Mystical blue
-	blue = "#ef5350", -- Mystical blue
+	blue = "#69987a", -- Mystical blue
 	purple = "#8c7ac2", -- Magical purple (necromancy)
 	grey = "#5d6b72", -- Ash and decay grey
 
