@@ -4,8 +4,7 @@ theme.colors = {
 	-- Base colors - Necrophos plague doctor theme
 	fg = "#c2c5c7",
 	inverse_fg = "#1a2620",
-	--bg = "#0e1a20",
-	bg = "#22CA5E",
+	bg = "#0e1a20",
 	accent_bg = "#1a2620",
 	link = "#22CA5E",
 	accent = "#169C5C",
@@ -17,7 +16,8 @@ theme.colors = {
 	yellow = "#B3AA56", -- Sickness and pallor yellow
 	green = "#22CA5E", -- Toxic green
 	cyan = "#169C5C", -- Plague doctor's emerald
-	blue = "#1E3749", -- Mystical blue
+	--blue = "#1E3749", -- Mystical blue
+	blue = "#ef5350", -- Mystical blue
 	purple = "#8c7ac2", -- Magical purple (necromancy)
 	grey = "#5d6b72", -- Ash and decay grey
 
