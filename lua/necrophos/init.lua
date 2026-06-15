@@ -15,6 +15,7 @@ M.themes = {
 	necrophos = require("necrophos.themes.necrophos"),
 	kunkka = require("necrophos.themes.kunkka"),
 	invoker = require("necrophos.themes.invoker"),
+	brewmaster = require("necrophos.themes.brewmaster"),
 }
 
 function M.setup(opts)
@@ -131,6 +132,8 @@ function M.toggle_theme()
 		M.set_theme("kunkka")
 	elseif current == "kunkka" then
 		M.set_theme("invoker")
+	elseif current == "invoker" then
+		M.set_theme("brewmaster")
 	else
 		M.set_theme("necrophos")
 	end
@@ -148,6 +151,10 @@ end, { desc = "Set Necrophos Kunkka theme" })
 vim.api.nvim_create_user_command("NecrophosInvoker", function()
 	M.set_theme("invoker")
 end, { desc = "Set Necrophos Invoker theme" })
+
+vim.api.nvim_create_user_command("NecrophosBrewmaster", function()
+	M.set_theme("brewmaster")
+end, { desc = "Set Necrophos Brewmaster theme" })
 
 -- Export for use in LazyVim config
 return M
