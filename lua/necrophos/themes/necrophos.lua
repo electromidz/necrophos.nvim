@@ -228,10 +228,10 @@ theme.groups = {
 	DiagnosticUnderlineHint = { sp = theme.colors.ghostly_teal, undercurl = true },
 
 	-- Git groups
-	DiffAdd = { fg = theme.colors.ghostly_teal, bg = theme.colors.ghostly_teal },
-	DiffChange = { fg = theme.colors.gold_accent, bg = theme.colors.gold_accent },
-	DiffDelete = { fg = theme.colors.poison_purple, bg = theme.colors.poison_purple },
-	DiffText = { fg = theme.colors.plague_green, bg = theme.colors.plague_green },
+	DiffAdd = { fg = theme.colors.bg, bg = theme.colors.ghostly_teal },
+	DiffChange = { fg = theme.colors.bg, bg = theme.colors.gold_accent },
+	DiffDelete = { fg = theme.colors.bg, bg = theme.colors.poison_purple },
+	DiffText = { fg = theme.colors.bg, bg = theme.colors.plague_green },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
 	gitcommitBranch = { fg = theme.colors.plague_green },
