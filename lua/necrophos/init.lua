@@ -25,29 +25,21 @@ end
 
 -- Register all colorschemes so Neovim recognizes them
 function M.register_colorschemes()
-	-- Define the colorschemes
 	vim.api.nvim_create_user_command(
 		"NecrophosToggleTheme",
 		M.toggle_theme,
 		{ desc = "Toggle between Necrophos themes" }
 	)
 
-	-- Register necrophos
-	vim.api.nvim_create_autocmd("ColorScheme", {
-		pattern = "*",
-		callback = function()
-			-- This ensures our theme is applied even if other colorschemes are set
-			if
-				vim.g.colors_name == "necrophos"
-				or vim.g.colors_name == "necrophos-kunkka"
-				or vim.g.colors_name == "necrophos-invoker"
-			then
-				vim.schedule(function()
-					M.apply_theme()
-				end)
-			end
+	vim.api.nvim_create_user_command(
+		"NecrophosTransparentToggle",
+		function()
+			M.config.transparent = not M.config.transparent
+			M.apply_theme()
+			vim.notify("Transparent: " .. tostring(M.config.transparent), vim.log.levels.INFO)
 		end,
-	})
+		{ desc = "Toggle transparent background" }
+	)
 end
 
 function M.load_theme()

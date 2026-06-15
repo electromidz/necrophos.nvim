@@ -459,52 +459,22 @@ theme.groups = {
 }
 
 theme.terminal_colors = {
-	[0] = theme.colors.deep_navy, -- black (deep ocean)
-	[1] = theme.colors.cannon_red, -- red (cannon fire)
-	[2] = theme.colors.seaweed_green, -- green (sea vegetation)
-	[3] = theme.colors.admiral_gold, -- yellow (gold accents)
-	[4] = theme.colors.tide_blue, -- blue (tide/water)
-	[5] = theme.colors.purple, -- magenta (deep sea magic)
-	[6] = theme.colors.cyan, -- cyan (clear water)
-	[7] = theme.colors.torrent_foam, -- white (sea foam)
-	[8] = theme.colors.storm_gray, -- bright black (storm clouds)
-	[9] = theme.colors.cannon_red, -- bright red (intense cannon fire)
-	[10] = theme.colors.green, -- bright green (vibrant sea moss)
-	[11] = theme.colors.admiral_gold, -- bright yellow (shiny gold)
-	[12] = theme.colors.tide_blue, -- bright blue (bright water)
-	[13] = theme.colors.purple, -- bright magenta (mystical glow)
-	[14] = theme.colors.cyan, -- bright cyan (crystal clear water)
-	[15] = theme.colors.sail_white, -- bright white (pure sail cloth)
+	[0] = theme.colors.deep_navy,
+	[1] = theme.colors.cannon_red,
+	[2] = theme.colors.seaweed_green,
+	[3] = theme.colors.admiral_gold,
+	[4] = theme.colors.tide_blue,
+	[5] = theme.colors.purple,
+	[6] = theme.colors.cyan,
+	[7] = theme.colors.torrent_foam,
+	[8] = theme.colors.storm_gray,
+	[9] = theme.colors.cannon_red,
+	[10] = theme.colors.green,
+	[11] = theme.colors.admiral_gold,
+	[12] = theme.colors.tide_blue,
+	[13] = theme.colors.purple,
+	[14] = theme.colors.cyan,
+	[15] = theme.colors.sail_white,
 }
-
--- ADD THIS SECTION RIGHT HERE:
--- Clear existing highlights and set colorscheme name
-vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then
-	vim.cmd("syntax reset")
-end
-
-vim.g.colors_name = "kunkka"
-
--- Apply all highlight groups
-for group, settings in pairs(theme.groups) do
-	vim.api.nvim_set_hl(0, group, settings)
-end
-
-local function apply()
-	for group, settings in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
-
-	-- Set terminal colors
-	for name, color in pairs(theme.terminal_colors) do
-		vim.g["terminal_color_" .. name] = color
-	end
-end
-
--- Apply based on variant
-if vim.g.necrophos_theme == "necrophos" then
-	apply()
-end
 
 return theme

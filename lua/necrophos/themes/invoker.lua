@@ -461,53 +461,22 @@ theme.groups = {
 }
 
 theme.terminal_colors = {
-	[0] = theme.colors.cosmic_night, -- black (cosmic void)
-	[1] = theme.colors.exort_orange, -- red (exort fire)
-	[2] = theme.colors.green, -- green (balance/magic)
-	[3] = theme.colors.invoke_gold, -- yellow (invoke energy)
-	[4] = theme.colors.quas_blue, -- blue (quas ice)
-	[5] = theme.colors.wex_purple, -- magenta (wex lightning)
-	[6] = theme.colors.arcane_teal, -- cyan (arcane energy)
-	[7] = theme.colors.parchment, -- white (ancient parchment)
-	[8] = theme.colors.storm_energy, -- bright black (storm clouds)
-	[9] = theme.colors.exort_orange, -- bright red (intense fire)
-	[10] = theme.colors.green, -- bright green (vibrant magic)
-	[11] = theme.colors.invoke_gold, -- bright yellow (golden glow)
-	[12] = theme.colors.quas_blue, -- bright blue (bright ice)
-	[13] = theme.colors.wex_purple, -- bright magenta (electric purple)
-	[14] = theme.colors.arcane_teal, -- bright cyan (brilliant arcane)
-	[15] = theme.colors.scroll_white, -- bright white (pure scrolls)
+	[0] = theme.colors.cosmic_night,
+	[1] = theme.colors.exort_orange,
+	[2] = theme.colors.green,
+	[3] = theme.colors.invoke_gold,
+	[4] = theme.colors.quas_blue,
+	[5] = theme.colors.wex_purple,
+	[6] = theme.colors.arcane_teal,
+	[7] = theme.colors.parchment,
+	[8] = theme.colors.storm_energy,
+	[9] = theme.colors.exort_orange,
+	[10] = theme.colors.green,
+	[11] = theme.colors.invoke_gold,
+	[12] = theme.colors.quas_blue,
+	[13] = theme.colors.wex_purple,
+	[14] = theme.colors.arcane_teal,
+	[15] = theme.colors.scroll_white,
 }
-
--- ADD THIS SECTION RIGHT HERE:
--- Clear existing highlights and set colorscheme name
-vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then
-	vim.cmd("syntax reset")
-end
-
-vim.g.colors_name = "necrophos"
-
--- Apply all highlight groups
-for group, settings in pairs(theme.groups) do
-	vim.api.nvim_set_hl(0, group, settings)
-end
-
--- Apply the colorscheme
-local function apply()
-	for group, settings in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
-
-	-- Set terminal colors
-	for name, color in pairs(theme.terminal_colors) do
-		vim.g["terminal_color_" .. name] = color
-	end
-end
-
--- Apply based on variant
-if vim.g.necrophos_theme == "necrophos" then
-	apply()
-end
 
 return theme

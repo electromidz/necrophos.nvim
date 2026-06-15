@@ -458,54 +458,23 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.gold_accent, bold = true },
 }
 
-theme.terminal_colors =
-	{
-		[0] = theme.colors.deep_plague, -- black
-		[1] = theme.colors.poison_purple, -- red
-		[2] = theme.colors.plague_green, -- green
-		[3] = theme.colors.gold_accent, -- yellow
-		[4] = theme.colors.ghostly_teal, -- blue
-		[5] = theme.colors.purple, -- magenta
-		[6] = theme.colors.cyan, -- cyan
-		[7] = theme.colors.mist_white, -- white
-		[8] = theme.colors.decay_gray, -- bright black
-		[9] = theme.colors.poison_purple, -- bright red
-		[10] = theme.colors.plague_green, -- bright green
-		[11] = theme.colors.gold_accent, -- bright yellow
-		[12] = theme.colors.ghostly_teal, -- bright blue
-		[13] = theme.colors.purple, -- bright magenta
-		[14] = theme.colors.cyan, -- bright cyan
-		[15] = theme.colors.white, -- bright white
-	},
-	-- ADD THIS SECTION RIGHT HERE:
-	-- Clear existing highlights and set colorscheme name
-	vim.cmd("hi clear")
-if vim.fn.exists("syntax_on") then
-	vim.cmd("syntax reset")
-end
-
-vim.g.colors_name = "necrophos"
-
--- Apply all highlight groups
-for group, settings in pairs(theme.groups) do
-	vim.api.nvim_set_hl(0, group, settings)
-end
-
--- Apply the colorscheme
-local function apply()
-	for group, settings in pairs(theme.groups) do
-		vim.api.nvim_set_hl(0, group, settings)
-	end
-
-	-- Set terminal colors
-	for name, color in pairs(theme.terminal_colors) do
-		vim.g["terminal_color_" .. name] = color
-	end
-end
-
--- Apply based on variant
-if vim.g.necrophos_theme == "necrophos" then
-	apply()
-end
+theme.terminal_colors = {
+	[0] = theme.colors.deep_plague,
+	[1] = theme.colors.poison_purple,
+	[2] = theme.colors.plague_green,
+	[3] = theme.colors.gold_accent,
+	[4] = theme.colors.ghostly_teal,
+	[5] = theme.colors.purple,
+	[6] = theme.colors.cyan,
+	[7] = theme.colors.mist_white,
+	[8] = theme.colors.decay_gray,
+	[9] = theme.colors.poison_purple,
+	[10] = theme.colors.plague_green,
+	[11] = theme.colors.gold_accent,
+	[12] = theme.colors.ghostly_teal,
+	[13] = theme.colors.purple,
+	[14] = theme.colors.cyan,
+	[15] = theme.colors.white,
+}
 
 return theme
