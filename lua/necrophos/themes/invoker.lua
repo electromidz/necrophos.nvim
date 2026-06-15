@@ -24,8 +24,7 @@ theme.colors = {
 	quas_blue = "#00E5FF", -- Icy blue for Quas
 	wex_purple = "#B967FF", -- Electric purple for Wex
 	exort_orange = "#FF6B35", -- Fiery orange for Exort
-	-- invoke_gold = "#FFD700", -- Golden invoke glow
-	invoke_gold = "#E8E6E3", -- Golden invoke glow
+	invoke_gold = "#FFD700", -- Golden invoke glow
 	forge_spirit = "#FFAA00", -- Spirit orange
 	arcane_teal = "#48C4D4", -- Arcane energy teal
 	cosmic_night = "#0A0C1A", -- Deep cosmic background
@@ -232,7 +231,7 @@ theme.groups = {
 
 	-- Git groups
 	DiffAdd = { fg = theme.colors.arcane_teal, bg = theme.colors.arcane_teal },
-	DiffChange = { fg = theme.colors.invoke_gold, bg = theme.colors.invoke_gold },
+	DiffChange = { fg = theme.colors.bg, bg = theme.colors.yellow },
 	DiffDelete = { fg = theme.colors.exort_orange, bg = theme.colors.exort_orange },
 	DiffText = { fg = theme.colors.quas_blue, bg = theme.colors.quas_blue },
 
