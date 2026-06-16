@@ -18,7 +18,7 @@ theme.colors = {
 	accent_bg = "#1a2620", -- Surface shadow (panels)
 	link = "#6EE7A8", -- Plague green (links/URLs)
 	accent = "#54C892", -- Spectral core (accent)
-	border = "#39433D", -- Reaper shadow (borders)
+	border = "#66736D",      -- Death ash (borders, punctuation)
 
 	-- Syntax highlighting - Disease and decay palette
 	red = "#c25c5c", -- Blood rot (errors, deleted)
