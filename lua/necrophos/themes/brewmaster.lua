@@ -17,7 +17,8 @@ theme.colors = {
 	accent_bg = "#1c1714", -- Surface color (panels)
 	link = "#c49a5c", -- Amber brew (links/URLs)
 	accent = "#b8874c", -- Polished copper (accent)
-	border = "#3d3228", -- Worn barrel wood (borders)
+	-- border = "#3d3228", -- Worn barrel wood (borders)
+	border = "#6a6058", -- Worn barrel wood (borders)
 
 	-- Syntax highlighting - Warm elemental palette
 	red = "#c47060", -- Primal Fire (errors, deleted)
