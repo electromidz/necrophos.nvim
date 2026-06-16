@@ -11,41 +11,42 @@ local theme = {}
 
 theme.colors = {
 	-- Base colors - Warm tavern aesthetic
-	fg = "#e8ddd0",        -- Warm parchment (main text)
+	fg = "#e8ddd0", -- Warm parchment (main text)
 	inverse_fg = "#1c1714", -- Dark aged wood (float bg)
-	bg = "#14100d",         -- Deep mahogany (main background)
-	accent_bg = "#1c1714",  -- Surface color (panels)
-	link = "#c49a5c",       -- Amber brew (links/URLs)
-	accent = "#b8874c",     -- Polished copper (accent)
-	border = "#3d3228",     -- Worn barrel wood (borders)
+	bg = "#14100d", -- Deep mahogany (main background)
+	accent_bg = "#1c1714", -- Surface color (panels)
+	link = "#c49a5c", -- Amber brew (links/URLs)
+	accent = "#b8874c", -- Polished copper (accent)
+	-- border = "#3d3228", -- Worn barrel wood (borders)
+	border = "#c47060", -- Worn barrel wood (borders)
 
 	-- Syntax highlighting - Warm elemental palette
-	red = "#c47060",        -- Primal Fire (errors, deleted)
-	orange = "#c89060",     -- Ember glow (constants, numbers)
-	yellow = "#c4a860",     -- Golden brew (strings, warnings)
-	green = "#7aa870",      -- Bamboo grove (strings, additions)
-	cyan = "#6a9a88",       -- Cool spring water (types, teal)
-	blue = "#7a90a0",       -- Storm spirit mist (functions)
-	purple = "#a088b0",     -- Monk's robe (keywords, statements)
-	grey = "#6a6058",       -- Aged stone (comments)
+	red = "#c47060", -- Primal Fire (errors, deleted)
+	orange = "#c89060", -- Ember glow (constants, numbers)
+	yellow = "#c4a860", -- Golden brew (strings, warnings)
+	green = "#7aa870", -- Bamboo grove (strings, additions)
+	cyan = "#6a9a88", -- Cool spring water (types, teal)
+	blue = "#7a90a0", -- Storm spirit mist (functions)
+	purple = "#a088b0", -- Monk's robe (keywords, statements)
+	grey = "#6a6058", -- Aged stone (comments)
 
 	-- Brewmaster-specific colors
-	brew_amber = "#c49a5c",    -- Freshly poured ale
-	fire_spirit = "#c47060",   -- Primal Fire element
-	earth_spirit = "#a08060",  -- Primal Earth element
-	storm_spirit = "#6a9a88",  -- Primal Storm element
-	bamboo_green = "#7aa870",  -- Pandaren bamboo groves
-	panda_fur = "#c8b8a0",     -- Panda's warm fur
-	monk_robe = "#a088b0",     -- Meditative purple
-	tavern_wood = "#5a4a3c",   -- Polished tavern wood
-	aged_leather = "#8a7060",  -- Weathered leather wraps
-	stone_floor = "#3d3228",   -- Temple stone
-	lantern_gold = "#d4b070",  -- Warm lantern light
-	jade_accent = "#6a9a70",   -- Pandaren jade
-	ferment_glow = "#b89850",  -- Fermenting brew
-	parchment = "#e8ddd0",     -- Ancient scroll text
-	deep_cask = "#0e0b09",     -- Bottom of the barrel
-	hot_iron = "#b86848",      -- Blacksmith's forge
+	brew_amber = "#c49a5c", -- Freshly poured ale
+	fire_spirit = "#c47060", -- Primal Fire element
+	earth_spirit = "#a08060", -- Primal Earth element
+	storm_spirit = "#6a9a88", -- Primal Storm element
+	bamboo_green = "#7aa870", -- Pandaren bamboo groves
+	panda_fur = "#c8b8a0", -- Panda's warm fur
+	monk_robe = "#a088b0", -- Meditative purple
+	tavern_wood = "#5a4a3c", -- Polished tavern wood
+	aged_leather = "#8a7060", -- Weathered leather wraps
+	stone_floor = "#3d3228", -- Temple stone
+	lantern_gold = "#d4b070", -- Warm lantern light
+	jade_accent = "#6a9a70", -- Pandaren jade
+	ferment_glow = "#b89850", -- Fermenting brew
+	parchment = "#e8ddd0", -- Ancient scroll text
+	deep_cask = "#0e0b09", -- Bottom of the barrel
+	hot_iron = "#b86848", -- Blacksmith's forge
 
 	-- UI colors - Warm and readable
 	folded_bg = "#1a150f",
@@ -134,28 +135,28 @@ theme.colors = {
 	magenta6 = "#3a2838",
 
 	-- Brewmaster-themed additions
-	brewing_vat = "#2a2018",    -- Fermentation barrel interior
-	barrel_stave = "#5a4a3c",   -- Wooden barrel planks
-	panda_belly = "#d8c8a8",    -- Warm panda underbelly
-	temple_bell = "#c8a860",    -- Bronze temple bell
+	brewing_vat = "#2a2018", -- Fermentation barrel interior
+	barrel_stave = "#5a4a3c", -- Wooden barrel planks
+	panda_belly = "#d8c8a8", -- Warm panda underbelly
+	temple_bell = "#c8a860", -- Bronze temple bell
 	earthquake_brown = "#705848", -- Shattered earth
-	flame_dance = "#d08060",    -- Dancing fire spirits
-	rain_drops = "#6898a8",     -- Storm rain
-	bamboo_forest = "#587850",  -- Deep bamboo thicket
-	parchment_old = "#c8b898",  -- Aged scroll
-	monk_beads = "#8a7058",     -- Meditation beads
-	sake_cup = "#b89060",       -- Ceramic sake vessel
-	wind_gust = "#7a8898",      -- Storm wind effect
-	hot_spring = "#589888",     -- Mountain hot spring
-	frost_mug = "#88b0a8",      -- Frosted ale mug
-	mushroom_cap = "#a08868",   -- Forest mushroom
-	tea_leaf = "#688860",       -- Pandaren tea leaves
-	wok_flame = "#c87858",      -- Wok cooking fire
-	silk_thread = "#c0a888",    -- Robe silk thread
-	iron_cask = "#5a5048",      -- Iron-bound cask
-	mountain_stone = "#484038",  -- Mountain temple stone
-	drum_skin = "#b8a078",      -- War drum surface
-	water_bucket = "#588890",    -- Cold well water
+	flame_dance = "#d08060", -- Dancing fire spirits
+	rain_drops = "#6898a8", -- Storm rain
+	bamboo_forest = "#587850", -- Deep bamboo thicket
+	parchment_old = "#c8b898", -- Aged scroll
+	monk_beads = "#8a7058", -- Meditation beads
+	sake_cup = "#b89060", -- Ceramic sake vessel
+	wind_gust = "#7a8898", -- Storm wind effect
+	hot_spring = "#589888", -- Mountain hot spring
+	frost_mug = "#88b0a8", -- Frosted ale mug
+	mushroom_cap = "#a08868", -- Forest mushroom
+	tea_leaf = "#688860", -- Pandaren tea leaves
+	wok_flame = "#c87858", -- Wok cooking fire
+	silk_thread = "#c0a888", -- Robe silk thread
+	iron_cask = "#5a5048", -- Iron-bound cask
+	mountain_stone = "#484038", -- Mountain temple stone
+	drum_skin = "#b8a078", -- War drum surface
+	water_bucket = "#588890", -- Cold well water
 
 	-- Missing colors
 	black = "#000000",
