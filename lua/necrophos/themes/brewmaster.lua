@@ -304,7 +304,7 @@ theme.groups = {
 	["@property"] = { fg = theme.colors.cyan2 },
 
 	["@operator"] = { fg = theme.colors.fg },
-	["@punctuation.delimiter"] = { fg = theme.colors.grey },
+	["@punctuation.delimiter"] = { fg = theme.colors.border },
 	["@punctuation.bracket"] = { fg = theme.colors.fg },
 	["@punctuation.special"] = { fg = theme.colors.brew_amber },
 
