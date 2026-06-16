@@ -13,7 +13,8 @@ theme.colors = {
 	-- Base colors - Warm tavern aesthetic
 	fg = "#e8ddd0", -- Warm parchment (main text)
 	inverse_fg = "#1c1714", -- Dark aged wood (float bg)
-	bg = "#14100d", -- Deep mahogany (main background)
+	-- bg = "#14100d", -- Deep mahogany (main background)
+	bg = "#3d3228", -- Deep mahogany (main background)
 	accent_bg = "#1c1714", -- Surface color (panels)
 	link = "#c49a5c", -- Amber brew (links/URLs)
 	accent = "#b8874c", -- Polished copper (accent)
