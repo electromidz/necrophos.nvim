@@ -11,47 +11,48 @@ local theme = {}
 
 theme.colors = {
 	-- Base colors - Plague doctor's domain
-	fg = "#D7E5DD",          -- Ethereal white (primary text)
-	inverse_fg = "#1a2620",  -- Dark corruption (float/surface bg)
-	bg = "#0e1a20",          -- Deep plague (main background)
-	accent_bg = "#1a2620",   -- Surface shadow (panels)
-	link = "#6EE7A8",        -- Plague green (links/URLs)
-	accent = "#54C892",      -- Spectral core (accent)
-	border = "#39433D",      -- Reaper shadow (borders)
+	fg = "#D7E5DD", -- Ethereal white (primary text)
+	inverse_fg = "#1a2620", -- Dark corruption (float/surface bg)
+	-- bg = "#0e1a20",          -- Deep plague (main background)
+	bg = "#0f191f", -- Deep plague (main background)
+	accent_bg = "#1a2620", -- Surface shadow (panels)
+	link = "#6EE7A8", -- Plague green (links/URLs)
+	accent = "#54C892", -- Spectral core (accent)
+	border = "#39433D", -- Reaper shadow (borders)
 
 	-- Syntax highlighting - Disease and decay palette
-	red = "#c25c5c",         -- Blood rot (errors, deleted)
-	orange = "#AF8B43",      -- Death bronze (constants, numbers)
-	yellow = "#C9A45A",      -- Harvest gold (strings, warnings)
-	green = "#6EE7A8",       -- Plague green (strings, additions)
-	cyan = "#69C7B5",        -- Cursed teal (types)
-	blue = "#6E9440",        -- Withered green (functions)
-	purple = "#8c7ac2",      -- Necromancy (keywords, statements)
-	grey = "#66736D",        -- Death ash (comments)
+	red = "#c25c5c", -- Blood rot (errors, deleted)
+	orange = "#AF8B43", -- Death bronze (constants, numbers)
+	yellow = "#C9A45A", -- Harvest gold (strings, warnings)
+	green = "#6EE7A8", -- Plague green (strings, additions)
+	cyan = "#69C7B5", -- Cursed teal (types)
+	blue = "#6E9440", -- Withered green (functions)
+	purple = "#8c7ac2", -- Necromancy (keywords, statements)
+	grey = "#66736D", -- Death ash (comments)
 
 	-- Necrophos-specific colors
-	plague_green = "#6EE7A8",    -- Vibrant toxic energy
-	ghostly_teal = "#7DD3C7",   -- Ethereal soul energy
-	heartstopper = "#9ACB5B",   -- Heartstopper herb
-	reaper_gold = "#D4B86A",    -- Reaper's scythe gold
-	death_seeker = "#5FCF96",   -- Death seeker's path
-	spectral_green = "#67D99F",  -- Spectral green glow
-	plague_mist = "#8ABAA5",    -- Poison mist cloud
-	cursed_teal = "#69C7B5",    -- Cursed teal energy
-	death_bronze = "#AF8B43",   -- Ancient death bronze
+	plague_green = "#6EE7A8", -- Vibrant toxic energy
+	ghostly_teal = "#7DD3C7", -- Ethereal soul energy
+	heartstopper = "#9ACB5B", -- Heartstopper herb
+	reaper_gold = "#D4B86A", -- Reaper's scythe gold
+	death_seeker = "#5FCF96", -- Death seeker's path
+	spectral_green = "#67D99F", -- Spectral green glow
+	plague_mist = "#8ABAA5", -- Poison mist cloud
+	cursed_teal = "#69C7B5", -- Cursed teal energy
+	death_bronze = "#AF8B43", -- Ancient death bronze
 	withered_green = "#6E9440", -- Withered plant life
-	soul_wisp = "#A4E2D0",      -- Trapped soul wisps
-	ghost_fog = "#B6D2C8",      -- Ghostly fog
-	reaper_shadow = "#39433D",  -- Reaper's shadow
-	death_ash = "#66736D",      -- Death and ash
-	plague_vapor = "#4F7D6C",   -- Rising plague vapor
-	harvest_gold = "#C9A45A",   -- Soul harvest gold
-	soul_fragment = "#78D6AE",  -- Fragmented soul energy
-	spectral_core = "#54C892",  -- Core spectral energy
-	rot_green = "#5E8A45",      -- Rotting vegetation
-	curse_green = "#7CB06A",    -- Cursed green magic
+	soul_wisp = "#A4E2D0", -- Trapped soul wisps
+	ghost_fog = "#B6D2C8", -- Ghostly fog
+	reaper_shadow = "#39433D", -- Reaper's shadow
+	death_ash = "#66736D", -- Death and ash
+	plague_vapor = "#4F7D6C", -- Rising plague vapor
+	harvest_gold = "#C9A45A", -- Soul harvest gold
+	soul_fragment = "#78D6AE", -- Fragmented soul energy
+	spectral_core = "#54C892", -- Core spectral energy
+	rot_green = "#5E8A45", -- Rotting vegetation
+	curse_green = "#7CB06A", -- Cursed green magic
 	ethereal_white = "#D7E5DD", -- Ethereal mist
-	ancient_bone = "#CFC8A6",   -- Ancient bone color
+	ancient_bone = "#CFC8A6", -- Ancient bone color
 
 	-- UI colors - Readable and atmospheric
 	folded_bg = "#142630",
@@ -83,9 +84,9 @@ theme.colors = {
 	purple3 = "#78D6AE",
 
 	-- Hero-themed additions
-	plague_cloud = "#1a4d3d",    -- Poison cloud areas
-	forest_green = "#5E8A45",    -- Death pulse green
-	bandage_tan = "#CFC8A6",     -- Bandages and wrappings
+	plague_cloud = "#1a4d3d", -- Poison cloud areas
+	forest_green = "#5E8A45", -- Death pulse green
+	bandage_tan = "#CFC8A6", -- Bandages and wrappings
 }
 
 theme.groups = {
