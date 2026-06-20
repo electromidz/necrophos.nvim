@@ -1,143 +1,202 @@
 local theme = {}
 
 theme.colors = {
-	-- Base colors - Invoker arcane mage theme
-	fg = "#E8E6E3", -- Ivory parchment
-	inverse_fg = "#131B2E", -- Deep cosmic blue
-	bg = "#0A0C1A", -- Cosmic night
-	accent_bg = "#131B2E", -- Richer blue for surfaces
-	link = "#48C4D4", -- Bright vibrant teal
-	accent = "#54A0A7", -- Light teal accent
-	border = "#2B7688", -- Medium blue border
+	-- ==========================================================
+	-- BASE PALETTE: Quas + Wex + Exort Foundation
+	-- ==========================================================
 
-	-- Syntax highlighting - Arcane-themed colors
-	red = "#FF6B7A", -- Vibrant red (Exort's fire)
-	orange = "#FF9D5C", -- Distinct orange (forge spirits)
-	yellow = "#FFE073", -- Proper yellow (invoke energy)
-	green = "#5AC18D", -- Fresh green (success/balance)
-	cyan = "#54A0A7", -- Light teal as cyan
-	blue = "#487A86", -- Steel blue as blue
-	purple = "#A68EE3", -- Mystical purple (arcane magic)
-	grey = "#626E78", -- Muted steel for comments
+	-- The background represents the cosmic void Invoker commands:
+	-- a deep, dark blue-black like the space between stars.
+	-- Inspired by Ghost Walk's ethereal invisibility and the
+	-- cosmic darkness that precedes an Invoker combo.
+	bg = "#0B0D17",            -- Cosmic void (main background)
+	inverse_fg = "#0B0D17",    -- Inverted for float surfaces
+	accent_bg = "#131828",     -- Astral plane (elevated surfaces)
 
-	-- Invoker-specific colors
-	quas_blue = "#00E5FF", -- Icy blue for Quas
-	wex_purple = "#B967FF", -- Electric purple for Wex
-	exort_orange = "#FF6B35", -- Fiery orange for Exort
-	invoke_gold = "#FFD700", -- Golden invoke glow
-	forge_spirit = "#FFAA00", -- Spirit orange
-	arcane_teal = "#48C4D4", -- Arcane energy teal
-	cosmic_night = "#0A0C1A", -- Deep cosmic background
-	mystic_blue = "#131B2E", -- Mystical blue surfaces
-	spell_border = "#2B7688", -- Spell effect border
-	parchment = "#E8E6E3", -- Ancient parchment text
+	-- Foreground is pale lunar silver — cool-toned to harmonize
+	-- with the ice/storm/fire trinity without leaning too warm
+	-- or too cold. Reads as "ancient parchment by moonlight."
+	fg = "#C8C4BC",            -- Pale lunar silver (primary text)
 
-	-- Existing UI colors
-	folded_bg = "#0F1A2A",
-	cursor_fg = "#806A4E",
-	cursor_bg = "#80B4C2",
-	line_number_fg = "#4B5E79",
-	line_number_active_fg = "#C5E4FC",
-	sign_add = "#65CC9C",
-	sign_change = "#E2C93D",
-	sign_delete = "#EF5350",
-	indent_guide = "#1F2E4D",
-	indent_guide_active = "#7E9CAC",
-	visual = "#1D2E53",
-	match_paren = "#1E2A4A",
-	search_blue = "#063E5D",
-	incremental_search_blue = "#2E455C",
-	error_red = "#EF5350",
-	word_highlight = "#33344D",
-	word_highlight_write = "#2F3350",
-	changed = "#A2CCFC",
-	quickfix_line = "#0E1F3F",
-	ui_border = "#5F7E97",
-	ui_border2 = "#20355D",
-	nvim_tree_file = "#89A4BB",
-	nvim_tree_indent_marker = "#585858",
-	tab_active_bg = "#0B1F42",
-	tab_inactive_bg = "#050A1D",
-	title = "#82B1FF",
-	parameter = "#D7DBE0",
-	string_delimiter = "#D9F5FD",
-	dark = "#050810",
-	dark2 = "#070C18",
-	dark3 = "#1A1F29",
-	white = "#FFFFFF",
-	white2 = "#EEEFFF",
-	dark_white = "#CCCCCC",
-	gray = "#262639",
-	gray2 = "#D2DEE7",
-	gray3 = "#36414A",
-	gray4 = "#5A6777",
-	gray5 = "#969696",
-	gray6 = "#7E97AC",
-	light_blue = "#78CCF0",
-	blue2 = "#0B1F3A",
-	blue3 = "#122542",
-	blue4 = "#1A2F5A",
-	blue5 = "#234570",
-	blue6 = "#2A4570",
-	blue7 = "#395575",
-	blue8 = "#5CA7E4",
-	blue9 = "#3A557A",
-	blue10 = "#697098",
-	blue11 = "#8EACE3",
-	blue12 = "#B2CCD6",
-	blue13 = "#071A32",
-	blue14 = "#273845",
-	blue15 = "#169FFF",
-	green2 = "#6CC85E",
-	light_cyan = "#CAECE6",
-	cyan2 = "#7FDBCA",
-	cyan3 = "#5AB0A7",
-	cyan4 = "#80CBC4",
-	cyan5 = "#BAEBE2",
-	dark_cyan = "#637777",
-	light_red = "#FF869A",
-	red2 = "#FF6363",
-	red3 = "#C53550",
-	dark_red = "#AB0300",
-	light_orange = "#ECC48D",
-	orange2 = "#FFCB8B",
-	light_yellow = "#FAF39F",
-	yellow2 = "#B39554",
-	yellow3 = "#FAD430",
-	yellow4 = "#FFEB95",
-	yellow5 = "#D4B45C",
-	light_purple = "#A599E9",
-	purple2 = "#5166F0",
-	purple3 = "#DA70D6",
-	purple4 = "#7986E7",
-	dark_purple = "#2E2D5E",
-	magenta = "#C792EA",
-	magenta2 = "#C789D6",
-	magenta3 = "#D1AAFF",
-	magenta4 = "#FF2C83",
-	magenta5 = "#4A2A5A",
-	magenta6 = "#5A3A6A",
+	-- Border uses the storm element's mid-tone: the silver-blue
+	-- of wind and Tornado's funnel. Visible but not dominant.
+	border = "#3A4A5E",        -- Tornado silver-blue (borders)
 
-	-- New Invoker-themed additions
-	spell_effect = "#1A2B4D", -- Spell casting areas
-	arcane_wisp = "#5A6C7A", -- Arcane energy wisps
-	cosmic_void = "#1E1F3C", -- Void and cosmic energy
-	robe_fabric = "#B8A47C", -- Mage robe cloth
-	staff_trim = "#D4A85C", -- Staff and orb metal trim
-	crystal_blue = "#4A7C8C", -- Magical crystals
-	storm_energy = "#3A4A6A", -- Electrical storm energy
-	spell_smoke = "#7A8CAA", -- Spell casting effects
-	orb_gold = "#D4B45C", -- Orb and magical artifacts
-	ethereal_blue = "#3A5C6A", -- Ethereal/ghostly transparency
-	abyssal_void = "#0A1020", -- Deep void depths
-	rune_pink = "#D47A8C", -- Magical rune accents
-	iron_gray = "#5A6C7A", -- Metal and ancient artifacts
-	scroll_white = "#E8E6D4", -- Ancient scroll parchment
-	potion_blue = "#5C8CB8", -- Magical potions
+	-- Link color is the purest Quas expression: the bright
+	-- glacial cyan of Cold Snap's frozen pulse.
+	link = "#6CC8E0",         -- Cold Snap frost (links)
 
-	-- Missing colors that were referenced but not defined
+	-- Accent is the arcane convergence of all three orbs:
+	-- a luminous teal that sits between ice and storm.
+	accent = "#5EB8C8",       -- Arcane convergence (accent)
+
+	-- ==========================================================
+	-- SYNTAX COLORS: Each ability inspires a syntax role
+	-- ==========================================================
+
+	-- FUNCTIONS: Quas — the ice orb. Functions are the cold,
+	-- precise, structural backbone of code, like Quas's
+	-- calculated冻冻冻 (frost) approach.
+	blue = "#6CC8E0",         -- Quas glacial (functions)
+
+	-- KEYWORDS/STATEMENTS: Wex — the storm orb. Keywords
+	-- control flow and energy, like Wex's lightning-fast
+	-- reactive storms. Electric violet pulses through them.
+	purple = "#A87FD4",       -- Wex storm violet (keywords)
+
+	-- CONSTANTS/NUMBERS: Exort — the fire orb. Constants
+	-- are burning points of immutable truth, like Sun Strike's
+	-- concentrated solar beam hitting a fixed coordinate.
+	orange = "#E8A840",       -- Sun Strike solar (constants)
+
+	-- STRINGS: Alacrity's enchanted gold. Strings are the
+	-- most verbose, "human" part of code — warm, readable,
+	-- carrying meaning like Alacrity's blessed text.
+	yellow = "#D4B868",       -- Alacrity gold (strings)
+
+	-- TYPES: The arcane mastery that unifies all three orbs.
+	-- A cool teal that bridges Quas's ice and Wex's storm,
+	-- representing the Scholar's understanding of all elements.
+	cyan = "#5EC4B0",         -- Arcane mastery (types)
+
+	-- IDENTIFIERS: Forge Spirit's electric orange. Variables
+	-- are summoned into existence like Forge Spirits —
+	-- temporary, functional, carrying the fire of Exort.
+	red = "#E07848",          -- Forge Spirit ember (errors/deleted)
+
+	-- COMMENTS: Ghost Walk's ethereal mist. Comments are
+	-- invisible to the compiler, floating like Invoker
+	-- when Ghost Walk is active — present but translucent.
+	grey = "#4E5A68",         -- Ghost Walk mist (comments)
+
+	-- OPERATORS: Deafening Blast's shockwave — the moment
+	-- all three orbs combine. A bright, almost-white cyan
+	-- that cuts through like a disarming wave.
+	-- (Uses fg for operators; this is intentional)
+
+	-- ==========================================================
+	-- HERO-SPECIFIC COLORS: The Invoker palette
+	-- ==========================================================
+
+	-- === QUAS (Ice) Orb ===
+	-- The Quas orb glows with a cold, glacial cyan —
+	-- the color of pure ice magic, frozen and precise.
+	quas_blue = "#88D4E8",         -- Quas orb glacial cyan
+
+	-- === WEX (Storm) Orb ===
+	-- The Wex orb crackles with electric violet energy —
+	-- the color of contained lightning, wild and reactive.
+	wex_purple = "#B088E0",        -- Wex orb storm violet
+
+	-- === EXORT (Fire) Orb ===
+	-- The Exort orb blazes with molten orange — the color
+	-- of concentrated fire, destructive and absolute.
+	exort_orange = "#E88040",      -- Exort orb molten amber
+
+	-- === INVOKE ===
+	-- The golden flash when all three orbs combine.
+	-- Invoker's ultimate: the color of mastery itself.
+	invoke_gold = "#F0D060",       -- Invoke golden flash
+
+	-- === COLD SNAP (Quas) ===
+	-- Rapid frozen stuns. The color is a bright, sharp
+	-- cyan — like ice cracking under repeated impact.
+	cold_snap_frost = "#A0E0F0",  -- Frozen stun pulse
+
+	-- === GHOST WALK (Quas + Quas + Wex) ===
+	-- Invoker turns invisible, leaving a trail of icy mist.
+	-- A muted blue-gray that suggests presence without form.
+	ghost_mist = "#5A6878",       -- Ethereal invisibility
+
+	-- === TORNADO (Quas + Wex) ===
+	-- A cyclone of ice and wind. The color is a silver-blue
+	-- that suggests both frost and air in violent motion.
+	tornado_wind = "#7898B0",     -- Cyclone silver-blue
+
+	-- === E.M.P. (Wex + Wex) ===
+	-- An electromagnetic pulse that burns mana. Deep, intense
+	-- violet — the color of arcane energy detonating.
+	emp_blast = "#7048B0",        -- Mana burn violet
+
+	-- === ALACRITY (Wex + Exort) ===
+	-- Grants attack speed and damage. A bright, enchanted
+	-- gold — the color of blessed, accelerated power.
+	alacrity_gold = "#E8C050",    -- Enchanted haste gold
+
+	-- === CHAOS METEOR (Exort + Exort) ===
+	-- A flaming meteor crashes down. The deepest fire color:
+	-- molten red-orange, the heart of a dying star.
+	chaos_meteor = "#D05830",     -- Molten impact red
+
+	-- === SUN STRIKE (Exort + Exort) ===
+	-- A beam of pure solar energy from the sky. The brightest
+	-- fire color: white-gold, like looking at the sun.
+	sun_strike = "#F8E878",      -- Solar beam gold
+
+	-- === FORGE SPIRIT (Exort + Quas) ===
+	-- Summons a fire elemental. Warm orange — the color of
+	-- living embers given form and purpose.
+	forge_spirit = "#E09048",     -- Ember summon orange
+
+	-- === ICE WALL (Quas + Quas + Exort) ===
+	-- A wall of freezing ice. The palest cyan in the palette —
+	-- almost white, like deep glacial ice.
+	ice_wall = "#A0D8E0",        -- Glacial barrier pale cyan
+
+	-- === DEAFENING BLAST (Quas + Wex + Exort) ===
+	-- All three orbs combine in a disarming shockwave. A bright
+	-- purple-white — the color of arcane power at its peak.
+	deafening_blast = "#C8A8F0", -- Arcane shockwave violet
+
+	-- === ARCANE MASTERY ===
+	-- The unified color of Invoker's full spellbook. A luminous
+	-- teal that contains ice, storm, and fire in balance.
+	arcane_teal = "#5EB8C8",     -- Triple orb convergence
+
+	-- ==========================================================
+	-- SEMANTIC ALIASES: Group references that need stable names
+	-- ==========================================================
+
+	cosmic_night = "#0B0D17",    -- Deep background alias
+	cosmic_void = "#131828",     -- Surface background
+	spell_effect = "#1A2540",    -- Spell casting areas
+	storm_energy = "#2A3850",    -- Wex energy areas
+	robe_fabric = "#8A7A6C",     -- Mage robe cloth (PreProc)
+	parchment = "#C8C4BC",       -- Ancient scroll text
+	scroll_white = "#D8D4CC",    -- Bright parchment
+	title = "#88D4E8",          -- Titles use Quas cyan
+
+	-- ==========================================================
+	-- UI COLORS: Functional interface elements
+	-- ==========================================================
+
+	folded_bg = "#0E1220",
+	cursor_fg = "#0B0D17",
+	cursor_bg = "#88D4E8",       -- Quas cyan cursor
+	line_number_fg = "#2A3850",
+	line_number_active_fg = "#7898B0", -- Tornado wind
+	sign_add = "#5EC4B0",        -- Arcane mastery green
+	sign_change = "#E8C050",     -- Alacrity gold
+	sign_delete = "#D05830",     -- Chaos meteor red
+	indent_guide = "#1A2030",
+	indent_guide_active = "#2A3850",
+	visual = "#1A2540",
+	match_paren = "#2A3048",
+	error_red = "#D05830",
+	quickfix_line = "#0E1220",
+	parameter = "#B8B4AC",
+	white = "#E8E4DC",
 	black = "#000000",
-	light_green = "#A8E6A8",
+	dark_red = "#802020",
+
+	-- Extended UI palette (minimal, only what's referenced)
+	gray = "#1A2030",
+	gray3 = "#2A3048",
+	gray4 = "#3A4A5E",
+	gray6 = "#4E5A68",
+	green = "#5EC4B0",
+	cyan2 = "#5EB8C8",
+	purple3 = "#B088E0",
 }
 
 theme.groups = {
