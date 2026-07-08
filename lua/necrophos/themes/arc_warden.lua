@@ -24,29 +24,30 @@ theme.colors = {
 	-- after the Mad Moon shattered. The deepest cosmic black —
 	-- not pure black, but infused with the faintest blue-violet
 	-- residue of primordial energy.
-	bg = "#0A0C14",              -- Primordial void (main background)
-	inverse_fg = "#0A0C14",      -- Inverted for float surfaces
-	accent_bg = "#10141E",       -- Astral plane (elevated surfaces)
+	bg = "#0A0C14", -- Primordial void (main background)
+	inverse_fg = "#0A0C14", -- Inverted for float surfaces
+	accent_bg = "#10141E", -- Astral plane (elevated surfaces)
 
 	-- Foreground is pale moonlight — the color of the Mad Moon's
 	-- glow reflected off ancient crystal. Cool-toned, crisp,
 	-- and timeless, like Zet's eternal vigil.
-	fg = "#C4C8D0",              -- Moonlight silver (primary text)
+	fg = "#C4C8D0", -- Moonlight silver (primary text)
 
 	-- Border is the magnetic distortion at the edge of
 	-- Magnetic Field — a deep blue-gray that defines without
 	-- dominating, like the boundary between void and energy.
-	border = "#2A3448",          -- Magnetic boundary (borders)
+	-- border = "#2A3448",          -- Magnetic boundary (borders)
+	border = "#586878", -- Magnetic boundary (borders)
 
 	-- Link is Flux's electric plasma at its brightest — the
 	-- unstable energy that rips through lone enemies. A vivid
 	-- cyan-blue that crackles with barely-contained power.
-	link = "#58B8E8",            -- Flux plasma (links)
+	link = "#58B8E8", -- Flux plasma (links)
 
 	-- Accent is the convergence of all Arc Warden's energies:
 	-- electric, magnetic, spectral, and cosmic. A luminous
 	-- teal that sits at the intersection of ice and storm.
-	accent = "#48A8C0",          -- Arcane convergence (accent)
+	accent = "#48A8C0", -- Arcane convergence (accent)
 
 	-- ==========================================================
 	-- SYNTAX COLORS: Ability-Inspired
@@ -56,41 +57,41 @@ theme.colors = {
 	-- are the active, executing core of code, like Flux's
 	-- swirling energy ripping through targets. Electric blue
 	-- crackles through every function call.
-	blue = "#58B8E8",            -- Flux plasma (functions)
+	blue = "#58B8E8", -- Flux plasma (functions)
 
 	-- KEYWORDS/STATEMENTS: Tempest Double — the cosmic
 	-- duplication energy. Keywords control the flow of
 	-- execution, like the Tempest Double mirrors every action.
 	-- Deep cosmic indigo, the color of reality being copied.
-	purple = "#9878D0",          -- Tempest indigo (keywords)
+	purple = "#9878D0", -- Tempest indigo (keywords)
 
 	-- CONSTANTS/NUMBERS: Magnetic Field — the protective
 	-- barrier. Constants are fixed, immutable values protected
 	-- from change, like allies sheltered inside the magnetic
 	-- dome. Teal-cyan, stable and defensive.
-	cyan = "#48B8A8",            -- Magnetic Field teal (types)
+	cyan = "#48B8A8", -- Magnetic Field teal (types)
 
 	-- STRINGS: Spark Wraith — the spectral spirit. Strings
 	-- are the most "human" part of code, carrying meaning
 	-- like a wraith carries its spectral form. Soft
 	-- violet-blue, ghostly but readable.
-	yellow = "#C8B870",          -- Runic gold (strings)
+	yellow = "#C8B870", -- Runic gold (strings)
 
 	-- TYPES: Primordial light — the original consciousness.
 	-- Types are the foundational structures of code, like
 	-- Zet's connection to the Primordial Mind. Warm teal,
 	-- ancient and knowing.
-	green = "#58B898",           -- Primordial teal (success)
+	green = "#58B898", -- Primordial teal (success)
 
 	-- ERRORS/EXCEPTIONS: The Mad Moon's death — the explosion
 	-- that shattered Zet. A warm violet that signals danger
 	-- without the aggression of pure red.
-	red = "#D87868",             -- Lunar fracture (errors)
+	red = "#D87868", -- Lunar fracture (errors)
 
 	-- COMMENTS: Void residue — the faint energy left after
 	-- the Mad Moon shattered. Muted blue-gray, present but
 	-- unobtrusive, like memories of a destroyed world.
-	grey = "#4A5468",            -- Void residue (comments)
+	grey = "#4A5468", -- Void residue (comments)
 
 	-- ==========================================================
 	-- HERO-SPECIFIC COLORS: Arc Warden's palette
@@ -100,7 +101,7 @@ theme.colors = {
 	-- "Swirling, volatile energy" — the core of Arc Warden's
 	-- offensive power. Electric blue plasma that destabilizes
 	-- and damages lone targets. The brightest blue in the palette.
-	flux_plasma = "#58B8E8",     -- Unstable electric energy
+	flux_plasma = "#58B8E8", -- Unstable electric energy
 
 	-- === MAGNETIC FIELD (Protective Barrier) ===
 	-- "Circular distortion field of magnetic energy" — grants
@@ -112,19 +113,19 @@ theme.colors = {
 	-- "Summons a Spark Wraith that patrols" — a ghostly entity
 	-- that seeks and destroys. Spectral violet-cyan energy,
 	-- ethereal and haunting, visible but untouchable.
-	spark_spirit = "#8878C0",    -- Spectral violet-cyan
+	spark_spirit = "#8878C0", -- Spectral violet-cyan
 
 	-- === TEMPEST DOUBLE (Duplication) ===
 	-- "Perfect electrical duplication" — creates an exact copy.
 	-- Cosmic indigo-purple, the color of reality being folded
 	-- and mirrored. Deep, mysterious, infinite.
-	tempest_clone = "#7868B8",   -- Cosmic duplication energy
+	tempest_clone = "#7868B8", -- Cosmic duplication energy
 
 	-- === RUNIC INFUSION (Passive) ===
 	-- "Runes of Power fuse to the Self" — permanent attribute
 	-- gain. A soft gold glow, the color of accumulated power
 	-- and growing strength.
-	rune_gold = "#D8C068",       -- Runic accumulation
+	rune_gold = "#D8C068", -- Runic accumulation
 
 	-- === PRIMORDIAL LIGHT ===
 	-- Zet's original form before the Mad Moon shattered.
@@ -135,12 +136,12 @@ theme.colors = {
 	-- === CELESTIAL BODY ===
 	-- The Mad Moon itself — the crystal prison Zet created.
 	-- A soft blue glow, like moonlight through ancient crystal.
-	celestial_moon = "#6888A8",  -- Mad Moon glow
+	celestial_moon = "#6888A8", -- Mad Moon glow
 
 	-- === VOID RESIDUE ===
 	-- The faint energy left after the explosion that scattered
 	-- Zet's fragments. Dark blue-gray, the color of cosmic dust.
-	void_ash = "#3A4458",        -- Post-explosion residue
+	void_ash = "#3A4458", -- Post-explosion residue
 
 	-- === ELECTRIC ARC ===
 	-- The "fleeting arc of consciousness" connecting Zet's
@@ -150,17 +151,17 @@ theme.colors = {
 	-- === ASTRAL DUST ===
 	-- Cosmic particles floating in the void between abilities.
 	-- Mid-tone blue-gray, the medium through which energy travels.
-	astral_dust = "#586878",     -- Cosmic medium
+	astral_dust = "#586878", -- Cosmic medium
 
 	-- === PLASMA BRIGHT ===
 	-- Flux at maximum intensity — the color of pure electrical
 	-- discharge. Nearly white-blue, blinding and absolute.
-	plasma_bright = "#B8E0F0",  -- Maximum flux intensity
+	plasma_bright = "#B8E0F0", -- Maximum flux intensity
 
 	-- === SPECTRAL DIM ===
 	-- Spark Wraith in its dormant state, before detecting a
 	-- target. A dim violet, almost invisible against the void.
-	spectral_dim = "#4A4868",   -- Dormant wraith energy
+	spectral_dim = "#4A4868", -- Dormant wraith energy
 
 	-- === MAGNETIC SHIMMER ===
 	-- The visual distortion at the edge of Magnetic Field.
@@ -176,11 +177,11 @@ theme.colors = {
 	-- SEMANTIC ALIASES: Group references that need stable names
 	-- ==========================================================
 
-	title = "#58B8E8",           -- Titles use Flux plasma
-	parameter = "#B8BCC4",       -- Pale silver for parameters
-	parchment = "#C4C8D0",       -- Primary text alias
-	scroll_white = "#D4D8E0",    -- Bright parchment
-	dark_red = "#802828",        -- Deep error color
+	title = "#58B8E8", -- Titles use Flux plasma
+	parameter = "#B8BCC4", -- Pale silver for parameters
+	parchment = "#C4C8D0", -- Primary text alias
+	scroll_white = "#D4D8E0", -- Bright parchment
+	dark_red = "#802828", -- Deep error color
 
 	-- ==========================================================
 	-- UI COLORS: Functional interface elements
@@ -188,12 +189,12 @@ theme.colors = {
 
 	folded_bg = "#0E1018",
 	cursor_fg = "#0A0C14",
-	cursor_bg = "#58B8E8",       -- Flux plasma cursor
+	cursor_bg = "#58B8E8", -- Flux plasma cursor
 	line_number_fg = "#2A3448",
 	line_number_active_fg = "#586878", -- Astral dust
-	sign_add = "#58B898",        -- Primordial teal
-	sign_change = "#D8C068",     -- Runic gold
-	sign_delete = "#D87868",     -- Lunar fracture
+	sign_add = "#58B898", -- Primordial teal
+	sign_change = "#D8C068", -- Runic gold
+	sign_delete = "#D87868", -- Lunar fracture
 	indent_guide = "#161C28",
 	indent_guide_active = "#2A3448",
 	visual = "#141C2A",
