@@ -3,67 +3,77 @@ local theme = {}
 -- ============================================================
 -- Brewmaster Theme - "Mangix, the Drunken Brawler"
 -- ============================================================
--- Philosophy: A candlelit tavern carved out of a mountain temple.
--- The background is aged mahogany and lantern-lit wood, but the
--- code itself is written by the three Primal Spirits that Mangix
--- splits into:
+-- Sourced from the hero's actual art, not from a generic
+-- "warm dark" idea. Mangix is: black-and-white panda fur, an
+-- OLIVE-GREEN robe, BROWN leather wraps, a BRASS keg, and the
+-- three Primal Spirits he splits into.
 --
---   Primal Fire  -> hot orange-red   (errors, exceptions, danger)
---   Primal Earth -> tan rock & clay  (namespaces, structures, preproc)
---   Primal Storm -> electric cyan-blue (functions, the code that acts)
+-- There is deliberately NO BLUE in this palette. Brewmaster has
+-- no blue anywhere on him - not on the model, not in Thunder
+-- Clap's dust, not in Cinder Brew's amber splash. The cool
+-- anchor is JADE, taken from his robe trim and the pale wind of
+-- the Storm brewling.
 --
--- Plus Mangix himself: jade robe (types), bamboo (strings),
--- amber brew (constants, accents) and monk-robe violet (keywords).
+-- Token mapping:
+--   Primal Fire  -> hot coal red   (errors, exceptions)
+--   Cinder Brew  -> ember orange   (numbers, constants)
+--   Brass keg    -> brass gold     (functions - the code that acts)
+--   Olive robe   -> moss green     (strings)
+--   Jade trim    -> jade           (types)
+--   Plum wine    -> wine violet    (keywords)
+--   Primal Earth -> tan rock       (namespaces, structures, preproc)
+--   Temple stone -> stone grey     (comments)
 --
 -- Color rules this palette obeys:
---   * every syntax hue is >=18 deg from its neighbours, so warm
---     tokens never blur into each other
---   * cool tokens carry the same saturation weight as warm ones
---     (47-63%), so functions/types/strings are not washed out by
---     the warm background
+--   * every pair of tokens that co-occur in real code is >=15 deg
+--     apart in hue - the same spread gruvbox uses for its
+--     yellow/orange/red triad, which is a proven-readable warm set
 --   * every foreground meets WCAG AA (>=4.5:1) against `bg`
+--   * warm and cool tokens carry comparable saturation, so nothing
+--     washes out against the mahogany background
 -- ============================================================
 
 theme.colors = {
-	-- Base colors - Warm tavern aesthetic
-	fg = "#e8ddd0", -- Warm parchment (main text) - 14.1:1
+	-- Base colors - Tavern carved out of a mountain temple
+	fg = "#e8ddd0", -- Panda fur parchment (main text) - 14.1:1
 	inverse_fg = "#1c1714", -- Dark aged wood (float bg)
 	bg = "#14100d", -- Deep mahogany (main background)
 	accent_bg = "#1c1714", -- Surface color (panels)
-	link = "#d8a55e", -- Amber brew (links/URLs) - 8.5:1
-	accent = "#d8a55e", -- Polished copper (accent)
+	link = "#dfa04c", -- Amber brew (links/URLs) - 7.7:1
+	accent = "#dfa04c", -- Amber brew (accent)
 	-- border = "#3d3228", -- Worn barrel wood (borders)
 	border = "#a08060", -- Worn barrel wood (borders)
 
-	-- Syntax highlighting - The three Primal Spirits + Mangix
-	red = "#dd5f42", -- Primal Fire (errors, deleted) - H11 - 5.2:1
-	orange = "#e0a25c", -- Ember glow (constants, numbers) - H32 - 8.6:1
-	yellow = "#e8c46a", -- Golden brew (warnings, literals) - H43 - 11.3:1
-	green = "#94c46a", -- Bamboo grove (strings, additions) - H92 - 9.3:1
-	cyan = "#54c2a0", -- Pandaren jade (types) - H161 - 8.7:1
-	blue = "#66b6dc", -- Primal Storm (functions) - H199 - 8.4:1
-	purple = "#b78edc", -- Monk's robe (keywords) - H272 - 7.1:1
-	grey = "#8a7d6e", -- Aged stone (comments) - 4.7:1
+	-- Syntax highlighting - Mangix and his three Primal Spirits
+	red = "#e0503a", -- Primal Fire, hot coal (errors) - H8 - 4.9:1
+	orange = "#e08248", -- Cinder Brew ember (numbers) - H23 - 6.7:1
+	brass = "#e6b95e", -- Brass keg fittings (functions) - H40 - 10.3:1
+	yellow = "#f0cf82", -- Golden brew (warnings, literals) - H42 - 12.6:1
+	green = "#a8bf5c", -- Olive robe / bamboo (strings) - H74 - 9.3:1
+	cyan = "#5cbf9a", -- Jade robe trim (types) - H158 - 8.5:1
+	purple = "#c58fb4", -- Plum wine (keywords) - H319 - 7.2:1
+	grey = "#8a7d6e", -- Temple stone (comments) - 4.7:1
 
 	-- Brewmaster-specific colors
-	brew_amber = "#d8a55e", -- Freshly poured ale
-	fire_spirit = "#dd5f42", -- Primal Fire element
-	earth_spirit = "#b08a5e", -- Primal Earth element
-	storm_spirit = "#66b6dc", -- Primal Storm element (electric, not teal)
-	bamboo_green = "#94c46a", -- Pandaren bamboo groves
-	panda_fur = "#cbbba2", -- Panda's warm fur
-	monk_robe = "#b78edc", -- Meditative violet
+	brew_amber = "#dfa04c", -- Freshly poured ale
+	fire_spirit = "#e0503a", -- Primal Fire brewling
+	earth_spirit = "#b08a5e", -- Primal Earth brewling (tan rock)
+	storm_spirit = "#8fd4bc", -- Primal Storm brewling (pale wind, not blue)
+	bamboo_green = "#a8bf5c", -- Pandaren bamboo groves
+	moss_robe = "#8fae4a", -- His olive robe, in shadow
+	panda_fur = "#cbbba2", -- Panda's warm underfur
+	monk_robe = "#c58fb4", -- Wine-stained silk
 	tavern_wood = "#5a4a3c", -- Polished tavern wood
 	aged_leather = "#b0917a", -- Weathered leather wraps - 6.5:1
 	stone_floor = "#3d3228", -- Temple stone
 	lantern_gold = "#f0cf82", -- Warm lantern light - 12.6:1
-	jade_accent = "#54c2a0", -- Pandaren jade
-	ferment_glow = "#d0a850", -- Fermenting brew
+	jade_accent = "#5cbf9a", -- Pandaren jade
+	ferment_glow = "#cf9a3f", -- Fermenting brew
 	parchment = "#e8ddd0", -- Ancient scroll text
 	deep_cask = "#0e0b09", -- Bottom of the barrel
-	hot_iron = "#c8603c", -- Blacksmith's forge
+	hot_iron = "#d76244", -- Blacksmith's forge (terminal bright red) - 5.4:1
 	hot_spring = "#4fae94", -- Mountain hot spring
-	frost_mug = "#8fcfc0", -- Frosted ale mug
+	frost_mug = "#a8e2cd", -- Frosted ale mug
 	sake_cup = "#c99a66", -- Ceramic sake vessel
 	brewing_vat = "#2e2418", -- Fermentation barrel interior
 	punctuation = "#a8988a", -- Brackets/operators: present, not shouting
@@ -71,18 +81,18 @@ theme.colors = {
 	-- UI colors - Warm and readable
 	folded_bg = "#1a150f",
 	cursor_fg = "#14100d",
-	cursor_bg = "#d8a55e",
+	cursor_bg = "#dfa04c",
 	line_number_fg = "#5e5346", -- was 1.9:1 (near invisible), now 2.5:1
 	line_number_active_fg = "#ddc8a4",
-	sign_add = "#94c46a",
-	sign_change = "#e8c46a",
-	sign_delete = "#dd5f42",
+	sign_add = "#a8bf5c",
+	sign_change = "#f0cf82",
+	sign_delete = "#e0503a",
 	indent_guide = "#2a221a",
 	indent_guide_active = "#4a4038",
 	visual = "#2e2418",
 	match_paren = "#4a3a20",
-	error_red = "#dd5f42",
-	changed = "#e8c46a",
+	error_red = "#e0503a",
+	changed = "#f0cf82",
 	quickfix_line = "#1e1a14",
 	title = "#f0cf82",
 	parameter = "#dcd2c0",
@@ -92,8 +102,8 @@ theme.colors = {
 	gray = "#2a221a",
 	gray3 = "#3a3228",
 	gray4 = "#5a5048",
-	cyan2 = "#7fcfb4", -- Lighter jade (properties/fields)
-	purple3 = "#c9a8e2", -- Lighter monk robe (events)
+	cyan2 = "#86d4b6", -- Lighter jade (properties/fields)
+	purple3 = "#d6a8c8", -- Lighter wine (events)
 	dark_red = "#7a2a18",
 	black = "#000000",
 }
@@ -115,7 +125,7 @@ theme.groups = {
 	Float = { fg = theme.colors.orange },
 
 	Identifier = { fg = theme.colors.cyan },
-	Function = { fg = theme.colors.blue, bold = true },
+	Function = { fg = theme.colors.brass, bold = true },
 
 	Statement = { fg = theme.colors.purple },
 	Conditional = { fg = theme.colors.purple },
@@ -138,7 +148,7 @@ theme.groups = {
 
 	Special = { fg = theme.colors.brew_amber },
 	SpecialChar = { fg = theme.colors.fire_spirit },
-	Tag = { fg = theme.colors.blue },
+	Tag = { fg = theme.colors.brass },
 	Delimiter = { fg = theme.colors.punctuation },
 	SpecialComment = { fg = theme.colors.grey, bold = true },
 	Debug = { fg = theme.colors.red },
@@ -211,10 +221,10 @@ theme.groups = {
 	["@boolean"] = { link = "Boolean" },
 	["@float"] = { link = "Float" },
 
-	["@function"] = { fg = theme.colors.blue, bold = true },
-	["@function.call"] = { fg = theme.colors.blue },
-	["@method"] = { fg = theme.colors.blue },
-	["@method.call"] = { fg = theme.colors.blue },
+	["@function"] = { fg = theme.colors.brass, bold = true },
+	["@function.call"] = { fg = theme.colors.brass },
+	["@method"] = { fg = theme.colors.brass },
+	["@method.call"] = { fg = theme.colors.brass },
 	["@constructor"] = { fg = theme.colors.cyan },
 	["@parameter"] = { fg = theme.colors.parameter },
 
@@ -244,7 +254,7 @@ theme.groups = {
 	["@punctuation.bracket"] = { fg = theme.colors.punctuation },
 	["@punctuation.special"] = { fg = theme.colors.brew_amber },
 
-	["@tag"] = { fg = theme.colors.blue },
+	["@tag"] = { fg = theme.colors.brass },
 	["@tag.delimiter"] = { fg = theme.colors.punctuation },
 	["@tag.attribute"] = { fg = theme.colors.cyan },
 
@@ -270,7 +280,7 @@ theme.groups = {
 	["@markup.heading.6"] = { fg = theme.colors.grey, bold = true },
 	["@markup.link"] = { fg = theme.colors.link, underline = true },
 	["@markup.link.label"] = { fg = theme.colors.cyan },
-	["@markup.link.url"] = { fg = theme.colors.blue, underline = true },
+	["@markup.link.url"] = { fg = theme.colors.link, underline = true },
 	["@markup.list"] = { fg = theme.colors.brew_amber },
 	["@markup.list.checked"] = { fg = theme.colors.green },
 	["@markup.list.unchecked"] = { fg = theme.colors.grey },
@@ -344,7 +354,7 @@ theme.groups = {
 	-- Redraw debug
 	RedrawDebugNormal = { bg = theme.colors.green },
 	RedrawDebugClear = { bg = theme.colors.yellow },
-	RedrawDebugComposed = { bg = theme.colors.blue },
+	RedrawDebugComposed = { bg = theme.colors.brass },
 	RedrawDebugRecompose = { bg = theme.colors.red },
 
 	-- Diff
@@ -388,13 +398,13 @@ theme.groups = {
 	NavicIconsNamespace = { fg = theme.colors.aged_leather },
 	NavicIconsPackage = { fg = theme.colors.orange },
 	NavicIconsClass = { fg = theme.colors.cyan },
-	NavicIconsMethod = { fg = theme.colors.blue },
+	NavicIconsMethod = { fg = theme.colors.brass },
 	NavicIconsProperty = { fg = theme.colors.cyan2 },
 	NavicIconsField = { fg = theme.colors.cyan2 },
 	NavicIconsConstructor = { fg = theme.colors.cyan },
 	NavicIconsEnum = { fg = theme.colors.cyan },
 	NavicIconsInterface = { fg = theme.colors.cyan },
-	NavicIconsFunction = { fg = theme.colors.blue },
+	NavicIconsFunction = { fg = theme.colors.brass },
 	NavicIconsVariable = { fg = theme.colors.fg },
 	NavicIconsConstant = { fg = theme.colors.orange },
 	NavicIconsString = { fg = theme.colors.green },
@@ -439,22 +449,26 @@ theme.groups = {
 	DapUIBreakpointsCurrentLine = { fg = theme.colors.lantern_gold, bold = true },
 }
 
+-- ANSI slots 4/12 are the "blue" slots. This hero has no blue, so
+-- they take the deepest jade available - close enough in hue that
+-- git/ls/diff output still reads as intended, without breaking the
+-- palette's rule.
 theme.terminal_colors = {
 	[0] = theme.colors.deep_cask,
 	[1] = theme.colors.fire_spirit,
-	[2] = theme.colors.bamboo_green,
-	[3] = theme.colors.lantern_gold,
-	[4] = theme.colors.storm_spirit,
+	[2] = theme.colors.moss_robe,
+	[3] = theme.colors.ferment_glow,
+	[4] = theme.colors.hot_spring,
 	[5] = theme.colors.monk_robe,
-	[6] = theme.colors.cyan,
-	[7] = theme.colors.parchment,
+	[6] = theme.colors.jade_accent,
+	[7] = theme.colors.panda_fur,
 	[8] = theme.colors.grey,
 	[9] = theme.colors.hot_iron,
-	[10] = theme.colors.jade_accent,
-	[11] = theme.colors.ferment_glow,
-	[12] = theme.colors.frost_mug,
+	[10] = theme.colors.bamboo_green,
+	[11] = theme.colors.lantern_gold,
+	[12] = theme.colors.storm_spirit,
 	[13] = theme.colors.purple3,
-	[14] = theme.colors.hot_spring,
+	[14] = theme.colors.frost_mug,
 	[15] = theme.colors.white,
 }
 
