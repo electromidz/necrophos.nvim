@@ -1,85 +1,118 @@
 local theme = {}
 
 -- ============================================================
--- Earth Spirit Theme - "The Stone Guardian"
+-- Earth Spirit Theme - "Kaolin, carved from sacred jade"
 -- ============================================================
--- Philosophy: An ancient jade statue awakened from a mountain
--- temple. The cold permanence of stone, the living warmth of
--- jade energy, the discipline of a monk who moves mountains
--- with a single touch. This theme is stone given consciousness.
+-- Sourced from the hero's own lore and model. Kaolin is a statue
+-- from a stone funerary army - Valve's own text says he was
+-- "carved from sacred jade" in "the likeness of a great general",
+-- and the design is built on the Terracotta Army. So the theme
+-- has exactly three materials:
 --
--- Not a green theme. A stone theme with jade spirit running
--- through every vein, like emerald light through granite cracks.
+--   SACRED JADE  - the living seam running through him, the only
+--                  thing on the hero that actually glows
+--   TERRACOTTA   - fired clay, the funerary army he was buried with
+--   GRANITE      - the cold grey-green stone he is carved from
+--
+-- Like the Brewmaster theme, there is NO BLUE here. Kaolin has
+-- none: Boulder Smash is grey rock, Rolling Boulder is dust,
+-- Geomagnetic Grip and Magnetize are jade green.
+--
+-- Token mapping:
+--   Spirit jade  -> functions   (the only living energy in the code)
+--   Carved jade  -> types       (the material, not the spirit)
+--   Moss on stone-> strings
+--   Terracotta   -> numbers, constants
+--   Temple bronze-> warnings, literals
+--   Clay red     -> errors, exceptions
+--   Lacquer rose -> keywords (the red lacquer on terracotta armour)
+--   Sandstone    -> namespaces, structures, preproc
+--   Granite      -> comments
+--
+-- Color rules this palette obeys:
+--   * every pair of tokens that co-occur in real code is >=15 deg
+--     apart in hue; functions vs types close that gap with an
+--     18-point lightness split instead (spirit jade glows, carved
+--     jade does not)
+--   * every foreground meets WCAG AA (>=4.5:1) against `bg`
 -- ============================================================
 
 theme.colors = {
-    -- Base colors - Ancient mountain temple at dusk
-    fg = "#A59B88",          -- Mountain dust (primary text)
+    -- Base colors - A tomb carved into the mountain
+    fg = "#cfc8b6",          -- Carved stone (primary text) - 11.3:1
     inverse_fg = "#151a14",  -- Deep temple shadow (float/surface bg)
-    bg = "#0f1210",          -- Ancient stone (main background)
+    bg = "#0f1210",          -- Ancient granite (main background)
     accent_bg = "#181e17",   -- Worn temple floor (surface bg)
-    link = "#5EB38A",        -- Geomagnetic grip (links/URLs)
-    accent = "#5FA874",      -- Jade core (accent)
-    border = "#4F574D",      -- Granite shadow (borders, punctuation)
+    link = "#4fc9a2",        -- Geomagnetic Grip (links/URLs) - 8.6:1
+    accent = "#4fc9a2",      -- Jade core (accent)
+    border = "#7d8a7c",      -- Granite edge (borders) - 4.6:1
 
-    -- Syntax highlighting - Stone and jade palette
-    red = "#B88A62",         -- Boulder smash (errors, deleted)
-    orange = "#C19A5C",      -- Temple bronze (constants, numbers)
-    yellow = "#A59B88",      -- Mountain dust (strings, warnings)
-    green = "#62C09A",       -- Spirit jade (strings, additions)
-    cyan = "#7CC9B5",        -- Enchant remnant (types, teal)
-    blue = "#727A70",        -- Stone guardian (functions)
-    purple = "#8a7a9c",      -- Twilight temple (keywords, statements)
-    grey = "#6A725F",        -- Earth crack (comments)
+    -- Syntax highlighting - Jade, terracotta, granite
+    red = "#dd5f45",         -- Clay fired too hot (errors) - H10 - 5.2:1
+    orange = "#d98c52",      -- Terracotta (numbers, constants) - H26 - 7.0:1
+    yellow = "#dcb75e",      -- Temple bronze (warnings, literals) - H42 - 9.9:1
+    green = "#a3c264",       -- Moss on stone (strings) - H80 - 9.4:1
+    jade = "#3fc994",        -- Sacred jade seam (functions) - H157 - 9.0:1
+    cyan = "#8fd3a8",        -- Carved jade (types) - H142 - 10.8:1
+    purple = "#d691a4",      -- Red lacquer (keywords) - H343 - 7.6:1
+    grey = "#79806e",        -- Granite (comments) - 4.6:1
 
     -- Earth Spirit-specific colors
-    earth_jade = "#5EB38A",       -- Geomagnetic grip
-    stone_guardian = "#727A70",   -- Animated stone body
-    mountain_dust = "#A59B88",    -- Dust clouds
-    temple_bronze = "#C19A5C",    -- Ancient artifact metal
-    spirit_jade = "#62C09A",      -- Spirit energy
-    granite_shadow = "#4F574D",   -- Deep rock
-    jade_shard = "#74C489",       -- Remnant fragment
-    weathered_rock = "#808579",   -- Old mountain stone
-    jade_core = "#5FA874",        -- Living jade
-    spirit_emerald = "#68D4A0",   -- Glowing minerals
-    ancient_mineral = "#8AB89A",  -- Enchanted minerals
-    boulder_smash = "#B88A62",    -- Sandstone impact
-    rolling_boulder = "#7B8478",  -- Moving granite
-    earth_crack = "#6A725F",      -- Fractured stone
-    enchant_remnant = "#7CC9B5",  -- Spirit-infused jade
-    magnetize = "#68D4A0",        -- Glowing minerals
-    deep_earth = "#1a2018",       -- Underground cavern
-    parchment_anc = "#c8c4b4",    -- Ancient scroll
+    spirit_jade = "#3fc994",      -- The living seam
+    earth_jade = "#4fc9a2",       -- Geomagnetic Grip
+    spirit_emerald = "#6fdcb0",   -- Magnetize glow (brightest jade)
+    carved_jade = "#8fd3a8",      -- Jade as carved material, not spirit
+    jade_shard = "#7ddcb4",       -- Stone Remnant fragment
+    jade_core = "#3fc994",        -- Living jade
+    ancient_mineral = "#a8dec0",  -- Enchanted minerals
+    enchant_remnant = "#8fd3a8",  -- Spirit-infused jade
+    magnetize = "#6fdcb0",        -- Glowing minerals
+    terracotta = "#d98c52",       -- Fired funerary clay
+    temple_bronze = "#dcb75e",    -- Ancient artifact metal
+    boulder_smash = "#c47a58",    -- Sandstone impact
+    clay_bright = "#e87a5e",      -- Kiln-hot clay (terminal bright red)
+    lacquer_rose = "#d691a4",     -- Red lacquer on terracotta armour
+    sandstone = "#b5a487",        -- Dust and weathered sandstone
+    mountain_dust = "#b5a487",    -- Dust clouds
+    weathered_rock = "#a1937c",   -- Old mountain stone
+    stone_guardian = "#8a9484",   -- Animated stone body
+    rolling_boulder = "#8a8a76",  -- Moving granite
+    earth_crack = "#79806e",      -- Fractured stone
+    granite_shadow = "#2a322a",   -- Deep rock (selection bg)
+    moss_bright = "#b8d67a",      -- Lit moss (terminal bright green)
+    bronze_bright = "#e8cd82",    -- Polished bronze (terminal bright yellow)
+    deep_earth = "#141a13",       -- Underground cavern
+    parchment_anc = "#d8d2c0",    -- Ancient scroll
+    punctuation = "#8d8d7d",      -- Brackets/operators: present, not shouting
 
     -- UI colors - Stone and jade readable
     folded_bg = "#161c15",
     cursor_fg = "#0f1210",
-    cursor_bg = "#5EB38A",
-    line_number_fg = "#4F574D",
-    line_number_active_fg = "#A59B88",
-    sign_add = "#62C09A",
-    sign_change = "#C19A5C",
-    sign_delete = "#B88A62",
+    cursor_bg = "#4fc9a2",
+    line_number_fg = "#4a5148",   -- was 2.5:1, now 2.3:1 but no longer = border
+    line_number_active_fg = "#c2bba8",
+    sign_add = "#a3c264",
+    sign_change = "#dcb75e",
+    sign_delete = "#dd5f45",
     indent_guide = "#1e261c",
-    indent_guide_active = "#4F574D",
-    visual = "#1e2a1c",
-    match_paren = "#2a3428",
-    error_red = "#B88A62",
+    indent_guide_active = "#3a423a",
+    visual = "#1f2a1e",
+    match_paren = "#2f3d2c",
+    error_red = "#dd5f45",
     quickfix_line = "#161c15",
-    title = "#74C489",
-    parameter = "#A59B88",
-    dark_red = "#702820",
-    white = "#A59B88",
+    title = "#7ddcb4",
+    parameter = "#c4bda9",
+    dark_red = "#6e2a1e",
+    white = "#e0dac9",
     black = "#000000",
 
     -- Extended UI palette
     gray = "#1e261c",
     gray3 = "#2e362c",
-    gray4 = "#4F574D",
-    gray6 = "#6A725F",
-    cyan2 = "#7CC9B5",
-    purple3 = "#8a7a9c",
+    gray4 = "#4a5148",
+    gray6 = "#79806e",
+    cyan2 = "#a8dec0",
+    purple3 = "#e0aab8",
 }
 
 theme.groups = {
@@ -99,13 +132,13 @@ theme.groups = {
     Float = { fg = theme.colors.orange },
 
     Identifier = { fg = theme.colors.cyan },
-    Function = { fg = theme.colors.blue, bold = true },
+    Function = { fg = theme.colors.jade, bold = true },
 
     Statement = { fg = theme.colors.purple },
     Conditional = { fg = theme.colors.purple },
     Repeat = { fg = theme.colors.purple },
     Label = { fg = theme.colors.purple },
-    Operator = { fg = theme.colors.fg },
+    Operator = { fg = theme.colors.punctuation },
     Keyword = { fg = theme.colors.purple, italic = true },
     Exception = { fg = theme.colors.red },
 
@@ -122,8 +155,8 @@ theme.groups = {
 
     Special = { fg = theme.colors.earth_jade },
     SpecialChar = { fg = theme.colors.red },
-    Tag = { fg = theme.colors.blue },
-    Delimiter = { fg = theme.colors.fg },
+    Tag = { fg = theme.colors.jade },
+    Delimiter = { fg = theme.colors.punctuation },
     SpecialComment = { fg = theme.colors.grey, bold = true },
     Debug = { fg = theme.colors.red },
 
@@ -172,10 +205,10 @@ theme.groups = {
     DiagnosticUnderlineHint = { sp = theme.colors.mountain_dust, undercurl = true },
 
     -- Git groups
-    DiffAdd = { fg = theme.colors.green, bg = "#161e14" },
-    DiffChange = { fg = theme.colors.yellow, bg = "#1e1e14" },
-    DiffDelete = { fg = theme.colors.red, bg = "#1e1414" },
-    DiffText = { fg = theme.colors.fg, bg = "#1e1e14" },
+    DiffAdd = { fg = theme.colors.green, bg = "#18220f" },
+    DiffChange = { fg = theme.colors.yellow, bg = "#242012" },
+    DiffDelete = { fg = theme.colors.red, bg = "#261512" },
+    DiffText = { fg = theme.colors.bronze_bright, bg = "#3a3218", bold = true },
 
     gitcommitSummary = { fg = theme.colors.green, bold = true },
     gitcommitBranch = { fg = theme.colors.spirit_emerald },
@@ -195,10 +228,10 @@ theme.groups = {
     ["@boolean"] = { link = "Boolean" },
     ["@float"] = { link = "Float" },
 
-    ["@function"] = { fg = theme.colors.blue, bold = true },
-    ["@function.call"] = { fg = theme.colors.blue },
-    ["@method"] = { fg = theme.colors.blue },
-    ["@method.call"] = { fg = theme.colors.blue },
+    ["@function"] = { fg = theme.colors.jade, bold = true },
+    ["@function.call"] = { fg = theme.colors.jade },
+    ["@method"] = { fg = theme.colors.jade },
+    ["@method.call"] = { fg = theme.colors.jade },
     ["@constructor"] = { fg = theme.colors.cyan },
     ["@parameter"] = { fg = theme.colors.parameter },
 
@@ -223,13 +256,13 @@ theme.groups = {
     ["@constant.builtin"] = { fg = theme.colors.orange, bold = true },
     ["@property"] = { fg = theme.colors.cyan2 },
 
-    ["@operator"] = { fg = theme.colors.fg },
-    ["@punctuation.delimiter"] = { fg = theme.colors.border },
-    ["@punctuation.bracket"] = { fg = theme.colors.fg },
+    ["@operator"] = { fg = theme.colors.punctuation },
+    ["@punctuation.delimiter"] = { fg = theme.colors.punctuation },
+    ["@punctuation.bracket"] = { fg = theme.colors.punctuation },
     ["@punctuation.special"] = { fg = theme.colors.earth_jade },
 
-    ["@tag"] = { fg = theme.colors.blue },
-    ["@tag.delimiter"] = { fg = theme.colors.border },
+    ["@tag"] = { fg = theme.colors.jade },
+    ["@tag.delimiter"] = { fg = theme.colors.punctuation },
     ["@tag.attribute"] = { fg = theme.colors.cyan },
 
     ["@text"] = { fg = theme.colors.fg },
@@ -249,12 +282,12 @@ theme.groups = {
     ["@markup.heading.1"] = { fg = theme.colors.spirit_emerald, bold = true },
     ["@markup.heading.2"] = { fg = theme.colors.earth_jade, bold = true },
     ["@markup.heading.3"] = { fg = theme.colors.mountain_dust, bold = true },
-    ["@markup.heading.4"] = { fg = theme.colors.blue, bold = true },
+    ["@markup.heading.4"] = { fg = theme.colors.carved_jade, bold = true },
     ["@markup.heading.5"] = { fg = theme.colors.purple, bold = true },
     ["@markup.heading.6"] = { fg = theme.colors.grey, bold = true },
     ["@markup.link"] = { fg = theme.colors.link, underline = true },
     ["@markup.link.label"] = { fg = theme.colors.cyan },
-    ["@markup.link.url"] = { fg = theme.colors.blue, underline = true },
+    ["@markup.link.url"] = { fg = theme.colors.link, underline = true },
     ["@markup.list"] = { fg = theme.colors.spirit_emerald },
     ["@markup.list.checked"] = { fg = theme.colors.green },
     ["@markup.list.unchecked"] = { fg = theme.colors.grey },
@@ -328,7 +361,7 @@ theme.groups = {
     -- Redraw debug
     RedrawDebugNormal = { bg = theme.colors.green },
     RedrawDebugClear = { bg = theme.colors.yellow },
-    RedrawDebugComposed = { bg = theme.colors.blue },
+    RedrawDebugComposed = { bg = theme.colors.jade },
     RedrawDebugRecompose = { bg = theme.colors.red },
 
     -- Diff
@@ -372,13 +405,13 @@ theme.groups = {
     NavicIconsNamespace = { fg = theme.colors.weathered_rock },
     NavicIconsPackage = { fg = theme.colors.orange },
     NavicIconsClass = { fg = theme.colors.cyan },
-    NavicIconsMethod = { fg = theme.colors.blue },
+    NavicIconsMethod = { fg = theme.colors.jade },
     NavicIconsProperty = { fg = theme.colors.cyan2 },
     NavicIconsField = { fg = theme.colors.cyan2 },
     NavicIconsConstructor = { fg = theme.colors.cyan },
     NavicIconsEnum = { fg = theme.colors.cyan },
     NavicIconsInterface = { fg = theme.colors.cyan },
-    NavicIconsFunction = { fg = theme.colors.blue },
+    NavicIconsFunction = { fg = theme.colors.jade },
     NavicIconsVariable = { fg = theme.colors.fg },
     NavicIconsConstant = { fg = theme.colors.orange },
     NavicIconsString = { fg = theme.colors.green },
@@ -391,7 +424,7 @@ theme.groups = {
     NavicIconsEnumMember = { fg = theme.colors.cyan2 },
     NavicIconsStruct = { fg = theme.colors.weathered_rock },
     NavicIconsEvent = { fg = theme.colors.purple3 },
-    NavicIconsOperator = { fg = theme.colors.fg },
+    NavicIconsOperator = { fg = theme.colors.punctuation },
     NavicIconsTypeParameter = { fg = theme.colors.cyan },
     NavicText = { fg = theme.colors.fg },
     NavicSeparator = { fg = theme.colors.border },
@@ -423,22 +456,25 @@ theme.groups = {
     DapUIBreakpointsCurrentLine = { fg = theme.colors.earth_jade, bold = true },
 }
 
+-- ANSI slots 4/12 are the "blue" slots. Kaolin has no blue, so they
+-- take the deepest jade available - close enough in hue that
+-- git/ls/diff output still reads as intended.
 theme.terminal_colors = {
     [0] = theme.colors.deep_earth,
     [1] = theme.colors.red,
     [2] = theme.colors.green,
     [3] = theme.colors.temple_bronze,
-    [4] = theme.colors.spirit_emerald,
-    [5] = theme.colors.purple,
-    [6] = theme.colors.cyan,
+    [4] = theme.colors.spirit_jade,
+    [5] = theme.colors.lacquer_rose,
+    [6] = theme.colors.carved_jade,
     [7] = theme.colors.parchment_anc,
     [8] = theme.colors.grey,
-    [9] = theme.colors.red,
-    [10] = theme.colors.jade_shard,
-    [11] = theme.colors.yellow,
-    [12] = theme.colors.magnetize,
+    [9] = theme.colors.clay_bright,
+    [10] = theme.colors.moss_bright,
+    [11] = theme.colors.bronze_bright,
+    [12] = theme.colors.spirit_emerald,
     [13] = theme.colors.purple3,
-    [14] = theme.colors.enchant_remnant,
+    [14] = theme.colors.ancient_mineral,
     [15] = theme.colors.white,
 }
 
