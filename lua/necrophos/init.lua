@@ -19,6 +19,7 @@ M.themes = {
 	earth_spirit = require("necrophos.themes.earth_spirit"),
 	lich = require("necrophos.themes.lich"),
 	arc_warden = require("necrophos.themes.arc_warden"),
+	dragon_knight = require("necrophos.themes.dragon_knight"),
 }
 
 function M.setup(opts)
@@ -143,6 +144,8 @@ function M.toggle_theme()
 		M.set_theme("lich")
 	elseif current == "lich" then
 		M.set_theme("arc_warden")
+	elseif current == "arc_warden" then
+		M.set_theme("dragon_knight")
 	else
 		M.set_theme("necrophos")
 	end
@@ -176,6 +179,10 @@ end, { desc = "Set Necrophos Lich theme" })
 vim.api.nvim_create_user_command("NecrophosArcWarden", function()
 	M.set_theme("arc_warden")
 end, { desc = "Set Necrophos Arc Warden theme" })
+
+vim.api.nvim_create_user_command("NecrophosDragonKnight", function()
+	M.set_theme("dragon_knight")
+end, { desc = "Set Necrophos Dragon Knight theme" })
 
 -- Export for use in LazyVim config
 return M
