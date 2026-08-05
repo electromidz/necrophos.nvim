@@ -18,10 +18,10 @@ theme.colors = {
 	orange = "#e09a5f", -- rum amber
 	yellow = "#e8c76e", -- doubloons
 	green = "#63c79b", -- sea moss
-	cyan = "#5cc6c9", -- spectral teal
+	cyan = "#6fd3bd", -- Ghostship hull teal (types) - H167 - 9.9:1
 	blue = "#6fa8d6", -- Tidebringer steel
 	purple = "#a793e8", -- X marks the spot
-	grey = "#5d7285", -- comments, readable but recessed
+	grey = "#70869c", -- comments - 4.7:1
 
 	-- Kunkka-specific colors
 	tide_blue = "#41b3c6", -- Torrent water
@@ -37,7 +37,7 @@ theme.colors = {
 	folded_bg = "#0c2437",
 	cursor_fg = "#04121f",
 	cursor_bg = "#7fd6c6",
-	line_number_fg = "#3d5568",
+	line_number_fg = "#4f6a7e", -- was 2.3:1, now 3.1:1
 	line_number_active_fg = "#a3dfe8",
 	sign_add = "#63c79b",
 	sign_change = "#e0b45c",

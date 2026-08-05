@@ -47,12 +47,12 @@ theme.colors = {
 	-- CONSTANTS/NUMBERS: Exort — the fire orb. Constants
 	-- are burning points of immutable truth, like Sun Strike's
 	-- concentrated solar beam hitting a fixed coordinate.
-	orange = "#EEAA46",       -- Sun Strike solar (constants)
+	orange = "#EE9046",       -- Exort molten (constants) - H26 - 7.9:1
 
 	-- STRINGS: Alacrity's enchanted gold. Strings are the
 	-- most verbose, "human" part of code — warm, readable,
 	-- carrying meaning like Alacrity's blessed text.
-	yellow = "#DFC275",       -- Alacrity gold (strings)
+	yellow = "#E0C878",       -- Alacrity gold (strings) - H46 - 11.6:1
 
 	-- TYPES: The arcane mastery that unifies all three orbs.
 	-- A cool teal that bridges Quas's ice and Wex's storm,
@@ -67,7 +67,7 @@ theme.colors = {
 	-- COMMENTS: Ghost Walk's ethereal mist. Comments are
 	-- invisible to the compiler, floating like Invoker
 	-- when Ghost Walk is active — present but translucent.
-	grey = "#5C6B7E",         -- Ghost Walk mist (comments)
+	grey = "#707F94",         -- Ghost Walk mist (comments) - 4.7:1
 
 	-- OPERATORS: Deafening Blast's shockwave — the moment
 	-- all three orbs combine. A bright, almost-white cyan
@@ -126,7 +126,7 @@ theme.colors = {
 	-- === CHAOS METEOR (Exort + Exort) ===
 	-- A flaming meteor crashes down. The deepest fire color:
 	-- molten red-orange, the heart of a dying star.
-	chaos_meteor = "#D95C31",     -- Molten impact red
+	chaos_meteor = "#E05236",     -- Molten impact red - H10 - 4.9:1
 
 	-- === SUN STRIKE (Exort + Exort) ===
 	-- A beam of pure solar energy from the sky. The brightest
@@ -173,7 +173,7 @@ theme.colors = {
 	folded_bg = "#0F1424",
 	cursor_fg = "#0B0F1C",
 	cursor_bg = "#8FDCF0",       -- Quas cyan cursor
-	line_number_fg = "#37485F",
+	line_number_fg = "#4B5E78", -- was 2.1:1, now 2.9:1
 	line_number_active_fg = "#8FB0C8", -- Tornado wind
 	sign_add = "#5FC9B4",        -- Arcane mastery green
 	sign_change = "#EEC656",     -- Alacrity gold
@@ -225,7 +225,7 @@ theme.groups = {
 	Label = { fg = theme.colors.wex_purple },
 	Operator = { fg = theme.colors.blue },
 	Keyword = { fg = theme.colors.wex_purple, italic = true },
-	Exception = { fg = theme.colors.exort_orange },
+	Exception = { fg = theme.colors.red },
 
 	PreProc = { fg = theme.colors.robe_fabric },
 	Include = { fg = theme.colors.wex_purple },
@@ -239,11 +239,11 @@ theme.groups = {
 	Typedef = { fg = theme.colors.cyan },
 
 	Special = { fg = theme.colors.quas_blue },
-	SpecialChar = { fg = theme.colors.exort_orange },
+	SpecialChar = { fg = theme.colors.red },
 	Tag = { fg = theme.colors.blue },
 	Delimiter = { fg = theme.colors.fg },
 	SpecialComment = { fg = theme.colors.grey, bold = true },
-	Debug = { fg = theme.colors.exort_orange },
+	Debug = { fg = theme.colors.red },
 
 	Underlined = { fg = theme.colors.link, underline = true },
 	Bold = { bold = true },
@@ -328,7 +328,7 @@ theme.groups = {
 	["@debug"] = { link = "Debug" },
 	["@label"] = { link = "Label" },
 	["@include"] = { link = "Include" },
-	["@exception"] = { fg = theme.colors.exort_orange },
+	["@exception"] = { fg = theme.colors.red },
 
 	["@type"] = { fg = theme.colors.cyan },
 	["@type.builtin"] = { fg = theme.colors.cyan, italic = true },
