@@ -39,8 +39,10 @@ local theme = {}
 --
 -- Color rules this palette obeys:
 --   * minimum hue gap across all 21 syntax pairs is 19 deg - the
---     widest in this plugin (brewmaster 17, earth_spirit 15)
+--     widest in this plugin (brewmaster 15, earth_spirit 15)
 --   * every foreground meets WCAG AA (>=4.5:1) against `bg`
+--   * cursor_line < visual < match_paren, three distinct steps, so a
+--     selection stays visible on the cursor's own line
 -- ============================================================
 
 theme.colors = {
@@ -89,18 +91,28 @@ theme.colors = {
 	obsidian_surface = "#241d26", -- Lit obsidian (selection)
 	punctuation = "#8e8a98", -- Brackets/operators: present, not shouting
 
+	-- Diff washes - tinted toward each diff's foreground hue but kept
+	-- dark enough that the text on top keeps its own contrast.
+	diff_add_bg = "#16260f", -- Corrosive Breath (added)
+	diff_change_bg = "#2a2413", -- Knight's gold (changed)
+	diff_delete_bg = "#2c1518", -- Dragon fire (removed)
+	diff_text_bg = "#443616", -- Polished gold (changed word)
+
 	-- UI colors
 	folded_bg = "#1a151c",
 	cursor_fg = "#141013",
 	cursor_bg = "#5cb2eb",
-	line_number_fg = "#4e4a58",
+	line_number_fg = "#5c5768", -- was 2.2:1, now 2.7:1
 	line_number_active_fg = "#c0bcc8",
 	sign_add = "#8ad44a",
 	sign_change = "#e4c852",
 	sign_delete = "#e8543c",
 	indent_guide = "#251f28",
 	indent_guide_active = "#3e3846",
-	visual = "#241d2a",
+	-- Three distinct background steps so a selection stays visible on
+	-- the cursor's own line: cursor_line < visual < match_paren.
+	cursor_line = "#1b161e", -- Cursor line / column wash
+	visual = "#2a2232", -- Selection - brighter than the cursor line
 	match_paren = "#3a2f44",
 	error_red = "#e8543c",
 	changed = "#e4c852",
@@ -171,9 +183,9 @@ theme.groups = {
 	-- UI groups
 	LineNr = { fg = theme.colors.line_number_fg },
 	CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-	CursorLine = { bg = theme.colors.visual },
-	CursorColumn = { bg = theme.colors.visual },
-	ColorColumn = { bg = theme.colors.visual },
+	CursorLine = { bg = theme.colors.cursor_line },
+	CursorColumn = { bg = theme.colors.cursor_line },
+	ColorColumn = { bg = theme.colors.cursor_line },
 
 	SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
 	FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
@@ -209,17 +221,17 @@ theme.groups = {
 	DiagnosticUnderlineHint = { sp = theme.colors.frost_pale, undercurl = true },
 
 	-- Git groups
-	DiffAdd = { fg = theme.colors.green, bg = "#16260f" },
-	DiffChange = { fg = theme.colors.yellow, bg = "#2a2413" },
-	DiffDelete = { fg = theme.colors.red, bg = "#2c1518" },
-	DiffText = { fg = theme.colors.gold_bright, bg = "#443616", bold = true },
+	DiffAdd = { fg = theme.colors.green, bg = theme.colors.diff_add_bg },
+	DiffChange = { fg = theme.colors.yellow, bg = theme.colors.diff_change_bg },
+	DiffDelete = { fg = theme.colors.red, bg = theme.colors.diff_delete_bg },
+	DiffText = { fg = theme.colors.gold_bright, bg = theme.colors.diff_text_bg, bold = true },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
 	gitcommitBranch = { fg = theme.colors.knight_gold },
 
 	-- LSP groups
-	LspReferenceText = { bg = theme.colors.visual },
-	LspReferenceRead = { bg = theme.colors.visual },
+	LspReferenceText = { bg = theme.colors.obsidian_surface },
+	LspReferenceRead = { bg = theme.colors.obsidian_surface },
 	LspReferenceWrite = { bg = theme.colors.match_paren, bold = true },
 	LspSignatureActiveParameter = { fg = theme.colors.knight_gold, bold = true },
 

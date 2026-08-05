@@ -25,8 +25,8 @@ theme.colors = {
 	-- not pure black, but infused with the faintest blue-violet
 	-- residue of primordial energy.
 	bg = "#0A0C14", -- Primordial void (main background)
-	inverse_fg = "#0A0C14", -- Inverted for float surfaces
-	accent_bg = "#10141E", -- Astral plane (elevated surfaces)
+	inverse_fg = "#10141E", -- Astral plane (float surfaces, lifted off bg)
+	accent_bg = "#10141E", -- Elevated surfaces
 
 	-- Foreground is pale moonlight — the color of the Mad Moon's
 	-- glow reflected off ancient crystal. Cool-toned, crisp,
@@ -57,41 +57,41 @@ theme.colors = {
 	-- are the active, executing core of code, like Flux's
 	-- swirling energy ripping through targets. Electric blue
 	-- crackles through every function call.
-	blue = "#58B8E8", -- Flux plasma (functions)
+	blue = "#58B8E8", -- Flux plasma (functions) - H200 - 8.8:1
 
 	-- KEYWORDS/STATEMENTS: Tempest Double — the cosmic
 	-- duplication energy. Keywords control the flow of
 	-- execution, like the Tempest Double mirrors every action.
 	-- Deep cosmic indigo, the color of reality being copied.
-	purple = "#9878D0", -- Tempest indigo (keywords)
+	purple = "#9878D0", -- Tempest indigo (keywords) - H262 - 5.5:1
 
 	-- CONSTANTS/NUMBERS: Magnetic Field — the protective
 	-- barrier. Constants are fixed, immutable values protected
 	-- from change, like allies sheltered inside the magnetic
 	-- dome. Teal-cyan, stable and defensive.
-	cyan = "#48B8A8", -- Magnetic Field teal (types)
+	cyan = "#45BEC0", -- Magnetic Field teal (constants) - H181 - 8.7:1
 
-	-- STRINGS: Spark Wraith — the spectral spirit. Strings
-	-- are the most "human" part of code, carrying meaning
-	-- like a wraith carries its spectral form. Soft
-	-- violet-blue, ghostly but readable.
-	yellow = "#C8B870", -- Runic gold (strings)
+	-- STRINGS: Runic Infusion — the Runes of Power that fuse
+	-- to the Self. Strings are the most "human" part of code,
+	-- carrying accumulated meaning the way the runes carry
+	-- accumulated power. The one warm anchor in a cold palette.
+	yellow = "#C8B870", -- Runic gold (strings) - H49 - 9.8:1
 
 	-- TYPES: Primordial light — the original consciousness.
 	-- Types are the foundational structures of code, like
 	-- Zet's connection to the Primordial Mind. Warm teal,
 	-- ancient and knowing.
-	green = "#58B898", -- Primordial teal (success)
+	green = "#5CC08C", -- Primordial teal (types) - H149 - 8.7:1
 
 	-- ERRORS/EXCEPTIONS: The Mad Moon's death — the explosion
 	-- that shattered Zet. A warm violet that signals danger
 	-- without the aggression of pure red.
-	red = "#D87868", -- Lunar fracture (errors)
+	red = "#D87868", -- Lunar fracture (errors) - H9 - 6.3:1
 
 	-- COMMENTS: Void residue — the faint energy left after
 	-- the Mad Moon shattered. Muted blue-gray, present but
 	-- unobtrusive, like memories of a destroyed world.
-	grey = "#4A5468", -- Void residue (comments)
+	grey = "#6D7A92", -- Void residue (comments) - 4.5:1
 
 	-- ==========================================================
 	-- HERO-SPECIFIC COLORS: Arc Warden's palette
@@ -151,7 +151,7 @@ theme.colors = {
 	-- === ASTRAL DUST ===
 	-- Cosmic particles floating in the void between abilities.
 	-- Mid-tone blue-gray, the medium through which energy travels.
-	astral_dust = "#586878", -- Cosmic medium
+	astral_dust = "#8492A8", -- Cosmic medium (PreProc) - 6.2:1
 
 	-- === PLASMA BRIGHT ===
 	-- Flux at maximum intensity — the color of pure electrical
@@ -190,15 +190,18 @@ theme.colors = {
 	folded_bg = "#0E1018",
 	cursor_fg = "#0A0C14",
 	cursor_bg = "#58B8E8", -- Flux plasma cursor
-	line_number_fg = "#2A3448",
-	line_number_active_fg = "#586878", -- Astral dust
-	sign_add = "#58B898", -- Primordial teal
+	line_number_fg = "#4E5B74", -- was 1.6:1 (invisible), now 2.9:1
+	line_number_active_fg = "#8492A8", -- Astral dust
+	sign_add = "#5CC08C", -- Primordial teal
 	sign_change = "#D8C068", -- Runic gold
 	sign_delete = "#D87868", -- Lunar fracture
 	indent_guide = "#161C28",
 	indent_guide_active = "#2A3448",
-	visual = "#141C2A",
-	match_paren = "#1E2838",
+	-- Three distinct background steps so a selection stays visible on
+	-- the cursor's own line: cursor_line < visual < match_paren.
+	cursor_line = "#111725", -- Cursor line / column wash
+	visual = "#1E2C42", -- Selection - brighter than the cursor line
+	match_paren = "#2A3C58",
 	error_red = "#D87868",
 	quickfix_line = "#0E1018",
 	white = "#E0E4EC",
@@ -209,7 +212,7 @@ theme.colors = {
 	gray3 = "#1E2838",
 	gray4 = "#2A3448",
 	gray6 = "#4A5468",
-	green = "#58B898",
+	green = "#5CC08C",
 	cyan2 = "#48A8C0",
 	purple3 = "#9878D0",
 }
@@ -223,14 +226,14 @@ theme.groups = {
 
 	-- Syntax groups
 	Comment = { fg = theme.colors.grey, italic = true },
-	Constant = { fg = theme.colors.yellow },
+	Constant = { fg = theme.colors.cyan },
 	String = { fg = theme.colors.yellow },
 	Character = { fg = theme.colors.yellow },
-	Number = { fg = theme.colors.yellow },
-	Boolean = { fg = theme.colors.yellow },
-	Float = { fg = theme.colors.yellow },
+	Number = { fg = theme.colors.cyan },
+	Boolean = { fg = theme.colors.cyan },
+	Float = { fg = theme.colors.cyan },
 
-	Identifier = { fg = theme.colors.cyan },
+	Identifier = { fg = theme.colors.green },
 	Function = { fg = theme.colors.blue, bold = true },
 
 	Statement = { fg = theme.colors.purple },
@@ -247,10 +250,10 @@ theme.groups = {
 	Macro = { fg = theme.colors.astral_dust },
 	PreCondit = { fg = theme.colors.astral_dust },
 
-	Type = { fg = theme.colors.cyan },
+	Type = { fg = theme.colors.green },
 	StorageClass = { fg = theme.colors.purple },
 	Structure = { fg = theme.colors.astral_dust },
-	Typedef = { fg = theme.colors.cyan },
+	Typedef = { fg = theme.colors.green },
 
 	Special = { fg = theme.colors.flux_plasma },
 	SpecialChar = { fg = theme.colors.red },
@@ -266,9 +269,9 @@ theme.groups = {
 	-- UI groups
 	LineNr = { fg = theme.colors.line_number_fg },
 	CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-	CursorLine = { bg = theme.colors.visual },
-	CursorColumn = { bg = theme.colors.visual },
-	ColorColumn = { bg = theme.colors.visual },
+	CursorLine = { bg = theme.colors.cursor_line },
+	CursorColumn = { bg = theme.colors.cursor_line },
+	ColorColumn = { bg = theme.colors.cursor_line },
 
 	SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
 	FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
@@ -331,7 +334,7 @@ theme.groups = {
 	["@function.call"] = { fg = theme.colors.blue },
 	["@method"] = { fg = theme.colors.blue },
 	["@method.call"] = { fg = theme.colors.blue },
-	["@constructor"] = { fg = theme.colors.cyan },
+	["@constructor"] = { fg = theme.colors.green },
 	["@parameter"] = { fg = theme.colors.parameter },
 
 	["@keyword"] = { fg = theme.colors.purple, italic = true },
@@ -344,15 +347,15 @@ theme.groups = {
 	["@include"] = { link = "Include" },
 	["@exception"] = { fg = theme.colors.red },
 
-	["@type"] = { fg = theme.colors.cyan },
-	["@type.builtin"] = { fg = theme.colors.cyan, italic = true },
+	["@type"] = { fg = theme.colors.green },
+	["@type.builtin"] = { fg = theme.colors.green, italic = true },
 	["@structure"] = { fg = theme.colors.astral_dust },
 	["@namespace"] = { fg = theme.colors.astral_dust },
 
 	["@variable"] = { fg = theme.colors.fg },
-	["@variable.builtin"] = { fg = theme.colors.yellow, italic = true },
-	["@constant"] = { fg = theme.colors.yellow },
-	["@constant.builtin"] = { fg = theme.colors.yellow, bold = true },
+	["@variable.builtin"] = { fg = theme.colors.cyan, italic = true },
+	["@constant"] = { fg = theme.colors.cyan },
+	["@constant.builtin"] = { fg = theme.colors.cyan, bold = true },
 	["@property"] = { fg = theme.colors.cyan2 },
 
 	["@operator"] = { fg = theme.colors.fg },
@@ -362,7 +365,7 @@ theme.groups = {
 
 	["@tag"] = { fg = theme.colors.blue },
 	["@tag.delimiter"] = { fg = theme.colors.border },
-	["@tag.attribute"] = { fg = theme.colors.cyan },
+	["@tag.attribute"] = { fg = theme.colors.green },
 
 	["@text"] = { fg = theme.colors.fg },
 	["@text.strong"] = { bold = true },
@@ -385,7 +388,7 @@ theme.groups = {
 	["@markup.heading.5"] = { fg = theme.colors.purple, bold = true },
 	["@markup.heading.6"] = { fg = theme.colors.grey, bold = true },
 	["@markup.link"] = { fg = theme.colors.link, underline = true },
-	["@markup.link.label"] = { fg = theme.colors.cyan },
+	["@markup.link.label"] = { fg = theme.colors.green },
 	["@markup.link.url"] = { fg = theme.colors.blue, underline = true },
 	["@markup.list"] = { fg = theme.colors.flux_plasma },
 	["@markup.list.checked"] = { fg = theme.colors.green },
@@ -503,19 +506,19 @@ theme.groups = {
 	NavicIconsModule = { fg = theme.colors.purple },
 	NavicIconsNamespace = { fg = theme.colors.astral_dust },
 	NavicIconsPackage = { fg = theme.colors.yellow },
-	NavicIconsClass = { fg = theme.colors.cyan },
+	NavicIconsClass = { fg = theme.colors.green },
 	NavicIconsMethod = { fg = theme.colors.blue },
 	NavicIconsProperty = { fg = theme.colors.cyan2 },
 	NavicIconsField = { fg = theme.colors.cyan2 },
-	NavicIconsConstructor = { fg = theme.colors.cyan },
-	NavicIconsEnum = { fg = theme.colors.cyan },
-	NavicIconsInterface = { fg = theme.colors.cyan },
+	NavicIconsConstructor = { fg = theme.colors.green },
+	NavicIconsEnum = { fg = theme.colors.green },
+	NavicIconsInterface = { fg = theme.colors.green },
 	NavicIconsFunction = { fg = theme.colors.blue },
 	NavicIconsVariable = { fg = theme.colors.fg },
-	NavicIconsConstant = { fg = theme.colors.yellow },
+	NavicIconsConstant = { fg = theme.colors.cyan },
 	NavicIconsString = { fg = theme.colors.yellow },
-	NavicIconsNumber = { fg = theme.colors.yellow },
-	NavicIconsBoolean = { fg = theme.colors.yellow },
+	NavicIconsNumber = { fg = theme.colors.cyan },
+	NavicIconsBoolean = { fg = theme.colors.cyan },
 	NavicIconsArray = { fg = theme.colors.astral_dust },
 	NavicIconsObject = { fg = theme.colors.astral_dust },
 	NavicIconsKey = { fg = theme.colors.purple },
@@ -524,7 +527,7 @@ theme.groups = {
 	NavicIconsStruct = { fg = theme.colors.astral_dust },
 	NavicIconsEvent = { fg = theme.colors.purple3 },
 	NavicIconsOperator = { fg = theme.colors.fg },
-	NavicIconsTypeParameter = { fg = theme.colors.cyan },
+	NavicIconsTypeParameter = { fg = theme.colors.green },
 	NavicText = { fg = theme.colors.fg },
 	NavicSeparator = { fg = theme.colors.border },
 
@@ -547,8 +550,8 @@ theme.groups = {
 
 	-- DAP UI
 	DapUIScope = { fg = theme.colors.flux_plasma },
-	DapUIType = { fg = theme.colors.cyan },
-	DapUIValue = { fg = theme.colors.yellow },
+	DapUIType = { fg = theme.colors.green },
+	DapUIValue = { fg = theme.colors.cyan },
 	DapUIVariable = { fg = theme.colors.fg },
 	DapUIBreakpointsPath = { fg = theme.colors.flux_plasma },
 	DapUIBreakpointsInfo = { fg = theme.colors.accent },

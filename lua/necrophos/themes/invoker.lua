@@ -9,26 +9,26 @@ theme.colors = {
 	-- a deep, dark blue-black like the space between stars.
 	-- Inspired by Ghost Walk's ethereal invisibility and the
 	-- cosmic darkness that precedes an Invoker combo.
-	bg = "#0B0D17",            -- Cosmic void (main background)
-	inverse_fg = "#0B0D17",    -- Inverted for float surfaces
-	accent_bg = "#131828",     -- Astral plane (elevated surfaces)
+	bg = "#0B0F1C",            -- Cosmic void (main background)
+	inverse_fg = "#111729",    -- Astral plane (float surfaces, lifted off bg)
+	accent_bg = "#111729",     -- Elevated surfaces
 
 	-- Foreground is pale lunar silver — cool-toned to harmonize
 	-- with the ice/storm/fire trinity without leaning too warm
 	-- or too cold. Reads as "ancient parchment by moonlight."
-	fg = "#C8C4BC",            -- Pale lunar silver (primary text)
+	fg = "#CBC7BF",            -- Pale lunar silver (primary text)
 
 	-- Border uses the storm element's mid-tone: the silver-blue
 	-- of wind and Tornado's funnel. Visible but not dominant.
-	border = "#3A4A5E",        -- Tornado silver-blue (borders)
+	border = "#44566E",        -- Tornado silver-blue (borders)
 
 	-- Link color is the purest Quas expression: the bright
 	-- glacial cyan of Cold Snap's frozen pulse.
-	link = "#6CC8E0",         -- Cold Snap frost (links)
+	link = "#74D0EA",         -- Cold Snap frost (links)
 
 	-- Accent is the arcane convergence of all three orbs:
 	-- a luminous teal that sits between ice and storm.
-	accent = "#5EB8C8",       -- Arcane convergence (accent)
+	accent = "#5FC4D6",       -- Arcane convergence (accent)
 
 	-- ==========================================================
 	-- SYNTAX COLORS: Each ability inspires a syntax role
@@ -36,38 +36,38 @@ theme.colors = {
 
 	-- FUNCTIONS: Quas — the ice orb. Functions are the cold,
 	-- precise, structural backbone of code, like Quas's
-	-- calculated冻冻冻 (frost) approach.
-	blue = "#6CC8E0",         -- Quas glacial (functions)
+	-- calculated, frozen approach.
+	blue = "#74CFE8",         -- Quas glacial (functions)
 
 	-- KEYWORDS/STATEMENTS: Wex — the storm orb. Keywords
 	-- control flow and energy, like Wex's lightning-fast
 	-- reactive storms. Electric violet pulses through them.
-	purple = "#A87FD4",       -- Wex storm violet (keywords)
+	purple = "#B189EC",       -- Wex storm violet (keywords)
 
 	-- CONSTANTS/NUMBERS: Exort — the fire orb. Constants
 	-- are burning points of immutable truth, like Sun Strike's
 	-- concentrated solar beam hitting a fixed coordinate.
-	orange = "#E8A840",       -- Sun Strike solar (constants)
+	orange = "#EEAA46",       -- Sun Strike solar (constants)
 
 	-- STRINGS: Alacrity's enchanted gold. Strings are the
 	-- most verbose, "human" part of code — warm, readable,
 	-- carrying meaning like Alacrity's blessed text.
-	yellow = "#D4B868",       -- Alacrity gold (strings)
+	yellow = "#DFC275",       -- Alacrity gold (strings)
 
 	-- TYPES: The arcane mastery that unifies all three orbs.
 	-- A cool teal that bridges Quas's ice and Wex's storm,
 	-- representing the Scholar's understanding of all elements.
-	cyan = "#5EC4B0",         -- Arcane mastery (types)
+	cyan = "#5FC9B4",         -- Arcane mastery (types)
 
-	-- IDENTIFIERS: Forge Spirit's electric orange. Variables
-	-- are summoned into existence like Forge Spirits —
-	-- temporary, functional, carrying the fire of Exort.
-	red = "#E07848",          -- Forge Spirit ember (errors/deleted)
+	-- ERRORS: Chaos Meteor's molten core. The one hue in the
+	-- palette that is unmistakably red rather than amber, so
+	-- failure never reads as a constant.
+	red = "#E4644A",          -- Chaos Meteor impact (errors/deleted)
 
 	-- COMMENTS: Ghost Walk's ethereal mist. Comments are
 	-- invisible to the compiler, floating like Invoker
 	-- when Ghost Walk is active — present but translucent.
-	grey = "#4E5A68",         -- Ghost Walk mist (comments)
+	grey = "#5C6B7E",         -- Ghost Walk mist (comments)
 
 	-- OPERATORS: Deafening Blast's shockwave — the moment
 	-- all three orbs combine. A bright, almost-white cyan
@@ -81,122 +81,123 @@ theme.colors = {
 	-- === QUAS (Ice) Orb ===
 	-- The Quas orb glows with a cold, glacial cyan —
 	-- the color of pure ice magic, frozen and precise.
-	quas_blue = "#88D4E8",         -- Quas orb glacial cyan
+	quas_blue = "#8FDCF0",         -- Quas orb glacial cyan
 
 	-- === WEX (Storm) Orb ===
 	-- The Wex orb crackles with electric violet energy —
 	-- the color of contained lightning, wild and reactive.
-	wex_purple = "#B088E0",        -- Wex orb storm violet
+	wex_purple = "#B891EC",        -- Wex orb storm violet
 
 	-- === EXORT (Fire) Orb ===
 	-- The Exort orb blazes with molten orange — the color
 	-- of concentrated fire, destructive and absolute.
-	exort_orange = "#E88040",      -- Exort orb molten amber
+	exort_orange = "#EF8543",      -- Exort orb molten amber
 
 	-- === INVOKE ===
 	-- The golden flash when all three orbs combine.
 	-- Invoker's ultimate: the color of mastery itself.
-	invoke_gold = "#F0D060",       -- Invoke golden flash
+	invoke_gold = "#F5D868",       -- Invoke golden flash
 
 	-- === COLD SNAP (Quas) ===
 	-- Rapid frozen stuns. The color is a bright, sharp
 	-- cyan — like ice cracking under repeated impact.
-	cold_snap_frost = "#A0E0F0",  -- Frozen stun pulse
+	cold_snap_frost = "#A8E6F5",  -- Frozen stun pulse
 
 	-- === GHOST WALK (Quas + Quas + Wex) ===
 	-- Invoker turns invisible, leaving a trail of icy mist.
 	-- A muted blue-gray that suggests presence without form.
-	ghost_mist = "#5A6878",       -- Ethereal invisibility
+	ghost_mist = "#5F6E80",       -- Ethereal invisibility
 
 	-- === TORNADO (Quas + Wex) ===
 	-- A cyclone of ice and wind. The color is a silver-blue
 	-- that suggests both frost and air in violent motion.
-	tornado_wind = "#7898B0",     -- Cyclone silver-blue
+	tornado_wind = "#7FA0BA",     -- Cyclone silver-blue
 
 	-- === E.M.P. (Wex + Wex) ===
 	-- An electromagnetic pulse that burns mana. Deep, intense
 	-- violet — the color of arcane energy detonating.
-	emp_blast = "#7048B0",        -- Mana burn violet
+	emp_blast = "#7C4EC4",        -- Mana burn violet
 
 	-- === ALACRITY (Wex + Exort) ===
 	-- Grants attack speed and damage. A bright, enchanted
 	-- gold — the color of blessed, accelerated power.
-	alacrity_gold = "#E8C050",    -- Enchanted haste gold
+	alacrity_gold = "#EEC656",    -- Enchanted haste gold
 
 	-- === CHAOS METEOR (Exort + Exort) ===
 	-- A flaming meteor crashes down. The deepest fire color:
 	-- molten red-orange, the heart of a dying star.
-	chaos_meteor = "#D05830",     -- Molten impact red
+	chaos_meteor = "#D95C31",     -- Molten impact red
 
 	-- === SUN STRIKE (Exort + Exort) ===
 	-- A beam of pure solar energy from the sky. The brightest
 	-- fire color: white-gold, like looking at the sun.
-	sun_strike = "#F8E878",      -- Solar beam gold
+	sun_strike = "#FBEC8A",      -- Solar beam gold
 
 	-- === FORGE SPIRIT (Exort + Quas) ===
 	-- Summons a fire elemental. Warm orange — the color of
 	-- living embers given form and purpose.
-	forge_spirit = "#E09048",     -- Ember summon orange
+	forge_spirit = "#E89A4E",     -- Ember summon orange
 
 	-- === ICE WALL (Quas + Quas + Exort) ===
 	-- A wall of freezing ice. The palest cyan in the palette —
 	-- almost white, like deep glacial ice.
-	ice_wall = "#A0D8E0",        -- Glacial barrier pale cyan
+	ice_wall = "#A8DFE8",        -- Glacial barrier pale cyan
 
 	-- === DEAFENING BLAST (Quas + Wex + Exort) ===
 	-- All three orbs combine in a disarming shockwave. A bright
 	-- purple-white — the color of arcane power at its peak.
-	deafening_blast = "#C8A8F0", -- Arcane shockwave violet
+	deafening_blast = "#CFAEF5", -- Arcane shockwave violet
 
 	-- === ARCANE MASTERY ===
 	-- The unified color of Invoker's full spellbook. A luminous
 	-- teal that contains ice, storm, and fire in balance.
-	arcane_teal = "#5EB8C8",     -- Triple orb convergence
+	arcane_teal = "#5FC4D6",     -- Triple orb convergence
 
 	-- ==========================================================
 	-- SEMANTIC ALIASES: Group references that need stable names
 	-- ==========================================================
 
-	cosmic_night = "#0B0D17",    -- Deep background alias
-	cosmic_void = "#131828",     -- Surface background
-	spell_effect = "#1A2540",    -- Spell casting areas
-	storm_energy = "#2A3850",    -- Wex energy areas
-	robe_fabric = "#8A7A6C",     -- Mage robe cloth (PreProc)
-	parchment = "#C8C4BC",       -- Ancient scroll text
-	scroll_white = "#D8D4CC",    -- Bright parchment
-	title = "#88D4E8",          -- Titles use Quas cyan
+	cosmic_night = "#0B0F1C",    -- Deep background alias
+	cosmic_void = "#111729",     -- Surface background
+	spell_effect = "#1C2745",    -- Spell casting areas
+	storm_energy = "#2D3B57",    -- Wex energy areas
+	robe_fabric = "#94836F",     -- Mage robe cloth (PreProc)
+	parchment = "#CBC7BF",       -- Ancient scroll text
+	scroll_white = "#DEDAD2",    -- Bright parchment
+	title = "#8FDCF0",          -- Titles use Quas cyan
 
 	-- ==========================================================
 	-- UI COLORS: Functional interface elements
 	-- ==========================================================
 
-	folded_bg = "#0E1220",
-	cursor_fg = "#0B0D17",
-	cursor_bg = "#88D4E8",       -- Quas cyan cursor
-	line_number_fg = "#2A3850",
-	line_number_active_fg = "#7898B0", -- Tornado wind
-	sign_add = "#5EC4B0",        -- Arcane mastery green
-	sign_change = "#E8C050",     -- Alacrity gold
-	sign_delete = "#D05830",     -- Chaos meteor red
-	indent_guide = "#1A2030",
-	indent_guide_active = "#2A3850",
-	visual = "#1A2540",
-	match_paren = "#2A3048",
-	error_red = "#D05830",
-	quickfix_line = "#0E1220",
-	parameter = "#B8B4AC",
-	white = "#E8E4DC",
+	folded_bg = "#0F1424",
+	cursor_fg = "#0B0F1C",
+	cursor_bg = "#8FDCF0",       -- Quas cyan cursor
+	line_number_fg = "#37485F",
+	line_number_active_fg = "#8FB0C8", -- Tornado wind
+	sign_add = "#5FC9B4",        -- Arcane mastery green
+	sign_change = "#EEC656",     -- Alacrity gold
+	sign_delete = "#D95C31",     -- Chaos meteor red
+	indent_guide = "#1B2233",
+	indent_guide_active = "#3A4C68",
+	visual = "#1C2745",
+	match_paren = "#2D3552",
+	error_red = "#D95C31",
+	quickfix_line = "#111A2E",
+	parameter = "#BAB6AE",
+	white = "#E9E5DD",
 	black = "#000000",
-	dark_red = "#802020",
+	dark_red = "#7A1F1F",
 
 	-- Extended UI palette (minimal, only what's referenced)
-	gray = "#1A2030",
-	gray3 = "#2A3048",
-	gray4 = "#3A4A5E",
-	gray6 = "#4E5A68",
-	green = "#5EC4B0",
-	cyan2 = "#5EB8C8",
-	purple3 = "#B088E0",
+	blue2 = "#121A2C",           -- Cursor line / column wash
+	gray = "#1B2233",
+	gray3 = "#2D3552",
+	gray4 = "#44566E",
+	gray6 = "#5C6B7E",
+	green = "#5FC9B4",
+	cyan2 = "#5FC4D6",
+	purple3 = "#B891EC",
 }
 
 theme.groups = {
@@ -279,11 +280,11 @@ theme.groups = {
 	MoreMsg = { fg = theme.colors.quas_blue },
 
 	-- Diagnostic groups
-	DiagnosticError = { fg = theme.colors.exort_orange },
+	DiagnosticError = { fg = theme.colors.chaos_meteor },
 	DiagnosticWarn = { fg = theme.colors.invoke_gold },
 	DiagnosticInfo = { fg = theme.colors.quas_blue },
 	DiagnosticHint = { fg = theme.colors.arcane_teal },
-	DiagnosticUnderlineError = { sp = theme.colors.exort_orange, undercurl = true },
+	DiagnosticUnderlineError = { sp = theme.colors.chaos_meteor, undercurl = true },
 	DiagnosticUnderlineWarn = { sp = theme.colors.invoke_gold, undercurl = true },
 	DiagnosticUnderlineInfo = { sp = theme.colors.quas_blue, undercurl = true },
 	DiagnosticUnderlineHint = { sp = theme.colors.arcane_teal, undercurl = true },
@@ -291,7 +292,7 @@ theme.groups = {
 	-- Git groups
 	DiffAdd = { fg = theme.colors.bg, bg = theme.colors.arcane_teal },
 	DiffChange = { fg = theme.colors.bg, bg = theme.colors.yellow },
-	DiffDelete = { fg = theme.colors.bg, bg = theme.colors.exort_orange },
+	DiffDelete = { fg = theme.colors.bg, bg = theme.colors.chaos_meteor },
 	DiffText = { fg = theme.colors.bg, bg = theme.colors.quas_blue },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
@@ -341,12 +342,12 @@ theme.groups = {
 	["@property"] = { fg = theme.colors.cyan2 },
 
 	["@operator"] = { fg = theme.colors.blue },
-	["@punctuation.delimiter"] = { fg = theme.colors.border },
+	["@punctuation.delimiter"] = { fg = theme.colors.gray6 },
 	["@punctuation.bracket"] = { fg = theme.colors.fg },
 	["@punctuation.special"] = { fg = theme.colors.quas_blue },
 
 	["@tag"] = { fg = theme.colors.blue },
-	["@tag.delimiter"] = { fg = theme.colors.border },
+	["@tag.delimiter"] = { fg = theme.colors.gray6 },
 	["@tag.attribute"] = { fg = theme.colors.cyan },
 
 	["@text"] = { fg = theme.colors.fg },
@@ -378,7 +379,7 @@ theme.groups = {
 	["@text.uri"] = { fg = theme.colors.link, underline = true },
 	["@text.note"] = { fg = theme.colors.arcane_teal },
 	["@text.warning"] = { fg = theme.colors.invoke_gold },
-	["@text.danger"] = { fg = theme.colors.exort_orange },
+	["@text.danger"] = { fg = theme.colors.chaos_meteor },
 
 	-- Search and visual
 	Search = { fg = theme.colors.bg, bg = theme.colors.invoke_gold },
@@ -396,7 +397,7 @@ theme.groups = {
 	CursorIM = { link = "Cursor" },
 
 	-- Spell
-	SpellBad = { sp = theme.colors.exort_orange, undercurl = true },
+	SpellBad = { sp = theme.colors.chaos_meteor, undercurl = true },
 	SpellCap = { sp = theme.colors.invoke_gold, undercurl = true },
 	SpellLocal = { sp = theme.colors.quas_blue, undercurl = true },
 	SpellRare = { sp = theme.colors.arcane_teal, undercurl = true },
@@ -418,7 +419,7 @@ theme.groups = {
 	Directory = { fg = theme.colors.quas_blue },
 
 	-- Msg area
-	ErrorMsg = { fg = theme.colors.exort_orange, bold = true },
+	ErrorMsg = { fg = theme.colors.chaos_meteor, bold = true },
 	WarningMsg = { fg = theme.colors.invoke_gold },
 	InfoMsg = { fg = theme.colors.quas_blue },
 	HintMsg = { fg = theme.colors.arcane_teal },
@@ -452,7 +453,7 @@ theme.groups = {
 	diffRemoved = { link = "DiffDelete" },
 	diffFile = { fg = theme.colors.quas_blue },
 	diffNewFile = { fg = theme.colors.arcane_teal },
-	diffOldFile = { fg = theme.colors.exort_orange },
+	diffOldFile = { fg = theme.colors.chaos_meteor },
 	diffLine = { fg = theme.colors.wex_purple },
 
 	-- Neovim specific
@@ -465,17 +466,17 @@ theme.groups = {
 	IndentBlanklineContextChar = { fg = theme.colors.indent_guide_active },
 
 	-- Notify highlights
-	NotifyERRORBorder = { fg = theme.colors.exort_orange },
+	NotifyERRORBorder = { fg = theme.colors.chaos_meteor },
 	NotifyWARNBorder = { fg = theme.colors.invoke_gold },
 	NotifyINFOBorder = { fg = theme.colors.quas_blue },
 	NotifyDEBUGBorder = { fg = theme.colors.grey },
 	NotifyTRACEBorder = { fg = theme.colors.wex_purple },
-	NotifyERRORIcon = { fg = theme.colors.exort_orange },
+	NotifyERRORIcon = { fg = theme.colors.chaos_meteor },
 	NotifyWARNIcon = { fg = theme.colors.invoke_gold },
 	NotifyINFOIcon = { fg = theme.colors.quas_blue },
 	NotifyDEBUGIcon = { fg = theme.colors.grey },
 	NotifyTRACEIcon = { fg = theme.colors.wex_purple },
-	NotifyERRORTitle = { fg = theme.colors.exort_orange },
+	NotifyERRORTitle = { fg = theme.colors.chaos_meteor },
 	NotifyWARNTitle = { fg = theme.colors.invoke_gold },
 	NotifyINFOTitle = { fg = theme.colors.quas_blue },
 	NotifyDEBUGTitle = { fg = theme.colors.grey },

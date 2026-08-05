@@ -10,6 +10,24 @@ local theme = {}
 --
 -- Not a blue theme. A frozen theme where spectral energy
 -- illuminates the darkness like ghost fire through arctic mist.
+--
+-- Token mapping:
+--   Chain Frost orb -> ice cyan      (types)
+--   Soul frost      -> frost blue    (functions)
+--   Frost Armor     -> spectral mint (strings)
+--   Sinister Gaze   -> frozen violet (keywords)
+--   Blood on ice    -> crimson       (errors, exceptions)
+--   Grave gold      -> aged gold     (constants, numbers)
+--   Frozen granite  -> stone grey    (comments)
+--
+-- Color rules this palette obeys:
+--   * every syntax token is >=18 deg apart in hue from its nearest
+--     neighbour - the frost hues used to sit within 14 deg of each
+--     other, which made strings, types and functions read as one
+--     undifferentiated blue-grey smear
+--   * every syntax foreground meets WCAG AA (>=4.5:1) against `bg`
+--   * cursor_line < visual < match_paren, three distinct steps, so a
+--     selection stays visible on the cursor's own line
 -- ============================================================
 
 theme.colors = {
@@ -20,33 +38,34 @@ theme.colors = {
 	accent_bg = "#141a22", -- Frost-covered stone (surface bg)
 	link = "#68a0c4", -- Soul frost (links/URLs)
 	accent = "#5890b4", -- Lich blue (accent)
-	-- border = "#28323c",       -- Frozen granite (borders)
-	border = "#b06068", -- Frozen granite (borders)
+	-- border = "#28323c",       -- Frozen granite: too dark to see
+	border = "#b06068", -- Blood-on-ice crimson (borders) - deliberate
+	-- warm break against the frost, so splits stay findable
 
 	-- Syntax highlighting - Frost and spectral palette
-	red = "#b06068", -- Blood frost (errors, deleted)
-	orange = "#b89068", -- Aged gold (constants, numbers)
-	yellow = "#a8a070", -- Frozen amber (strings, warnings)
-	green = "#68a0a0", -- Spectral teal (strings, additions)
-	cyan = "#5890a4", -- Glacial cyan (types, teal)
-	blue = "#6888a8", -- Frost blue (functions)
-	purple = "#8878a0", -- Frozen lavender (keywords, statements)
-	grey = "#505860", -- Frozen stone (comments)
+	red = "#d4626e", -- Blood on ice (errors) - H354 - 5.3:1
+	orange = "#d0a070", -- Grave gold (constants, numbers) - H30 - 8.2:1
+	yellow = "#c9bc82", -- Frozen amber (warnings, literals) - H49 - 10.1:1
+	green = "#6cc4a8", -- Frost Armor mint (strings) - H161 - 9.2:1
+	cyan = "#7fd0e0", -- Chain Frost orb (types) - H190 - 11.0:1
+	blue = "#6aa8e0", -- Soul frost (functions) - H209 - 7.6:1
+	purple = "#9d8ad0", -- Sinister Gaze violet (keywords) - H256 - 6.4:1
+	grey = "#6d7b90", -- Frozen granite (comments) - 4.5:1
 
 	-- Lich-specific colors
-	frost_blue = "#68a0c4", -- Core frost energy
+	frost_blue = "#74b4e0", -- Core frost energy
 	glacial_cyan = "#5898a8", -- Deep glacier ice
-	ice_crystal = "#a0b0c0", -- Pure frozen crystal
+	ice_crystal = "#aec2d4", -- Pure frozen crystal
 	frozen_throne = "#1a2030", -- The seat of eternal rule
-	spectral_frost = "#60a8b8", -- Ghostly ice spirit
+	spectral_frost = "#6cbccc", -- Ghostly ice spirit
 	winter_mist = "#8898a8", -- Arctic haze
 	ancient_ice = "#486878", -- Primordial glacier
 	soul_frost = "#5898c0", -- Soul-bound ice magic
 	lich_magic = "#4888a8", -- Forbidden frost spells
-	frozen_stone = "#3a4858", -- Ice-covered ruins
+	frozen_stone = "#7c93ab", -- Ice-covered ruins (PreProc) - 6.1:1
 	deathfrost = "#384858", -- Death's frozen touch
 	arcane_blizzard = "#6088a8", -- Magical winter storm
-	cold_flame = "#58a0c8", -- Blue spectral fire
+	cold_flame = "#5fb4e8", -- Blue spectral fire (Chain Frost glow)
 	eternal_winter = "#283848", -- Endless frozen night
 	spirit_ice = "#70a8b8", -- Ethereal ice spirit
 	frozen_silver = "#a0a8b8", -- Ancient frozen metal
@@ -64,21 +83,24 @@ theme.colors = {
 	folded_bg = "#10141c",
 	cursor_fg = "#0c0f14",
 	cursor_bg = "#68a0c4",
-	line_number_fg = "#303840",
-	line_number_active_fg = "#a0b0c0",
-	sign_add = "#68a0a0",
-	sign_change = "#a8a070",
-	sign_delete = "#b06068",
+	line_number_fg = "#4e5c6e", -- was 1.6:1 (invisible), now 2.8:1
+	line_number_active_fg = "#b6cbdd",
+	sign_add = "#6cc4a8",
+	sign_change = "#c9bc82",
+	sign_delete = "#d4626e",
 	indent_guide = "#1a2430",
 	indent_guide_active = "#303840",
-	visual = "#182838",
-	match_paren = "#203040",
+	-- Three distinct background steps so a selection stays visible on
+	-- the cursor's own line: cursor_line < visual < match_paren.
+	cursor_line = "#141b26", -- Cursor line / column wash
+	visual = "#1f2f41", -- Selection - brighter than the cursor line
+	match_paren = "#2e4560",
 	search_blue = "#182838",
 	incremental_search_blue = "#203040",
-	error_red = "#b06068",
+	error_red = "#d4626e",
 	word_highlight = "#182838",
 	word_highlight_write = "#1a2838",
-	changed = "#a8a070",
+	changed = "#c9bc82",
 	quickfix_line = "#10141c",
 	ui_border = "#303840",
 	ui_border2 = "#1a2430",
@@ -86,7 +108,7 @@ theme.colors = {
 	nvim_tree_indent_marker = "#303840",
 	tab_active_bg = "#141a22",
 	tab_inactive_bg = "#0c0f14",
-	title = "#78b0d0",
+	title = "#86c8ea",
 	parameter = "#b4b8c0",
 	string_delimiter = "#90a8b0",
 	dark = "#080a0e",
@@ -228,9 +250,9 @@ theme.groups = {
 	-- UI groups
 	LineNr = { fg = theme.colors.line_number_fg },
 	CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-	CursorLine = { bg = theme.colors.visual },
-	CursorColumn = { bg = theme.colors.visual },
-	ColorColumn = { bg = theme.colors.visual },
+	CursorLine = { bg = theme.colors.cursor_line },
+	CursorColumn = { bg = theme.colors.cursor_line },
+	ColorColumn = { bg = theme.colors.cursor_line },
 
 	SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
 	FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },

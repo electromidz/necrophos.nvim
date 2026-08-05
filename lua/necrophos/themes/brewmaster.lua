@@ -39,18 +39,18 @@ theme.colors = {
 	inverse_fg = "#1c1714", -- Dark aged wood (float bg)
 	bg = "#14100d", -- Deep mahogany (main background)
 	accent_bg = "#1c1714", -- Surface color (panels)
-	link = "#dfa04c", -- Amber brew (links/URLs) - 7.7:1
+	link = "#dfa04c", -- Amber brew (links/URLs) - 8.4:1
 	accent = "#dfa04c", -- Amber brew (accent)
 	-- border = "#3d3228", -- Worn barrel wood (borders)
 	border = "#a08060", -- Worn barrel wood (borders)
 
 	-- Syntax highlighting - Mangix and his three Primal Spirits
-	red = "#e0503a", -- Primal Fire, hot coal (errors) - H8 - 4.9:1
+	red = "#e0503a", -- Primal Fire, hot coal (errors) - H8 - 4.8:1
 	orange = "#e08248", -- Cinder Brew ember (numbers) - H23 - 6.7:1
 	brass = "#e6b95e", -- Brass keg fittings (functions) - H40 - 10.3:1
 	yellow = "#f0cf82", -- Golden brew (warnings, literals) - H42 - 12.6:1
 	green = "#a8bf5c", -- Olive robe / bamboo (strings) - H74 - 9.3:1
-	cyan = "#5cbf9a", -- Jade robe trim (types) - H158 - 8.5:1
+	cyan = "#5cbf9a", -- Jade robe trim (types) - H158 - 8.4:1
 	purple = "#c58fb4", -- Plum wine (keywords) - H319 - 7.2:1
 	grey = "#8a7d6e", -- Temple stone (comments) - 4.7:1
 
@@ -71,25 +71,36 @@ theme.colors = {
 	ferment_glow = "#cf9a3f", -- Fermenting brew
 	parchment = "#e8ddd0", -- Ancient scroll text
 	deep_cask = "#0e0b09", -- Bottom of the barrel
-	hot_iron = "#d76244", -- Blacksmith's forge (terminal bright red) - 5.4:1
+	hot_iron = "#d76244", -- Blacksmith's forge (terminal bright red) - 5.2:1
 	hot_spring = "#4fae94", -- Mountain hot spring
 	frost_mug = "#a8e2cd", -- Frosted ale mug
 	sake_cup = "#c99a66", -- Ceramic sake vessel
 	brewing_vat = "#2e2418", -- Fermentation barrel interior
 	punctuation = "#a8988a", -- Brackets/operators: present, not shouting
 
+	-- Diff washes - tinted toward each diff's foreground hue but kept
+	-- dark enough that the text on top keeps its own contrast.
+	diff_add_bg = "#1c2a16", -- Bamboo shoot (added)
+	diff_change_bg = "#2c2415", -- Steeping malt (changed)
+	diff_delete_bg = "#2c1a14", -- Dying coal (removed)
+	diff_text_bg = "#463818", -- Bright wort (changed word)
+
 	-- UI colors - Warm and readable
 	folded_bg = "#1a150f",
 	cursor_fg = "#14100d",
 	cursor_bg = "#dfa04c",
-	line_number_fg = "#5e5346", -- was 1.9:1 (near invisible), now 2.5:1
+	line_number_fg = "#6b5f50", -- was 1.9:1 (near invisible), now 3.0:1
 	line_number_active_fg = "#ddc8a4",
 	sign_add = "#a8bf5c",
 	sign_change = "#f0cf82",
 	sign_delete = "#e0503a",
 	indent_guide = "#2a221a",
 	indent_guide_active = "#4a4038",
-	visual = "#2e2418",
+	-- Cursor line sits BELOW visual in weight, so a selection stays
+	-- legible on the line the cursor is on. Three distinct steps:
+	-- cursor_line < visual < match_paren.
+	cursor_line = "#1f1913", -- Cursor line / column wash
+	visual = "#3a2c1b", -- Selection - brighter than the cursor line
 	match_paren = "#4a3a20",
 	error_red = "#e0503a",
 	changed = "#f0cf82",
@@ -160,9 +171,9 @@ theme.groups = {
 	-- UI groups
 	LineNr = { fg = theme.colors.line_number_fg },
 	CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-	CursorLine = { bg = theme.colors.visual },
-	CursorColumn = { bg = theme.colors.visual },
-	ColorColumn = { bg = theme.colors.visual },
+	CursorLine = { bg = theme.colors.cursor_line },
+	CursorColumn = { bg = theme.colors.cursor_line },
+	ColorColumn = { bg = theme.colors.cursor_line },
 
 	SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
 	FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
@@ -198,17 +209,17 @@ theme.groups = {
 	DiagnosticUnderlineHint = { sp = theme.colors.storm_spirit, undercurl = true },
 
 	-- Git groups
-	DiffAdd = { fg = theme.colors.green, bg = "#1c2a16" },
-	DiffChange = { fg = theme.colors.yellow, bg = "#2c2415" },
-	DiffDelete = { fg = theme.colors.red, bg = "#2c1a14" },
-	DiffText = { fg = theme.colors.lantern_gold, bg = "#463818", bold = true },
+	DiffAdd = { fg = theme.colors.green, bg = theme.colors.diff_add_bg },
+	DiffChange = { fg = theme.colors.yellow, bg = theme.colors.diff_change_bg },
+	DiffDelete = { fg = theme.colors.red, bg = theme.colors.diff_delete_bg },
+	DiffText = { fg = theme.colors.lantern_gold, bg = theme.colors.diff_text_bg, bold = true },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
 	gitcommitBranch = { fg = theme.colors.brew_amber },
 
 	-- LSP groups
-	LspReferenceText = { bg = theme.colors.visual },
-	LspReferenceRead = { bg = theme.colors.visual },
+	LspReferenceText = { bg = theme.colors.brewing_vat },
+	LspReferenceRead = { bg = theme.colors.brewing_vat },
 	LspReferenceWrite = { bg = theme.colors.match_paren, bold = true },
 	LspSignatureActiveParameter = { fg = theme.colors.brew_amber, bold = true },
 

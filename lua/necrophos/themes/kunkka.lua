@@ -1,141 +1,143 @@
 local theme = {}
 
+-- Palette drawn from Kunkka, the Admiral (dota2.com/hero/kunkka):
+-- night-ocean navy hull, Ghostship spectral teal, brass buttons and admiral
+-- gold, weathered coat leather, cannon crimson, and Torrent sea foam.
 theme.colors = {
-	-- Base colors - Enhanced for Kunkka theme
-	fg = "#c4c7ca",
-	inverse_fg = "#13212d",
-	bg = "#021727",
-	accent_bg = "#13212d",
-	link = "#3093A1",
-	accent = "#54A0A7",
-	border = "#2B7688",
+	-- Base colors - moonlit ocean at night
+	fg = "#cdd9e2", -- sea mist on deck
+	inverse_fg = "#0e2436", -- float / statusline hull
+	bg = "#061a2b", -- deep water
+	accent_bg = "#0e2436",
+	link = "#4db8cc",
+	accent = "#5cc6c9", -- Ghostship glow
+	border = "#2c7183",
 
-	-- Syntax highlighting - Fixed for better contrast and theme
-	red = "#d46c6c", -- Distinct red for errors (ship damage)
-	orange = "#d49c6c", -- Distinct orange (aged rope/rust)
-	yellow = "#e6d37a", -- Proper yellow (treasure gold)
-	green = "#5dbe8c", -- Clear green (sea moss/success)
-	cyan = "#54A0A7", -- Light teal as cyan
-	blue = "#487A86", -- Steel blue as blue
-	purple = "#7a86d4", -- Mystical purple (deep sea magic)
-	grey = "#515A5A", -- Dark grey
+	-- Syntax highlighting - lifted contrast, each hue clearly separated
+	red = "#e2666c", -- cannon fire
+	orange = "#e09a5f", -- rum amber
+	yellow = "#e8c76e", -- doubloons
+	green = "#63c79b", -- sea moss
+	cyan = "#5cc6c9", -- spectral teal
+	blue = "#6fa8d6", -- Tidebringer steel
+	purple = "#a793e8", -- X marks the spot
+	grey = "#5d7285", -- comments, readable but recessed
 
 	-- Kunkka-specific colors
-	tide_blue = "#3093A1", -- Teal for tide effects
-	ship_brown = "#a88c6c", -- Rich brown for ship wood
-	ghost_green = "#6ab0a7", -- Ethereal green for ghost ship
-	cannon_red = "#b85c5c", -- Rusty red for cannons
-	admiral_gold = "#d4b45c", -- Gold accents on uniform
-	storm_gray = "#4a5c6a", -- Stormy sea gray
-	deep_navy = "#0a1a2a", -- Deep ocean color
-	torrent_foam = "#8fa8b8", -- White foam/sea spray
+	tide_blue = "#41b3c6", -- Torrent water
+	ship_brown = "#c09a6d", -- ship timber
+	ghost_green = "#7fd6c6", -- ghost ship hull
+	cannon_red = "#d9615f", -- rusted cannon
+	admiral_gold = "#e0b45c", -- epaulettes and braid
+	storm_gray = "#455a6b", -- squall
+	deep_navy = "#04121f", -- abyss
+	torrent_foam = "#adc6d4", -- spray
 
-	-- Existing UI colors (FIXED - no alpha transparency)
-	folded_bg = "#092135",
-	cursor_fg = "#805a3e",
-	cursor_bg = "#80a4c2",
-	line_number_fg = "#4b6479",
-	line_number_active_fg = "#c5e4fc",
-	sign_add = "#9ccc65",
-	sign_change = "#e2b93d",
-	sign_delete = "#ef5350",
-	indent_guide = "#1f395d",
-	indent_guide_active = "#7e97ac",
-	visual = "#1d3b53",
-	match_paren = "#1e364a",
-	search_blue = "#063e5d",
-	incremental_search_blue = "#2E485C",
-	error_red = "#ef5350",
-	word_highlight = "#33384d",
-	word_highlight_write = "#2f3350",
-	changed = "#a2bffc",
-	quickfix_line = "#0e293f",
-	ui_border = "#5f7e97",
-	ui_border2 = "#20395d",
-	nvim_tree_file = "#89a4bb",
-	nvim_tree_indent_marker = "#585858",
-	tab_active_bg = "#0b2942",
-	tab_inactive_bg = "#01111d",
-	title = "#82b1ff",
-	parameter = "#d7dbe0",
-	string_delimiter = "#d9f5dd",
-	dark = "#010d18",
-	dark2 = "#021320",
-	dark3 = "#1a291a", -- FIXED: was "#99b76d23"
+	-- UI colors (no alpha - Neovim ignores it)
+	folded_bg = "#0c2437",
+	cursor_fg = "#04121f",
+	cursor_bg = "#7fd6c6",
+	line_number_fg = "#3d5568",
+	line_number_active_fg = "#a3dfe8",
+	sign_add = "#63c79b",
+	sign_change = "#e0b45c",
+	sign_delete = "#d9615f",
+	indent_guide = "#173044",
+	indent_guide_active = "#3d7385",
+	visual = "#173a4d",
+	match_paren = "#1d4256",
+	search_blue = "#0a3d52",
+	incremental_search_blue = "#2a5468",
+	error_red = "#e2666c",
+	word_highlight = "#1b3546",
+	word_highlight_write = "#254159",
+	changed = "#a9c6dd",
+	quickfix_line = "#0d2b3d",
+	ui_border = "#4f7488",
+	ui_border2 = "#1a3648",
+	nvim_tree_file = "#9ab3c4",
+	nvim_tree_indent_marker = "#37505f",
+	tab_active_bg = "#0e2c40",
+	tab_inactive_bg = "#03121e",
+	title = "#6fc3e0",
+	parameter = "#c8d4de",
+	string_delimiter = "#efdca6",
+	dark = "#03101c",
+	dark2 = "#051624",
+	dark3 = "#132a20",
 	white = "#ffffff",
-	white2 = "#eeefff",
-	dark_white = "#cccccc",
-	gray = "#262a39",
-	gray2 = "#d2dee7",
-	gray3 = "#36414a",
-	gray4 = "#5a6777", -- FIXED: was "#d6deeb80"
-	gray5 = "#969696",
-	gray6 = "#7e97ac",
-	light_blue = "#78ccf0",
-	blue2 = "#0b253a",
-	blue3 = "#122d42",
-	blue4 = "#1a3a5a", -- FIXED: was "#1b90dd4d"
-	blue5 = "#234d70",
-	blue6 = "#2a4d70", -- FIXED: was "#234d708c"
-	blue7 = "#395a75",
-	blue8 = "#5ca7e4",
-	blue9 = "#3a5c7a", -- FIXED: was "#5f7e9779"
-	blue10 = "#697098",
-	blue11 = "#8eace3",
-	blue12 = "#b2ccd6",
-	blue13 = "#072232",
-	blue14 = "#273845",
-	blue15 = "#169fff",
-	green2 = "#6CC85E",
-	light_cyan = "#caece6",
-	cyan2 = "#7fdbca",
-	cyan3 = "#5ab0a7", -- FIXED: was "#7fdbcaff"
-	cyan4 = "#80cbc4",
-	cyan5 = "#baebe2",
-	dark_cyan = "#637777",
-	light_red = "#ff869a",
-	red2 = "#ff6363",
-	red3 = "#c53550", -- FIXED: was "#ef535090"
-	dark_red = "#ab0300",
-	light_orange = "#ecc48d",
-	orange2 = "#ffcb8b",
-	light_yellow = "#faf39f",
-	yellow2 = "#b39554",
-	yellow3 = "#fad430",
-	yellow4 = "#ffeb95",
-	yellow5 = "#d4b45c", -- FIXED: was "#ffeb95cc"
-	light_purple = "#a599e9",
-	purple2 = "#5166F0",
-	purple3 = "#da70d6",
-	purple4 = "#7986e7",
-	dark_purple = "#2E2D5E",
-	magenta = "#c792ea",
-	magenta2 = "#c789d6",
-	magenta3 = "#d1aaff",
-	magenta4 = "#ff2c83",
-	magenta5 = "#4a2a5a", -- FIXED: was "#e2a2f433"
-	magenta6 = "#5a3a6a", -- FIXED: was "#f6bbe533"
+	white2 = "#eef4f8",
+	dark_white = "#c7d2da",
+	gray = "#1e2c38",
+	gray2 = "#cad8e2",
+	gray3 = "#31434f",
+	gray4 = "#4d6072",
+	gray5 = "#8d9daa",
+	gray6 = "#748ea1",
+	light_blue = "#74c6e8",
+	blue2 = "#0b2436",
+	blue3 = "#102b3e",
+	blue4 = "#17384f",
+	blue5 = "#204a63",
+	blue6 = "#264f6a",
+	blue7 = "#345a72",
+	blue8 = "#57a3dd",
+	blue9 = "#3a5f78",
+	blue10 = "#5f7a95",
+	blue11 = "#8bb4d8",
+	blue12 = "#aec8d8",
+	blue13 = "#07202f",
+	blue14 = "#213645",
+	blue15 = "#2aa3e0",
+	green2 = "#63c79b",
+	light_cyan = "#c2ece8",
+	cyan2 = "#7fd6c6",
+	cyan3 = "#57b3ab",
+	cyan4 = "#79c9c2",
+	cyan5 = "#b3e5de",
+	dark_cyan = "#5a7d80",
+	light_red = "#f08a90",
+	red2 = "#e2666c",
+	red3 = "#b8474f",
+	dark_red = "#8c1f22",
+	light_orange = "#e8bc8a",
+	orange2 = "#eeae74",
+	light_yellow = "#f2e3a4",
+	yellow2 = "#a88f4f",
+	yellow3 = "#e8c76e",
+	yellow4 = "#efdca6",
+	yellow5 = "#d4b45c",
+	light_purple = "#b9a9ef",
+	purple2 = "#6a72e0",
+	purple3 = "#c07fd4",
+	purple4 = "#8b8ce0",
+	dark_purple = "#2a2a52",
+	magenta = "#c08ee0",
+	magenta2 = "#bb86cf",
+	magenta3 = "#d0a8f0",
+	magenta4 = "#e04a8c",
+	magenta5 = "#3a2a4a",
+	magenta6 = "#4a3557",
 
-	-- New Kunkka-themed additions (FIXED - no alpha transparency)
-	tide_pool = "#1a3b4d", -- Shallow water areas
-	ship_wake = "#4a5c6a", -- FIXED: was "#8fa8b840" - Ghostly ship wake
-	navy_blue = "#1e3a5c", -- Official navy color
-	rope_tan = "#b8a47c", -- Rope and sail color
-	brass_fitting = "#d4a85c", -- Ship fittings and hardware
-	seaweed_green = "#4a8c7a", -- Underwater plant life
-	storm_cloud = "#3a4a5a", -- Stormy weather
-	cannon_smoke = "#7a8c9a", -- Battle effects
-	treasure_chest = "#d4b45c", -- Gold and treasure
-	ghly_cyan = "#3a6c6a", -- FIXED: was "#6ab0a740" - Ghost ship transparency
-	deep_abyss = "#0a1420", -- Ocean depths
-	coral_pink = "#d47a8c", -- Ocean life accents
-	anchor_iron = "#5a6c7a", -- Metal and hardware
-	sail_white = "#e8e6d4", -- Sail cloth color
-	rum_amber = "#b85c2c", -- Admiral's drink
+	-- Kunkka-themed additions
+	tide_pool = "#123a4a", -- shallows (selection wash)
+	ship_wake = "#3f5666", -- ghostly wake
+	navy_blue = "#183a55", -- admiralty navy
+	rope_tan = "#c4b087", -- rigging and canvas
+	brass_fitting = "#d4a55e", -- fittings and hardware
+	seaweed_green = "#4f9c86", -- kelp
+	storm_cloud = "#36485a", -- squall front
+	cannon_smoke = "#78909f", -- powder smoke
+	treasure_chest = "#e0b45c", -- plunder
+	ghly_cyan = "#347068", -- dim ghost hull
+	deep_abyss = "#020c16", -- trench
+	coral_pink = "#dd8296", -- reef life
+	anchor_iron = "#54697a", -- iron and chain
+	sail_white = "#ece6d6", -- sailcloth
+	rum_amber = "#c2662f", -- the Admiral's drink
 
-	-- Missing colors that were referenced but not defined
 	black = "#000000",
-	light_green = "#a8e6a8",
+	light_green = "#9adfb8",
 }
 
 theme.groups = {
@@ -280,12 +282,12 @@ theme.groups = {
 	["@property"] = { fg = theme.colors.cyan2 },
 
 	["@operator"] = { fg = theme.colors.blue },
-	["@punctuation.delimiter"] = { fg = theme.colors.border },
+	["@punctuation.delimiter"] = { fg = theme.colors.gray6 },
 	["@punctuation.bracket"] = { fg = theme.colors.fg },
 	["@punctuation.special"] = { fg = theme.colors.tide_blue },
 
 	["@tag"] = { fg = theme.colors.blue },
-	["@tag.delimiter"] = { fg = theme.colors.border },
+	["@tag.delimiter"] = { fg = theme.colors.gray6 },
 	["@tag.attribute"] = { fg = theme.colors.cyan },
 
 	["@text"] = { fg = theme.colors.fg },
