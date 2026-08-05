@@ -53,7 +53,7 @@ theme.colors = {
     yellow = "#dcb75e",      -- Temple bronze (warnings, literals) - H42 - 9.9:1
     green = "#a3c264",       -- Moss on stone (strings) - H80 - 9.4:1
     jade = "#3fc994",        -- Sacred jade seam (functions) - H157 - 9.0:1
-    cyan = "#8fd3a8",        -- Carved jade (types) - H142 - 10.8:1
+    cyan = "#93d4a4",        -- Carved jade (types) - H136 - 10.9:1
     purple = "#d691a4",      -- Red lacquer (keywords) - H343 - 7.6:1
     grey = "#79806e",        -- Granite (comments) - 4.6:1
 
@@ -89,14 +89,17 @@ theme.colors = {
     folded_bg = "#161c15",
     cursor_fg = "#0f1210",
     cursor_bg = "#4fc9a2",
-    line_number_fg = "#4a5148",   -- was 2.5:1, now 2.3:1 but no longer = border
+    line_number_fg = "#565e53",   -- was 2.3:1, now 2.8:1 and no longer = border
     line_number_active_fg = "#c2bba8",
     sign_add = "#a3c264",
     sign_change = "#dcb75e",
     sign_delete = "#dd5f45",
     indent_guide = "#1e261c",
     indent_guide_active = "#3a423a",
-    visual = "#1f2a1e",
+    -- Three distinct background steps so a selection stays visible on
+    -- the cursor's own line: cursor_line < visual < match_paren.
+    cursor_line = "#161b15",      -- Cursor line / column wash
+    visual = "#243021",           -- Selection - brighter than the cursor line
     match_paren = "#2f3d2c",
     error_red = "#dd5f45",
     quickfix_line = "#161c15",
@@ -167,9 +170,9 @@ theme.groups = {
     -- UI groups
     LineNr = { fg = theme.colors.line_number_fg },
     CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-    CursorLine = { bg = theme.colors.visual },
-    CursorColumn = { bg = theme.colors.visual },
-    ColorColumn = { bg = theme.colors.visual },
+    CursorLine = { bg = theme.colors.cursor_line },
+    CursorColumn = { bg = theme.colors.cursor_line },
+    ColorColumn = { bg = theme.colors.cursor_line },
 
     SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
     FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
@@ -214,8 +217,8 @@ theme.groups = {
     gitcommitBranch = { fg = theme.colors.spirit_emerald },
 
     -- LSP groups
-    LspReferenceText = { bg = theme.colors.visual },
-    LspReferenceRead = { bg = theme.colors.visual },
+    LspReferenceText = { bg = theme.colors.cursor_line },
+    LspReferenceRead = { bg = theme.colors.cursor_line },
     LspReferenceWrite = { bg = theme.colors.match_paren, bold = true },
     LspSignatureActiveParameter = { fg = theme.colors.spirit_emerald, bold = true },
 

@@ -21,14 +21,14 @@ theme.colors = {
 	border = "#66736D",      -- Death ash (borders, punctuation)
 
 	-- Syntax highlighting - Disease and decay palette
-	red = "#c25c5c", -- Blood rot (errors, deleted)
-	orange = "#AF8B43", -- Death bronze (constants, numbers)
-	yellow = "#C9A45A", -- Harvest gold (strings, warnings)
+	red = "#d06a66", -- Blood rot (errors, deleted) - H2 - 5.0:1
+	orange = "#C57438", -- Death bronze (constants, numbers) - H26 - 5.0:1
+	yellow = "#CDAB58", -- Harvest gold (strings, warnings) - H43 - 8.1:1
 	green = "#6EE7A8", -- Plague green (strings, additions)
 	cyan = "#69C7B5", -- Cursed teal (types)
 	blue = "#6E9440", -- Withered green (functions)
 	purple = "#8c7ac2", -- Necromancy (keywords, statements)
-	grey = "#66736D", -- Death ash (comments)
+	grey = "#7D8B83", -- Death ash (comments) - 5.0:1
 
 	-- Necrophos-specific colors
 	plague_green = "#6EE7A8", -- Vibrant toxic energy
@@ -39,14 +39,14 @@ theme.colors = {
 	spectral_green = "#67D99F", -- Spectral green glow
 	plague_mist = "#8ABAA5", -- Poison mist cloud
 	cursed_teal = "#69C7B5", -- Cursed teal energy
-	death_bronze = "#AF8B43", -- Ancient death bronze
+	death_bronze = "#C57438", -- Ancient death bronze
 	withered_green = "#6E9440", -- Withered plant life
 	soul_wisp = "#A4E2D0", -- Trapped soul wisps
 	ghost_fog = "#B6D2C8", -- Ghostly fog
 	reaper_shadow = "#39433D", -- Reaper's shadow
 	death_ash = "#66736D", -- Death and ash
 	plague_vapor = "#4F7D6C", -- Rising plague vapor
-	harvest_gold = "#C9A45A", -- Soul harvest gold
+	harvest_gold = "#CDAB58", -- Soul harvest gold
 	soul_fragment = "#78D6AE", -- Fragmented soul energy
 	spectral_core = "#54C892", -- Core spectral energy
 	rot_green = "#5E8A45", -- Rotting vegetation
@@ -65,8 +65,11 @@ theme.colors = {
 	sign_delete = "#c25c5c",
 	indent_guide = "#1f4d4d",
 	indent_guide_active = "#4F7D6C",
-	visual = "#1d534d",
-	match_paren = "#1e4a42",
+	-- Three distinct background steps so a selection stays visible on
+	-- the cursor's own line: cursor_line < visual < match_paren.
+	cursor_line = "#152a24", -- Cursor line / column wash
+	visual = "#1e4038", -- Selection - brighter than the cursor line
+	match_paren = "#2b5a4a",
 	error_red = "#c25c5c",
 	quickfix_line = "#0e3f2f",
 	title = "#78D6AE",
@@ -114,7 +117,7 @@ theme.groups = {
 	Label = { fg = theme.colors.purple },
 	Operator = { fg = theme.colors.plague_vapor },
 	Keyword = { fg = theme.colors.purple, italic = true },
-	Exception = { fg = theme.colors.heartstopper },
+	Exception = { fg = theme.colors.red },
 
 	PreProc = { fg = theme.colors.death_bronze },
 	Include = { fg = theme.colors.purple },
@@ -128,11 +131,11 @@ theme.groups = {
 	Typedef = { fg = theme.colors.cyan },
 
 	Special = { fg = theme.colors.plague_green },
-	SpecialChar = { fg = theme.colors.heartstopper },
+	SpecialChar = { fg = theme.colors.red },
 	Tag = { fg = theme.colors.blue },
 	Delimiter = { fg = theme.colors.fg },
 	SpecialComment = { fg = theme.colors.grey, bold = true },
-	Debug = { fg = theme.colors.heartstopper },
+	Debug = { fg = theme.colors.red },
 
 	Underlined = { fg = theme.colors.link, underline = true },
 	Bold = { bold = true },
@@ -141,9 +144,9 @@ theme.groups = {
 	-- UI groups
 	LineNr = { fg = theme.colors.line_number_fg },
 	CursorLineNr = { fg = theme.colors.line_number_active_fg, bold = true },
-	CursorLine = { bg = theme.colors.plague_cloud },
-	CursorColumn = { bg = theme.colors.plague_cloud },
-	ColorColumn = { bg = theme.colors.plague_cloud },
+	CursorLine = { bg = theme.colors.cursor_line },
+	CursorColumn = { bg = theme.colors.cursor_line },
+	ColorColumn = { bg = theme.colors.cursor_line },
 
 	SignColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
 	FoldColumn = { fg = theme.colors.grey, bg = theme.colors.bg },
@@ -169,11 +172,11 @@ theme.groups = {
 	MoreMsg = { fg = theme.colors.plague_green },
 
 	-- Diagnostic groups
-	DiagnosticError = { fg = theme.colors.heartstopper },
+	DiagnosticError = { fg = theme.colors.red },
 	DiagnosticWarn = { fg = theme.colors.harvest_gold },
 	DiagnosticInfo = { fg = theme.colors.plague_green },
 	DiagnosticHint = { fg = theme.colors.ghostly_teal },
-	DiagnosticUnderlineError = { sp = theme.colors.heartstopper, undercurl = true },
+	DiagnosticUnderlineError = { sp = theme.colors.red, undercurl = true },
 	DiagnosticUnderlineWarn = { sp = theme.colors.harvest_gold, undercurl = true },
 	DiagnosticUnderlineInfo = { sp = theme.colors.plague_green, undercurl = true },
 	DiagnosticUnderlineHint = { sp = theme.colors.ghostly_teal, undercurl = true },
@@ -181,7 +184,7 @@ theme.groups = {
 	-- Git groups
 	DiffAdd = { fg = theme.colors.bg, bg = theme.colors.ghostly_teal },
 	DiffChange = { fg = theme.colors.bg, bg = theme.colors.harvest_gold },
-	DiffDelete = { fg = theme.colors.bg, bg = theme.colors.heartstopper },
+	DiffDelete = { fg = theme.colors.bg, bg = theme.colors.red },
 	DiffText = { fg = theme.colors.bg, bg = theme.colors.plague_green },
 
 	gitcommitSummary = { fg = theme.colors.green, bold = true },
@@ -217,7 +220,7 @@ theme.groups = {
 	["@debug"] = { link = "Debug" },
 	["@label"] = { link = "Label" },
 	["@include"] = { link = "Include" },
-	["@exception"] = { fg = theme.colors.heartstopper },
+	["@exception"] = { fg = theme.colors.red },
 
 	["@type"] = { fg = theme.colors.cyan },
 	["@type.builtin"] = { fg = theme.colors.cyan, italic = true },
@@ -268,7 +271,7 @@ theme.groups = {
 	["@text.uri"] = { fg = theme.colors.link, underline = true },
 	["@text.note"] = { fg = theme.colors.ghostly_teal },
 	["@text.warning"] = { fg = theme.colors.harvest_gold },
-	["@text.danger"] = { fg = theme.colors.heartstopper },
+	["@text.danger"] = { fg = theme.colors.red },
 
 	-- Search and visual
 	Search = { fg = theme.colors.bg, bg = theme.colors.harvest_gold },
@@ -286,7 +289,7 @@ theme.groups = {
 	CursorIM = { link = "Cursor" },
 
 	-- Spell
-	SpellBad = { sp = theme.colors.heartstopper, undercurl = true },
+	SpellBad = { sp = theme.colors.red, undercurl = true },
 	SpellCap = { sp = theme.colors.harvest_gold, undercurl = true },
 	SpellLocal = { sp = theme.colors.plague_green, undercurl = true },
 	SpellRare = { sp = theme.colors.ghostly_teal, undercurl = true },
@@ -308,7 +311,7 @@ theme.groups = {
 	Directory = { fg = theme.colors.plague_green },
 
 	-- Msg area
-	ErrorMsg = { fg = theme.colors.heartstopper, bold = true },
+	ErrorMsg = { fg = theme.colors.red, bold = true },
 	WarningMsg = { fg = theme.colors.harvest_gold },
 	InfoMsg = { fg = theme.colors.plague_green },
 	HintMsg = { fg = theme.colors.ghostly_teal },
@@ -342,7 +345,7 @@ theme.groups = {
 	diffRemoved = { link = "DiffDelete" },
 	diffFile = { fg = theme.colors.plague_green },
 	diffNewFile = { fg = theme.colors.ghostly_teal },
-	diffOldFile = { fg = theme.colors.heartstopper },
+	diffOldFile = { fg = theme.colors.red },
 	diffLine = { fg = theme.colors.purple },
 
 	-- Neovim specific
@@ -355,17 +358,17 @@ theme.groups = {
 	IndentBlanklineContextChar = { fg = theme.colors.indent_guide_active },
 
 	-- Notify highlights
-	NotifyERRORBorder = { fg = theme.colors.heartstopper },
+	NotifyERRORBorder = { fg = theme.colors.red },
 	NotifyWARNBorder = { fg = theme.colors.harvest_gold },
 	NotifyINFOBorder = { fg = theme.colors.plague_green },
 	NotifyDEBUGBorder = { fg = theme.colors.grey },
 	NotifyTRACEBorder = { fg = theme.colors.purple },
-	NotifyERRORIcon = { fg = theme.colors.heartstopper },
+	NotifyERRORIcon = { fg = theme.colors.red },
 	NotifyWARNIcon = { fg = theme.colors.harvest_gold },
 	NotifyINFOIcon = { fg = theme.colors.plague_green },
 	NotifyDEBUGIcon = { fg = theme.colors.grey },
 	NotifyTRACEIcon = { fg = theme.colors.purple },
-	NotifyERRORTitle = { fg = theme.colors.heartstopper },
+	NotifyERRORTitle = { fg = theme.colors.red },
 	NotifyWARNTitle = { fg = theme.colors.harvest_gold },
 	NotifyINFOTitle = { fg = theme.colors.plague_green },
 	NotifyDEBUGTitle = { fg = theme.colors.grey },
@@ -430,7 +433,7 @@ theme.groups = {
 
 theme.terminal_colors = {
 	[0] = theme.colors.reaper_shadow,
-	[1] = theme.colors.heartstopper,
+	[1] = theme.colors.red,
 	[2] = theme.colors.plague_green,
 	[3] = theme.colors.harvest_gold,
 	[4] = theme.colors.ghostly_teal,
@@ -438,7 +441,7 @@ theme.terminal_colors = {
 	[6] = theme.colors.cyan,
 	[7] = theme.colors.ethereal_white,
 	[8] = theme.colors.death_ash,
-	[9] = theme.colors.heartstopper,
+	[9] = theme.colors.red,
 	[10] = theme.colors.death_seeker,
 	[11] = theme.colors.reaper_gold,
 	[12] = theme.colors.spectral_green,

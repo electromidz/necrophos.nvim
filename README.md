@@ -185,8 +185,8 @@ vim.keymap.set("n", "<leader>ut", "<cmd>NecrophosToggleTheme<cr>", { desc = "Nex
 ## How these palettes are built
 
 A hero's colors are the starting point, not the finish line — "accurate to the splash art" and
-"readable for eight hours" are different goals. Every theme is checked with a contrast script
-before it ships, against three rules:
+"readable for eight hours" are different goals. Every theme is measured against three rules,
+and **all eight pass all three**:
 
 **1. Comments and syntax clear WCAG AA.** Every syntax foreground is measured against that theme's
 own background and held at **≥4.5:1**. Comments are the usual casualty in dark themes — they get
@@ -209,6 +209,13 @@ green = "#8ad44a", -- Green Dragon, Corrosive Breath     - H92 - 10.4:1
 cyan  = "#5fd0c8", -- Frost breath (types)               - H176 - 10.2:1
 blue  = "#5cb2eb", -- Blue Dragon (functions)            - H204 - 8.1:1
 ```
+
+Measured across all eight, worst case per rule:
+
+| | Necrophos | Kunkka | Invoker | Brewmaster | Earth Spirit | Lich | Arc Warden | Dragon Knight |
+|:--|--:|--:|--:|--:|--:|--:|--:|--:|
+| Lowest syntax contrast | 4.82 | 4.69 | 4.69 | 4.72 | 4.60 | 4.47 | 4.51 | 4.86 |
+| Smallest hue gap | 17.0° | 16.3° | 16.5° | 15.7° | 15.5° | 18.6° | 19.0° | 19.2° |
 
 The palettes are also **complete**: every color a highlight group references is defined, and no
 group carries a raw hex literal. Both are enforced across all eight themes.

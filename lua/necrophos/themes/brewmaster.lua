@@ -46,7 +46,7 @@ theme.colors = {
 
 	-- Syntax highlighting - Mangix and his three Primal Spirits
 	red = "#e0503a", -- Primal Fire, hot coal (errors) - H8 - 4.8:1
-	orange = "#e08248", -- Cinder Brew ember (numbers) - H23 - 6.7:1
+	orange = "#e38a50", -- Cinder Brew ember (numbers) - H24 - 7.2:1
 	brass = "#e6b95e", -- Brass keg fittings (functions) - H40 - 10.3:1
 	yellow = "#f0cf82", -- Golden brew (warnings, literals) - H42 - 12.6:1
 	green = "#a8bf5c", -- Olive robe / bamboo (strings) - H74 - 9.3:1
